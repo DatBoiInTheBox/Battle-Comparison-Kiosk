@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
+<title>Mashup Brawl</title>
+<style>
+:root{--ink:#12102a;--panel:#1f1b45;--line:#3a3470;--p1:#ff5a36;--p2:#2ec4ff;--gold:#ffd23f;--paper:#f6f1ff;--dim:#9a94c9}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+html{font-size:min(3.3vw,1.85vh)}
+html,body{margin:0;height:100%;overflow:hidden;background:var(--ink);color:var(--paper);touch-action:manipulation;overscroll-behavior:none;font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif}
+button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulation}
+.display{font-family:Impact,"Arial Black","Haettenschweiler",sans-serif;letter-spacing:.04em;text-transform:uppercase}
+#app{height:100%;display:flex;flex-direction:column;padding:1.5rem;gap:1.2rem}
+.c1{--c:var(--p1)}.c2{--c:var(--p2)}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:2rem}
+.title{font-size:6.5rem;line-height:.9;margin:0;transform:rotate(-3deg);text-shadow:.35rem .35rem 0 var(--p1),-.3rem -.3rem 0 var(--p2)}
+.sub{font-size:1.7rem;color:var(--dim);max-width:30rem;line-height:1.4}
+.big{background:var(--gold);color:var(--ink);font-size:2.6rem;padding:1.4rem 3.5rem;border-radius:1rem;box-shadow:0 .5rem 0 #b38b00;transition:transform .08s,box-shadow .08s}
+.big:active{transform:translateY(.4rem);box-shadow:0 .1rem 0 #b38b00}
+.big.c1,.big.c2{background:var(--c);color:var(--ink);box-shadow:0 .5rem 0 rgba(0,0,0,.45)}
+/* board */
+.board{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.team{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.8rem 1rem}
+.team.active{border-color:var(--c);box-shadow:0 0 1.5rem -.2rem var(--c)}
+.team h3{margin:0 0 .5rem;font-size:1.6rem;color:var(--c)}
+.slot{display:flex;justify-content:space-between;gap:.5rem;font-size:1.05rem;padding:.25rem 0;border-top:.1rem solid var(--line);color:var(--dim)}
+.slot b{color:var(--paper);font-weight:600;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.banner{font-size:2.8rem;text-align:center;color:var(--c)}
+/* card */
+.card{background:var(--panel);border:.25rem solid var(--c);border-radius:1.4rem;padding:1.5rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.6rem}
+.avatar{width:9rem;height:9rem;border-radius:50%;display:grid;place-items:center;font-size:3.6rem;color:#fff;border:.3rem solid var(--paper);text-shadow:0 .15rem 0 rgba(0,0,0,.4)}
+.cname{font-size:3rem;line-height:1}
+.csrc{font-size:1.3rem;color:var(--dim)}
+.spin .cname{opacity:.6}
+.picks{display:flex;flex-direction:column;gap:.7rem;flex:1}
+.hint{text-align:center;font-size:1.4rem;color:var(--dim)}
+.pick{display:grid;grid-template-columns:3.2rem 9rem 1fr 3.5rem;align-items:center;gap:.8rem;background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.9rem 1.1rem;font-size:1.6rem;text-align:left;flex:1}
+.pick:active:not(:disabled){background:var(--c);color:var(--ink)}
+.pick:disabled{opacity:.35}
+.pick .v{font-family:Impact,sans-serif;font-size:2rem;text-align:right}
+.bar{height:1.1rem;background:#0d0b22;border-radius:1rem;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--c);border-radius:1rem}
+.pick:active:not(:disabled) .bar i{background:var(--ink)}
+/* battle */
+.rows{flex:1;display:flex;flex-direction:column;gap:.8rem}
+.row{flex:1;display:grid;grid-template-columns:1fr 7rem 1fr;gap:.6rem;align-items:center;opacity:.2;transition:opacity .4s}
+.row.show{opacity:1}
+.side{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.6rem .8rem;height:100%;display:flex;flex-direction:column;justify-content:center;text-align:center;transition:.3s}
+.side .n{font-size:1.25rem;line-height:1.1}
+.side .num{font-family:Impact,sans-serif;font-size:2.8rem;line-height:1}
+.row.show .side.win{border-color:var(--c);background:var(--c);color:var(--ink);transform:scale(1.04)}
+.row.show .side.lose{opacity:.55}
+.mid{text-align:center;font-size:1.1rem;color:var(--dim)}.mid span{display:block;font-size:2rem}
+.score{display:flex;justify-content:space-between;font-size:3.6rem}
+.score .c1{color:var(--p1)}.score .c2{color:var(--p2)}
+.final{text-align:center;display:flex;flex-direction:column;gap:1rem;align-items:center;min-height:11rem;justify-content:center}
+.final .w{font-size:4.6rem;line-height:1;color:var(--c,var(--gold))}
+.err{color:var(--gold);font-size:1.5rem;max-width:34rem;line-height:1.5}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+const CATS=[["strength","Strength","💪"],["iq","IQ","🧠"],["durability","Durability","🛡️"],["speed","Speed","⚡"],["ability","Ability","✨"]];
+const app=document.getElementById("app");
+let CHARS=[],S,idle;
+const $=(h)=>{app.innerHTML=h};
+const pn=p=>"Player "+(p+1);
+const hue=n=>[...n].reduce((a,c)=>a*31+c.charCodeAt(0),7)%360;
+const avatar=ch=>`<div class="avatar display" style="background:hsl(${hue(ch.name)} 55% 42%)">${ch.name.split(" ").map(w=>w[0]).join("").slice(0,2)}</div>`;
+const shuffle=a=>{for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a};
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("touchstart",()=>{clearTimeout(idle);idle=setTimeout(title,120000)},{passive:true});
+
+async function init(){
+  try{
+    const r=await fetch("data.json",{cache:"no-store"});
+    CHARS=(await r.json()).characters;
+    if(CHARS.length<10)throw new Error("Need at least 10 characters in data.json");
+    title();
+  }catch(e){
+    $(`<div class="center"><h1 class="title display">Mashup Brawl</h1><p class="err">Could not load data.json (${e.message}). Serve this folder from a local web server, or launch Chrome with --allow-file-access-from-files.</p></div>`);
+  }
+}
+
+function title(){
+  $(`<div class="center"><h1 class="title display">Mashup<br>Brawl</h1>
+  <p class="sub">Two players. Ten random characters. Give each one the job they're best at, then watch your dream team fight.</p>
+  <button class="big display" id="go">Tap to start</button></div>`);
+  document.getElementById("go").onclick=newGame;
+}
+
+function newGame(){
+  S={pool:shuffle([...CHARS]),turn:0,teams:[{},{}]};
+  turnScreen();
+}
+
+function boardHTML(p){
+  return `<div class="board">${[0,1].map(i=>`<div class="team c${i+1} ${i===p?"active":""}"><h3 class="display">${pn(i)}</h3>${
+    CATS.map(c=>`<div class="slot"><span>${c[2]} ${c[1]}</span><b>${S.teams[i][c[0]]?S.teams[i][c[0]].name:"—"}</b></div>`).join("")}</div>`).join("")}</div>`;
+}
+
+function turnScreen(){
+  const p=S.turn%2,round=Math.floor(S.turn/2)+1;
+  $(`<div class="c${p+1}" style="display:contents">${boardHTML(p)}
+  <div class="center"><div class="banner display">${pn(p)}, your turn</div>
+  <div class="sub">Round ${round} of 5. Roll to reveal your character.</div>
+  <button class="big c${p+1} display" id="roll">Roll character</button></div></div>`);
+  document.getElementById("roll").onclick=()=>roll(p);
+}
+
+function roll(p){
+  const pick=S.pool.pop();
+  $(`<div class="c${p+1}" style="display:contents">${boardHTML(p)}
+  <div class="center"><div class="card spin" id="card" style="width:100%"><div id="av"></div><div class="cname display" id="nm"></div><div class="csrc" id="sr">Rolling…</div></div></div></div>`);
+  const show=ch=>{av.innerHTML=avatar(ch).replace('class="avatar','class="avatar');nm.textContent=ch.name;sr.textContent=ch.source};
+  let n=0;
+  const t=setInterval(()=>{
+    show(CHARS[Math.random()*CHARS.length|0]);
+    if(++n>=16){clearInterval(t);show(pick);assign(p,pick)}
+  },n<10?70:70);
+}
+
+function assign(p,ch){
+  $(`<div class="c${p+1}" style="display:contents">
+  <div class="card"><div style="display:flex;gap:1.2rem;align-items:center">${avatar(ch)}<div style="text-align:left"><div class="cname display">${ch.name}</div><div class="csrc">${ch.source}</div></div></div></div>
+  <div class="hint">${pn(p)}: where does ${ch.name} fit best?</div>
+  <div class="picks">${CATS.map(c=>{const used=S.teams[p][c[0]];
+    return `<button class="pick" data-k="${c[0]}" ${used?"disabled":""}><span>${c[2]}</span><span>${c[1]}</span><span class="bar"><i style="width:${ch[c[0]]}%"></i></span><span class="v">${ch[c[0]]}</span></button>`}).join("")}</div></div>`);
+  document.querySelectorAll(".pick").forEach(b=>b.onclick=()=>{
+    S.teams[p][b.dataset.k]=ch;S.turn++;
+    S.turn>=10?battle():turnScreen();
+  });
+}
+
+function battle(){
+  $(`<div class="banner display" style="color:var(--gold)">Battle!</div>
+  <div class="score display"><span class="c1" id="s1">0</span><span class="c2" id="s2">0</span></div>
+  <div class="rows">${CATS.map((c,i)=>{
+    const a=S.teams[0][c[0]],b=S.teams[1][c[0]];
+    const w=a[c[0]]>b[c[0]]?0:a[c[0]]<b[c[0]]?1:-1;
+    return `<div class="row" id="r${i}"><div class="side c1 ${w===0?"win":w===1?"lose":""}"><div class="n">${a.name}</div><div class="num">${a[c[0]]}</div></div>
+    <div class="mid"><span>${c[2]}</span>${c[1]}</div>
+    <div class="side c2 ${w===1?"win":w===0?"lose":""}"><div class="n">${b.name}</div><div class="num">${b[c[0]]}</div></div></div>`}).join("")}</div>
+  <div class="final" id="final"></div>`);
+  let w1=0,w2=0,t1=0,t2=0;
+  CATS.forEach((c,i)=>{
+    const a=S.teams[0][c[0]][c[0]],b=S.teams[1][c[0]][c[0]];
+    t1+=a;t2+=b;
+    setTimeout(()=>{
+      document.getElementById("r"+i).classList.add("show");
+      if(a>b)w1++;else if(b>a)w2++;
+      s1.textContent=w1;s2.textContent=w2;
+    },1000+i*1500);
+  });
+  setTimeout(()=>{
+    const win=w1!==w2?(w1>w2?0:1):(t1!==t2?(t1>t2?0:1):-1);
+    final.innerHTML=(win<0?`<div class="w display">It's a draw!</div>`:
+      `<div class="w display c${win+1}">${pn(win)} wins!</div>`)+
+      `<div class="sub" style="font-size:1.3rem">Categories ${w1}–${w2} · Total power ${t1}–${t2}</div>
+      <button class="big display" id="again" style="padding:1rem 3rem;font-size:2rem">Play again</button>`;
+    document.getElementById("again").onclick=title;
+  },1000+CATS.length*1500+300);
+}
+init();
+</script>
+</body>
+</html>
