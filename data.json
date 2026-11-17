@@ -3,7 +3,7 @@
     {
       "name": "Goku",
       "source": "Dragon Ball",
-      "image": "",
+      "image": "https://www.freeiconspng.com/uploads/goku-png-pics-10.png",
       "strength": 74,
       "iq": 41,
       "durability": 71,
@@ -13,7 +13,7 @@
     {
       "name": "Naruto Uzumaki",
       "source": "Naruto",
-      "image": "",
+      "image": "https://cdn.wallpapersafari.com/58/59/dJ7ZXH.jpg",
       "strength": 63,
       "iq": 46,
       "durability": 66,
@@ -23,7 +23,7 @@
     {
       "name": "Saitama",
       "source": "One Punch Man",
-      "image": "",
+      "image": "https://th.bing.com/th/id/R.ee564c7befedaee6b5938c04b8503e30?rik=aj60pw7QzlXJOg&pid=ImgRaw&r=0",
       "strength": 75,
       "iq": 38,
       "durability": 75,
@@ -33,7 +33,7 @@
     {
       "name": "Luffy",
       "source": "One Piece",
-      "image": "",
+      "image": "https://wallpapers.com/images/hd/anime-pictures-bj226rrdwe326upu.jpg",
       "strength": 64,
       "iq": 34,
       "durability": 68,
@@ -43,7 +43,7 @@
     {
       "name": "Levi Ackerman",
       "source": "Attack on Titan",
-      "image": "",
+      "image": "https://th.bing.com/th/id/R.e6c0c8a296fad26d2e57202749d83aa2?rik=%2boYnNEmLVyvSzA&pid=ImgRaw&r=0",
       "strength": 58,
       "iq": 62,
       "durability": 52,
@@ -53,7 +53,7 @@
     {
       "name": "Satoru Gojo",
       "source": "Jujutsu Kaisen",
-      "image": "",
+      "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/09/gojo-satoru.jpg",
       "strength": 69,
       "iq": 68,
       "durability": 70,
@@ -63,7 +63,7 @@
     {
       "name": "Light Yagami",
       "source": "Death Note",
-      "image": "",
+      "image": "https://wallpapers.com/images/hd/light-yagami-death-note-character-puqbka8y23tyuae6.png",
       "strength": 11,
       "iq": 74,
       "durability": 9,
@@ -73,7 +73,7 @@
     {
       "name": "Ichigo Kurosaki",
       "source": "Bleach",
-      "image": "",
+      "image": "https://i.pinimg.com/originals/78/e4/42/78e442af467c8a484a9a9e83592151e3.jpg",
       "strength": 66,
       "iq": 45,
       "durability": 63,
@@ -83,27 +83,27 @@
     {
       "name": "Eren Yeager",
       "source": "Attack on Titan",
-      "image": "",
+      "image": "https://i.pinimg.com/originals/f6/e7/dc/f6e7dc75886501e27d4c525979b70cd4.png",
       "strength": 68,
       "iq": 54,
       "durability": 69,
       "speed": 49,
-      "ability": 66
+      "ability": 68
     },
     {
       "name": "Deku",
       "source": "My Hero Academia",
-      "image": "",
-      "strength": 62,
-      "iq": 58,
-      "durability": 52,
+      "image": "https://tse1.mm.bing.net/th/id/OIP.O3Cq6WfqfvztgcqAOOztIQHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "strength": 74,
+      "iq": 68,
+      "durability": 69,
       "speed": 60,
-      "ability": 64
+      "ability": 74
     },
     {
       "name": "Edward Elric",
       "source": "Fullmetal Alchemist",
-      "image": "",
+      "image": "https://th.bing.com/th/id/R.4b883de2b168e1787165b9dc9063ef1a?rik=hduWWKo8FowJyg&pid=ImgRaw&r=0",
       "strength": 46,
       "iq": 69,
       "durability": 49,
@@ -113,7 +113,7 @@
     {
       "name": "Tanjiro Kamado",
       "source": "Demon Slayer",
-      "image": "",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.mXWhXXOvXFbW8puUKNG4jwHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
       "strength": 54,
       "iq": 51,
       "durability": 56,
@@ -123,7 +123,7 @@
     {
       "name": "Vegeta",
       "source": "Dragon Ball",
-      "image": "",
+      "image": "https://i.pinimg.com/originals/a5/c5/94/a5c5942bb11acf051f1a522b65073f4b.png",
       "strength": 71,
       "iq": 52,
       "durability": 69,
@@ -133,7 +133,7 @@
     {
       "name": "Sasuke Uchiha",
       "source": "Naruto",
-      "image": "",
+      "image": "https://i.pinimg.com/originals/35/0f/c2/350fc22290398026b584384c393ea9db.png?nii=t",
       "strength": 60,
       "iq": 64,
       "durability": 58,
@@ -143,7 +143,7 @@
     {
       "name": "Superman",
       "source": "DC Comics",
-      "image": "",
+      "image": "https://tse1.mm.bing.net/th/id/OIP.UZZgtRiPsQalbXi3naE2wQHaJQ?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
       "strength": 74,
       "iq": 56,
       "durability": 74,
@@ -153,7 +153,7 @@
     {
       "name": "Batman",
       "source": "DC Comics",
-      "image": "",
+      "image": "https://cdn.pixabay.com/photo/2024/01/15/11/36/batman-8510022_1280.png",
       "strength": 41,
       "iq": 74,
       "durability": 45,
@@ -163,7 +163,7 @@
     {
       "name": "Wonder Woman",
       "source": "DC Comics",
-      "image": "",
+      "image": "https://wallpapers.com/images/hd/wonder-woman-pictures-uzthnjn2dvkjva7c.jpg",
       "strength": 69,
       "iq": 62,
       "durability": 68,
@@ -173,17 +173,17 @@
     {
       "name": "The Flash",
       "source": "DC Comics",
-      "image": "",
+      "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2022/04/the-flash-season-8-poster.jpg",
       "strength": 45,
       "iq": 64,
       "durability": 52,
-      "speed": 75,
+      "speed": 85,
       "ability": 66
     },
     {
       "name": "Iron Man",
       "source": "Marvel",
-      "image": "",
+      "image": "https://tse2.mm.bing.net/th/id/OIP.vEvKyyXMF6z6zNiU1BYqggHaHn?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
       "strength": 56,
       "iq": 74,
       "durability": 58,
@@ -193,7 +193,7 @@
     {
       "name": "Thor",
       "source": "Marvel",
-      "image": "",
+      "image": "https://i.pinimg.com/originals/5a/44/d6/5a44d6529f78b2c0a3459983d5c3bfef.jpg",
       "strength": 72,
       "iq": 49,
       "durability": 71,
@@ -203,7 +203,7 @@
     {
       "name": "Hulk",
       "source": "Marvel",
-      "image": "",
+      "image": "https://i.pinimg.com/originals/50/70/8d/50708d163a8eebb315900e4505806903.jpg",
       "strength": 74,
       "iq": 45,
       "durability": 73,
@@ -213,7 +213,7 @@
     {
       "name": "Spider-Man",
       "source": "Marvel",
-      "image": "",
+      "image": "https://i.pinimg.com/originals/26/cb/4f/26cb4f0074bcccde83bf3e591c4f7095.png",
       "strength": 54,
       "iq": 66,
       "durability": 49,
@@ -223,7 +223,7 @@
     {
       "name": "Captain America",
       "source": "Marvel",
-      "image": "",
+      "image": "https://pngimg.com/uploads/captain_america/captain_america_PNG76.png",
       "strength": 52,
       "iq": 60,
       "durability": 54,
@@ -233,7 +233,7 @@
     {
       "name": "Doctor Strange",
       "source": "Marvel",
-      "image": "",
+      "image": "https://wallpapers.com/images/hd/doctor-strange-in-action-png-32-xffcfan3rxtpn6qg.png",
       "strength": 30,
       "iq": 69,
       "durability": 41,
@@ -243,7 +243,7 @@
     {
       "name": "Black Panther",
       "source": "Marvel",
-      "image": "",
+      "image": "https://www.pngplay.com/wp-content/uploads/6/Marvel-Black-Panther-Transparent-Images.png",
       "strength": 58,
       "iq": 68,
       "durability": 56,
@@ -253,7 +253,7 @@
     {
       "name": "Wolverine",
       "source": "Marvel",
-      "image": "",
+      "image": "https://th.bing.com/th/id/R.b1636c48f04140a686016952f1de7f03?rik=IHOSXCXZbdBKRQ&pid=ImgRaw&r=0",
       "strength": 54,
       "iq": 52,
       "durability": 68,
@@ -263,27 +263,27 @@
     {
       "name": "Deadpool",
       "source": "Marvel",
-      "image": "",
+      "image": "https://www.pngmart.com/files/22/Deadpool-Movie-PNG-HD-Isolated.png",
       "strength": 52,
       "iq": 45,
-      "durability": 69,
+      "durability": 78,
       "speed": 51,
       "ability": 54
     },
     {
       "name": "Thanos",
       "source": "Marvel",
-      "image": "",
-      "strength": 73,
+      "image": "https://pngpix.com/images/hd/marvel-s-thanos-illustration-png-cfw56-k5zgnnai0998con6.jpg",
+      "strength": 67,
       "iq": 70,
-      "durability": 72,
+      "durability": 62,
       "speed": 52,
-      "ability": 74
+      "ability": 67
     },
     {
       "name": "Darth Vader",
       "source": "Star Wars",
-      "image": "",
+      "image": "https://pngimg.com/uploads/darth_vader/darth_vader_PNG20.png",
       "strength": 66,
       "iq": 60,
       "durability": 64,
@@ -293,7 +293,7 @@
     {
       "name": "Yoda",
       "source": "Star Wars",
-      "image": "",
+      "image": "https://wallpapers.com/images/hd/yoda-teaching-luke-png-qai-04nl4faflz46fujb.jpg",
       "strength": 49,
       "iq": 74,
       "durability": 38,
@@ -303,7 +303,7 @@
     {
       "name": "Luke Skywalker",
       "source": "Star Wars",
-      "image": "",
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/8d40e9ca-1974-4a87-bbfa-165264db741b/dfq0aw9-e08cd7bb-642a-4d31-9ee2-986c28dbe70e.png/v1/fill/w_838,h_954/luke_skywalker__star_wars__render_by_soul151killer_dfq0aw9-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA4MCIsInBhdGgiOiJcL2ZcLzhkNDBlOWNhLTE5NzQtNGE4Ny1iYmZhLTE2NTI2NGRiNzQxYlwvZGZxMGF3OS1lMDhjZDdiYi02NDJhLTRkMzEtOWVlMi05ODZjMjhkYmU3MGUucG5nIiwid2lkdGgiOiI8PTk0OSJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.3FlNh6jl9GjtZki6wlU1MmOceyKuxirevTjAjXLXOWg",
       "strength": 52,
       "iq": 56,
       "durability": 49,
@@ -313,7 +313,7 @@
     {
       "name": "Gandalf",
       "source": "Lord of the Rings",
-      "image": "",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.B-2KEmxvWaD0nQHQ_R73SgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
       "strength": 45,
       "iq": 73,
       "durability": 60,
@@ -323,7 +323,7 @@
     {
       "name": "Aragorn",
       "source": "Lord of the Rings",
-      "image": "",
+      "image": "https://i.pinimg.com/originals/a5/37/e7/a537e723e84bee9822680a10d5a80f8a.jpg",
       "strength": 54,
       "iq": 58,
       "durability": 52,
@@ -333,7 +333,7 @@
     {
       "name": "Harry Potter",
       "source": "Harry Potter",
-      "image": "",
+      "image": "https://media.harrypotterfanzone.com/harry-potter-philosophers-stone-portrait-7-630x0-c-default.jpg",
       "strength": 26,
       "iq": 58,
       "durability": 34,
@@ -343,7 +343,7 @@
     {
       "name": "Hermione Granger",
       "source": "Harry Potter",
-      "image": "",
+      "image": "https://media.harrypotterfanzone.com/hermione-granger-chamber-of-secrets-portrait-2.jpg",
       "strength": 22,
       "iq": 72,
       "durability": 30,
@@ -353,7 +353,7 @@
     {
       "name": "Voldemort",
       "source": "Harry Potter",
-      "image": "",
+      "image": "https://fbi.cults3d.com/uploaders/35436805/illustration-file/c8238337-398f-4cdc-897a-e711aedf615e/Voldemort_05_TanukiFigures.jpg",
       "strength": 38,
       "iq": 69,
       "durability": 66,
@@ -373,27 +373,27 @@
     {
       "name": "Mario",
       "source": "Nintendo",
-      "image": "",
+      "image": "https://pngimg.com/uploads/mario/mario_PNG79.png",
       "strength": 41,
       "iq": 38,
-      "durability": 56,
+      "durability": 60,
       "speed": 52,
       "ability": 54
     },
     {
       "name": "Link",
       "source": "The Legend of Zelda",
-      "image": "",
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b3acc143-332f-43c9-8707-d61106b45a55/deis21k-2c2fd71d-756f-4c52-92ce-99899e841b32.png/v1/fill/w_942,h_848/link___the_legend_of_zelda___render_v2_by_rayluishdx2_deis21k-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NDYwOCIsInBhdGgiOiJcL2ZcL2IzYWNjMTQzLTMzMmYtNDNjOS04NzA3LWQ2MTEwNmI0NWE1NVwvZGVpczIxay0yYzJmZDcxZC03NTZmLTRjNTItOTJjZS05OTg5OWU4NDFiMzIucG5nIiwid2lkdGgiOiI8PTUxMjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.dq0hjgkqX_AWGW6r9c6DO4uv2z44U5nncJC_3FzAARU",
       "strength": 49,
       "iq": 52,
-      "durability": 46,
+      "durability": 66,
       "speed": 54,
       "ability": 58
     },
     {
       "name": "Sonic",
       "source": "Sega",
-      "image": "",
+      "image": "https://i.pinimg.com/originals/a4/9d/77/a49d7771f3a9d7e9807dee3e44ef327b.png",
       "strength": 45,
       "iq": 41,
       "durability": 49,
@@ -403,7 +403,7 @@
     {
       "name": "Master Chief",
       "source": "Halo",
-      "image": "",
+      "image": "https://www.pngplay.com/wp-content/uploads/7/Halo-Infinite-Masterchief-Dark-Horse-Transparent-PNG.png",
       "strength": 64,
       "iq": 58,
       "durability": 66,
@@ -413,7 +413,7 @@
     {
       "name": "Kratos",
       "source": "God of War",
-      "image": "",
+      "image": "https://wallpapercave.com/wp/wp5201132.jpg",
       "strength": 72,
       "iq": 54,
       "durability": 70,
@@ -423,7 +423,7 @@
     {
       "name": "Pikachu",
       "source": "Pokemon",
-      "image": "",
+      "image": "https://vignette.wikia.nocookie.net/ssbb/images/b/b8/025Pikachu_LG.png/revision/latest?cb=20190520161120&path-prefix=es",
       "strength": 30,
       "iq": 38,
       "durability": 34,
@@ -433,7 +433,7 @@
     {
       "name": "Optimus Prime",
       "source": "Transformers",
-      "image": "",
+      "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4ecf6bb3-e5c2-49aa-8300-365ddf7e83fa/dff3k6f-8114ff21-0a03-48b2-9aa8-bb604bbcd1cf.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzRlY2Y2YmIzLWU1YzItNDlhYS04MzAwLTM2NWRkZjdlODNmYVwvZGZmM2s2Zi04MTE0ZmYyMS0wYTAzLTQ4YjItOWFhOC1iYjYwNGJiY2QxY2YucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.f3-8kWGYIQ_tiGzTUIEJ6OW2ccX0Sd3zWUoCD1UPsGY",
       "strength": 69,
       "iq": 64,
       "durability": 70,
@@ -443,7 +443,7 @@
     {
       "name": "Shrek",
       "source": "Shrek",
-      "image": "",
+      "image": "https://th.bing.com/th/id/R.4e5012fc4c92a7653620446f0d9cb7ba?rik=%2fMNSHCconXT1Dw&riu=http%3a%2f%2fimages1.wikia.nocookie.net%2f__cb20100604223617%2fshrek%2fimages%2f8%2f87%2fShrek_fierce.jpg&ehk=p8zy9cnNuydXaZYliSW4hluZutiZ6nUTQkQEq28%2fTvg%3d&risl=&pid=ImgRaw&r=0",
       "strength": 56,
       "iq": 34,
       "durability": 60,
@@ -1518,7 +1518,7 @@
       "iq": 62,
       "durability": 38,
       "speed": 42,
-      "ability": 72
+      "ability": 54
     },
     {
       "name": "Vecna",
@@ -1528,7 +1528,7 @@
       "iq": 72,
       "durability": 65,
       "speed": 42,
-      "ability": 75
+      "ability": 61
     }
   ]
 }
