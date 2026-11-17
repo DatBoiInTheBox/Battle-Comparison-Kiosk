@@ -1529,6 +1529,2646 @@
       "durability": 71,
       "speed": 42,
       "ability": 66
+    },
+    {
+      "name": "Maki Zenin (Awakened)",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 88,
+      "iq": 66,
+      "durability": 88,
+      "speed": 91,
+      "ability": 78
+    },
+    {
+      "name": "Yuki Tsukumo",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 86,
+      "iq": 82,
+      "durability": 84,
+      "speed": 82,
+      "ability": 94
+    },
+    {
+      "name": "Hajime Kashimo",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 88,
+      "iq": 70,
+      "durability": 86,
+      "speed": 91,
+      "ability": 91
+    },
+    {
+      "name": "Hiromi Higuruma",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 60,
+      "iq": 91,
+      "durability": 64,
+      "speed": 66,
+      "ability": 92
+    },
+    {
+      "name": "Fumihiko Takaba",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 35,
+      "iq": 55,
+      "durability": 60,
+      "speed": 45,
+      "ability": 100
+    },
+    {
+      "name": "Kinji Hakari (Jackpot)",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 84,
+      "iq": 68,
+      "durability": 100,
+      "speed": 82,
+      "ability": 94
+    },
+    {
+      "name": "Kirara Hoshi",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 45,
+      "iq": 65,
+      "durability": 48,
+      "speed": 58,
+      "ability": 82
+    },
+    {
+      "name": "Panda",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 68,
+      "iq": 52,
+      "durability": 78,
+      "speed": 62,
+      "ability": 70
+    },
+    {
+      "name": "Toge Inumaki",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 48,
+      "iq": 60,
+      "durability": 48,
+      "speed": 55,
+      "ability": 82
+    },
+    {
+      "name": "Kasumi Miwa",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 35,
+      "iq": 55,
+      "durability": 38,
+      "speed": 48,
+      "ability": 35
+    },
+    {
+      "name": "Mai Zenin",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 35,
+      "iq": 58,
+      "durability": 35,
+      "speed": 48,
+      "ability": 62
+    },
+    {
+      "name": "Momo Nishimiya",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 28,
+      "iq": 58,
+      "durability": 35,
+      "speed": 58,
+      "ability": 64
+    },
+    {
+      "name": "Noritoshi Kamo",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 58,
+      "iq": 68,
+      "durability": 58,
+      "speed": 62,
+      "ability": 74
+    },
+    {
+      "name": "Atsuya Kusakabe",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 65,
+      "iq": 78,
+      "durability": 68,
+      "speed": 70,
+      "ability": 72
+    },
+    {
+      "name": "Mei Mei",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 68,
+      "iq": 78,
+      "durability": 65,
+      "speed": 75,
+      "ability": 82
+    },
+    {
+      "name": "Ui Ui",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 30,
+      "iq": 65,
+      "durability": 32,
+      "speed": 58,
+      "ability": 74
+    },
+    {
+      "name": "Yoshinobu Gakuganji",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 48,
+      "iq": 68,
+      "durability": 52,
+      "speed": 48,
+      "ability": 70
+    },
+    {
+      "name": "Masamichi Yaga",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 58,
+      "iq": 72,
+      "durability": 62,
+      "speed": 52,
+      "ability": 78
+    },
+    {
+      "name": "Riko Amanai",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 12,
+      "iq": 45,
+      "durability": 12,
+      "speed": 25,
+      "ability": 5
+    },
+    {
+      "name": "Toji Fushiguro (Hidden Inventory)",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 82,
+      "iq": 70,
+      "durability": 82,
+      "speed": 88,
+      "ability": 68
+    },
+    {
+      "name": "Jogo",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 82,
+      "iq": 68,
+      "durability": 78,
+      "speed": 82,
+      "ability": 92
+    },
+    {
+      "name": "Hanami",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 80,
+      "iq": 62,
+      "durability": 92,
+      "speed": 58,
+      "ability": 84
+    },
+    {
+      "name": "Dagon",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 78,
+      "iq": 65,
+      "durability": 84,
+      "speed": 65,
+      "ability": 88
+    },
+    {
+      "name": "Eso",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 52,
+      "iq": 55,
+      "durability": 55,
+      "speed": 55,
+      "ability": 70
+    },
+    {
+      "name": "Kechizu",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 58,
+      "iq": 38,
+      "durability": 62,
+      "speed": 48,
+      "ability": 62
+    },
+    {
+      "name": "Finger Bearer",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 62,
+      "iq": 25,
+      "durability": 65,
+      "speed": 42,
+      "ability": 52
+    },
+    {
+      "name": "Kurourushi",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 68,
+      "iq": 48,
+      "durability": 70,
+      "speed": 68,
+      "ability": 78
+    },
+    {
+      "name": "Ryu Ishigori",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 88,
+      "iq": 65,
+      "durability": 86,
+      "speed": 78,
+      "ability": 88
+    },
+    {
+      "name": "Takako Uro",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 70,
+      "iq": 72,
+      "durability": 68,
+      "speed": 82,
+      "ability": 90
+    },
+    {
+      "name": "Dhruv Lakdawalla",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 72,
+      "iq": 65,
+      "durability": 70,
+      "speed": 62,
+      "ability": 84
+    },
+    {
+      "name": "Reggie Star",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 68,
+      "iq": 78,
+      "durability": 68,
+      "speed": 65,
+      "ability": 86
+    },
+    {
+      "name": "Charles Bernard",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 48,
+      "iq": 62,
+      "durability": 48,
+      "speed": 62,
+      "ability": 70
+    },
+    {
+      "name": "Hana Kurusu",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 42,
+      "iq": 65,
+      "durability": 45,
+      "speed": 58,
+      "ability": 92
+    },
+    {
+      "name": "Angel",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 65,
+      "iq": 82,
+      "durability": 62,
+      "speed": 68,
+      "ability": 98
+    },
+    {
+      "name": "Yorozu",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 84,
+      "iq": 82,
+      "durability": 82,
+      "speed": 82,
+      "ability": 94
+    },
+    {
+      "name": "Tengen",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 25,
+      "iq": 100,
+      "durability": 70,
+      "speed": 15,
+      "ability": 100
+    },
+    {
+      "name": "Uraume",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 76,
+      "iq": 75,
+      "durability": 78,
+      "speed": 78,
+      "ability": 92
+    },
+    {
+      "name": "Miguel",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 78,
+      "iq": 68,
+      "durability": 82,
+      "speed": 78,
+      "ability": 72
+    },
+    {
+      "name": "Larue",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 58,
+      "iq": 60,
+      "durability": 60,
+      "speed": 55,
+      "ability": 75
+    },
+    {
+      "name": "Jinichi Zenin",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 65,
+      "iq": 55,
+      "durability": 65,
+      "speed": 58,
+      "ability": 62
+    },
+    {
+      "name": "Ogi Zenin",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 60,
+      "iq": 58,
+      "durability": 58,
+      "speed": 52,
+      "ability": 58
+    },
+    {
+      "name": "Naoya Zenin",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 78,
+      "iq": 75,
+      "durability": 72,
+      "speed": 96,
+      "ability": 86
+    },
+    {
+      "name": "Naobito Zenin",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 76,
+      "iq": 82,
+      "durability": 70,
+      "speed": 94,
+      "ability": 86
+    },
+    {
+      "name": "Choso (Awakened)",
+      "source": "Jujutsu Kaisen",
+      "image": "",
+      "strength": 78,
+      "iq": 65,
+      "durability": 82,
+      "speed": 75,
+      "ability": 86
+    },
+    {
+      "name": "Ochaco Uraraka",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 52,
+      "iq": 68,
+      "durability": 55,
+      "speed": 62,
+      "ability": 82
+    },
+    {
+      "name": "Tenya Iida",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 72,
+      "iq": 68,
+      "durability": 75,
+      "speed": 96,
+      "ability": 82
+    },
+    {
+      "name": "Eijiro Kirishima",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 78,
+      "iq": 58,
+      "durability": 96,
+      "speed": 58,
+      "ability": 75
+    },
+    {
+      "name": "Denki Kaminari",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 55,
+      "iq": 58,
+      "durability": 52,
+      "speed": 58,
+      "ability": 82
+    },
+    {
+      "name": "Momo Yaoyorozu",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 42,
+      "iq": 96,
+      "durability": 48,
+      "speed": 48,
+      "ability": 92
+    },
+    {
+      "name": "Fumikage Tokoyami",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 78,
+      "iq": 72,
+      "durability": 78,
+      "speed": 68,
+      "ability": 92
+    },
+    {
+      "name": "Tsuyu Asui",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 52,
+      "iq": 68,
+      "durability": 58,
+      "speed": 72,
+      "ability": 72
+    },
+    {
+      "name": "Mina Ashido",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 58,
+      "iq": 58,
+      "durability": 62,
+      "speed": 72,
+      "ability": 78
+    },
+    {
+      "name": "Kyoka Jiro",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 35,
+      "iq": 65,
+      "durability": 42,
+      "speed": 52,
+      "ability": 72
+    },
+    {
+      "name": "Yuga Aoyama",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 48,
+      "iq": 58,
+      "durability": 48,
+      "speed": 58,
+      "ability": 75
+    },
+    {
+      "name": "Mashirao Ojiro",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 55,
+      "iq": 52,
+      "durability": 55,
+      "speed": 58,
+      "ability": 48
+    },
+    {
+      "name": "Mezo Shoji",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 65,
+      "iq": 58,
+      "durability": 72,
+      "speed": 58,
+      "ability": 62
+    },
+    {
+      "name": "Hanta Sero",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 48,
+      "iq": 55,
+      "durability": 52,
+      "speed": 62,
+      "ability": 68
+    },
+    {
+      "name": "Rikido Sato",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 78,
+      "iq": 38,
+      "durability": 78,
+      "speed": 48,
+      "ability": 58
+    },
+    {
+      "name": "Koji Koda",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 32,
+      "iq": 52,
+      "durability": 42,
+      "speed": 42,
+      "ability": 72
+    },
+    {
+      "name": "Toru Hagakure",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 28,
+      "iq": 58,
+      "durability": 35,
+      "speed": 65,
+      "ability": 72
+    },
+    {
+      "name": "Minoru Mineta",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 22,
+      "iq": 48,
+      "durability": 28,
+      "speed": 42,
+      "ability": 55
+    },
+    {
+      "name": "Mirio Togata",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 88,
+      "iq": 82,
+      "durability": 88,
+      "speed": 88,
+      "ability": 94
+    },
+    {
+      "name": "Tamaki Amajiki",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 82,
+      "iq": 82,
+      "durability": 82,
+      "speed": 75,
+      "ability": 94
+    },
+    {
+      "name": "Nejire Hado",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 78,
+      "iq": 82,
+      "durability": 78,
+      "speed": 82,
+      "ability": 92
+    },
+    {
+      "name": "Shota Aizawa",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 72,
+      "iq": 92,
+      "durability": 72,
+      "speed": 78,
+      "ability": 90
+    },
+    {
+      "name": "Present Mic",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 62,
+      "iq": 68,
+      "durability": 62,
+      "speed": 58,
+      "ability": 88
+    },
+    {
+      "name": "Midnight",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 42,
+      "iq": 68,
+      "durability": 45,
+      "speed": 52,
+      "ability": 82
+    },
+    {
+      "name": "Cementoss",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 72,
+      "iq": 68,
+      "durability": 82,
+      "speed": 42,
+      "ability": 88
+    },
+    {
+      "name": "Ectoplasm",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 62,
+      "iq": 72,
+      "durability": 62,
+      "speed": 58,
+      "ability": 82
+    },
+    {
+      "name": "Snipe",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 48,
+      "iq": 78,
+      "durability": 48,
+      "speed": 58,
+      "ability": 78
+    },
+    {
+      "name": "Thirteen",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 52,
+      "iq": 78,
+      "durability": 58,
+      "speed": 48,
+      "ability": 92
+    },
+    {
+      "name": "Vlad King",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 68,
+      "iq": 62,
+      "durability": 68,
+      "speed": 58,
+      "ability": 72
+    },
+    {
+      "name": "Endeavor",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 92,
+      "iq": 82,
+      "durability": 88,
+      "speed": 78,
+      "ability": 96
+    },
+    {
+      "name": "Hawks",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 68,
+      "iq": 92,
+      "durability": 68,
+      "speed": 100,
+      "ability": 94
+    },
+    {
+      "name": "Best Jeanist",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 68,
+      "iq": 82,
+      "durability": 72,
+      "speed": 68,
+      "ability": 92
+    },
+    {
+      "name": "Edgeshot",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 72,
+      "iq": 88,
+      "durability": 68,
+      "speed": 98,
+      "ability": 94
+    },
+    {
+      "name": "Mirko",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 92,
+      "iq": 68,
+      "durability": 88,
+      "speed": 92,
+      "ability": 88
+    },
+    {
+      "name": "Crust",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 72,
+      "iq": 58,
+      "durability": 88,
+      "speed": 58,
+      "ability": 72
+    },
+    {
+      "name": "Kamui Woods",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 62,
+      "iq": 65,
+      "durability": 68,
+      "speed": 62,
+      "ability": 82
+    },
+    {
+      "name": "Gang Orca",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 78,
+      "iq": 72,
+      "durability": 82,
+      "speed": 62,
+      "ability": 86
+    },
+    {
+      "name": "Fat Gum",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 82,
+      "iq": 62,
+      "durability": 100,
+      "speed": 42,
+      "ability": 82
+    },
+    {
+      "name": "Gran Torino",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 65,
+      "iq": 88,
+      "durability": 58,
+      "speed": 98,
+      "ability": 82
+    },
+    {
+      "name": "Sir Nighteye",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 48,
+      "iq": 98,
+      "durability": 48,
+      "speed": 68,
+      "ability": 82
+    },
+    {
+      "name": "Recovery Girl",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 12,
+      "iq": 82,
+      "durability": 18,
+      "speed": 22,
+      "ability": 78
+    },
+    {
+      "name": "All For One",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 98,
+      "iq": 100,
+      "durability": 98,
+      "speed": 88,
+      "ability": 100
+    },
+    {
+      "name": "Tomura Shigaraki",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 100,
+      "iq": 78,
+      "durability": 100,
+      "speed": 92,
+      "ability": 100
+    },
+    {
+      "name": "Dabi",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 72,
+      "iq": 72,
+      "durability": 62,
+      "speed": 68,
+      "ability": 92
+    },
+    {
+      "name": "Himiko Toga",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 52,
+      "iq": 78,
+      "durability": 55,
+      "speed": 82,
+      "ability": 88
+    },
+    {
+      "name": "Twice",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 58,
+      "iq": 68,
+      "durability": 62,
+      "speed": 62,
+      "ability": 96
+    },
+    {
+      "name": "Spinner",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 58,
+      "iq": 48,
+      "durability": 68,
+      "speed": 55,
+      "ability": 58
+    },
+    {
+      "name": "Mr. Compress",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 42,
+      "iq": 78,
+      "durability": 45,
+      "speed": 58,
+      "ability": 86
+    },
+    {
+      "name": "Kurogiri",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 62,
+      "iq": 78,
+      "durability": 78,
+      "speed": 62,
+      "ability": 96
+    },
+    {
+      "name": "Overhaul",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 78,
+      "iq": 88,
+      "durability": 78,
+      "speed": 72,
+      "ability": 98
+    },
+    {
+      "name": "Gentle Criminal",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 58,
+      "iq": 78,
+      "durability": 62,
+      "speed": 58,
+      "ability": 84
+    },
+    {
+      "name": "La Brava",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 18,
+      "iq": 88,
+      "durability": 22,
+      "speed": 28,
+      "ability": 82
+    },
+    {
+      "name": "Stain",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 68,
+      "iq": 82,
+      "durability": 65,
+      "speed": 88,
+      "ability": 88
+    },
+    {
+      "name": "Muscular",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 98,
+      "iq": 38,
+      "durability": 100,
+      "speed": 62,
+      "ability": 75
+    },
+    {
+      "name": "Re-Destro",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 92,
+      "iq": 88,
+      "durability": 92,
+      "speed": 78,
+      "ability": 92
+    },
+    {
+      "name": "Lady Nagant",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 62,
+      "iq": 92,
+      "durability": 62,
+      "speed": 72,
+      "ability": 96
+    },
+    {
+      "name": "Star and Stripe",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 96,
+      "iq": 92,
+      "durability": 96,
+      "speed": 88,
+      "ability": 100
+    },
+    {
+      "name": "Inasa Yoarashi",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 78,
+      "iq": 68,
+      "durability": 78,
+      "speed": 78,
+      "ability": 92
+    },
+    {
+      "name": "Camie Utsushimi",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 42,
+      "iq": 62,
+      "durability": 42,
+      "speed": 58,
+      "ability": 75
+    },
+    {
+      "name": "Seiji Shishikura",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 52,
+      "iq": 68,
+      "durability": 55,
+      "speed": 58,
+      "ability": 82
+    },
+    {
+      "name": "Yo Shindo",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 58,
+      "iq": 62,
+      "durability": 58,
+      "speed": 68,
+      "ability": 82
+    },
+    {
+      "name": "Flect Turn",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 72,
+      "iq": 82,
+      "durability": 78,
+      "speed": 68,
+      "ability": 92
+    },
+    {
+      "name": "Nine",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 88,
+      "iq": 82,
+      "durability": 88,
+      "speed": 82,
+      "ability": 98
+    },
+    {
+      "name": "Wolfram",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 82,
+      "iq": 68,
+      "durability": 88,
+      "speed": 58,
+      "ability": 88
+    },
+    {
+      "name": "Rody Soul",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 42,
+      "iq": 72,
+      "durability": 45,
+      "speed": 62,
+      "ability": 62
+    },
+    {
+      "name": "Melissa Shield",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 18,
+      "iq": 96,
+      "durability": 22,
+      "speed": 28,
+      "ability": 42
+    },
+    {
+      "name": "Hitoshi Shinso",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 35,
+      "iq": 82,
+      "durability": 38,
+      "speed": 48,
+      "ability": 86
+    },
+    {
+      "name": "Katsuma Shimano",
+      "source": "My Hero Academia",
+      "image": "",
+      "strength": 12,
+      "iq": 58,
+      "durability": 18,
+      "speed": 22,
+      "ability": 78
+    },
+    {
+      "name": "Black Widow",
+      "source": "Marvel",
+      "image": "",
+      "strength": 42,
+      "iq": 88,
+      "durability": 45,
+      "speed": 68,
+      "ability": 72
+    },
+    {
+      "name": "Hawkeye",
+      "source": "Marvel",
+      "image": "",
+      "strength": 48,
+      "iq": 82,
+      "durability": 48,
+      "speed": 65,
+      "ability": 75
+    },
+    {
+      "name": "Scarlet Witch",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 88,
+      "durability": 72,
+      "speed": 72,
+      "ability": 100
+    },
+    {
+      "name": "Vision",
+      "source": "Marvel",
+      "image": "",
+      "strength": 88,
+      "iq": 92,
+      "durability": 96,
+      "speed": 88,
+      "ability": 96
+    },
+    {
+      "name": "Ant-Man",
+      "source": "Marvel",
+      "image": "",
+      "strength": 58,
+      "iq": 82,
+      "durability": 62,
+      "speed": 68,
+      "ability": 88
+    },
+    {
+      "name": "Wasp",
+      "source": "Marvel",
+      "image": "",
+      "strength": 52,
+      "iq": 82,
+      "durability": 55,
+      "speed": 88,
+      "ability": 88
+    },
+    {
+      "name": "Falcon",
+      "source": "Marvel",
+      "image": "",
+      "strength": 58,
+      "iq": 72,
+      "durability": 58,
+      "speed": 78,
+      "ability": 72
+    },
+    {
+      "name": "Winter Soldier",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 72,
+      "durability": 72,
+      "speed": 68,
+      "ability": 75
+    },
+    {
+      "name": "War Machine",
+      "source": "Marvel",
+      "image": "",
+      "strength": 82,
+      "iq": 78,
+      "durability": 82,
+      "speed": 62,
+      "ability": 82
+    },
+    {
+      "name": "Captain Marvel",
+      "source": "Marvel",
+      "image": "",
+      "strength": 96,
+      "iq": 78,
+      "durability": 96,
+      "speed": 96,
+      "ability": 98
+    },
+    {
+      "name": "Black Bolt",
+      "source": "Marvel",
+      "image": "",
+      "strength": 82,
+      "iq": 82,
+      "durability": 82,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Loki",
+      "source": "Marvel",
+      "image": "",
+      "strength": 72,
+      "iq": 92,
+      "durability": 82,
+      "speed": 72,
+      "ability": 96
+    },
+    {
+      "name": "Hela",
+      "source": "Marvel",
+      "image": "",
+      "strength": 96,
+      "iq": 88,
+      "durability": 98,
+      "speed": 82,
+      "ability": 98
+    },
+    {
+      "name": "Odin",
+      "source": "Marvel",
+      "image": "",
+      "strength": 98,
+      "iq": 100,
+      "durability": 98,
+      "speed": 82,
+      "ability": 100
+    },
+    {
+      "name": "Heimdall",
+      "source": "Marvel",
+      "image": "",
+      "strength": 82,
+      "iq": 82,
+      "durability": 88,
+      "speed": 78,
+      "ability": 92
+    },
+    {
+      "name": "Valkyrie",
+      "source": "Marvel",
+      "image": "",
+      "strength": 78,
+      "iq": 72,
+      "durability": 78,
+      "speed": 72,
+      "ability": 78
+    },
+    {
+      "name": "Sif",
+      "source": "Marvel",
+      "image": "",
+      "strength": 72,
+      "iq": 68,
+      "durability": 75,
+      "speed": 68,
+      "ability": 72
+    },
+    {
+      "name": "Star-Lord",
+      "source": "Marvel",
+      "image": "",
+      "strength": 48,
+      "iq": 78,
+      "durability": 52,
+      "speed": 58,
+      "ability": 72
+    },
+    {
+      "name": "Gamora",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 78,
+      "durability": 72,
+      "speed": 82,
+      "ability": 75
+    },
+    {
+      "name": "Nebula",
+      "source": "Marvel",
+      "image": "",
+      "strength": 65,
+      "iq": 78,
+      "durability": 78,
+      "speed": 72,
+      "ability": 78
+    },
+    {
+      "name": "Drax",
+      "source": "Marvel",
+      "image": "",
+      "strength": 82,
+      "iq": 48,
+      "durability": 88,
+      "speed": 48,
+      "ability": 58
+    },
+    {
+      "name": "Rocket Raccoon",
+      "source": "Marvel",
+      "image": "",
+      "strength": 38,
+      "iq": 98,
+      "durability": 42,
+      "speed": 68,
+      "ability": 88
+    },
+    {
+      "name": "Groot",
+      "source": "Marvel",
+      "image": "",
+      "strength": 82,
+      "iq": 58,
+      "durability": 96,
+      "speed": 42,
+      "ability": 86
+    },
+    {
+      "name": "Mantis",
+      "source": "Marvel",
+      "image": "",
+      "strength": 28,
+      "iq": 68,
+      "durability": 38,
+      "speed": 48,
+      "ability": 82
+    },
+    {
+      "name": "Yondu",
+      "source": "Marvel",
+      "image": "",
+      "strength": 55,
+      "iq": 78,
+      "durability": 58,
+      "speed": 62,
+      "ability": 88
+    },
+    {
+      "name": "Adam Warlock",
+      "source": "Marvel",
+      "image": "",
+      "strength": 96,
+      "iq": 88,
+      "durability": 96,
+      "speed": 92,
+      "ability": 98
+    },
+    {
+      "name": "Silver Surfer",
+      "source": "Marvel",
+      "image": "",
+      "strength": 98,
+      "iq": 98,
+      "durability": 98,
+      "speed": 100,
+      "ability": 100
+    },
+    {
+      "name": "Galactus",
+      "source": "Marvel",
+      "image": "",
+      "strength": 100,
+      "iq": 100,
+      "durability": 100,
+      "speed": 72,
+      "ability": 100
+    },
+    {
+      "name": "Thanos (No Stones)",
+      "source": "Marvel",
+      "image": "",
+      "strength": 100,
+      "iq": 92,
+      "durability": 100,
+      "speed": 82,
+      "ability": 96
+    },
+    {
+      "name": "Ego",
+      "source": "Marvel",
+      "image": "",
+      "strength": 98,
+      "iq": 92,
+      "durability": 100,
+      "speed": 28,
+      "ability": 100
+    },
+    {
+      "name": "Dormammu",
+      "source": "Marvel",
+      "image": "",
+      "strength": 100,
+      "iq": 100,
+      "durability": 100,
+      "speed": 68,
+      "ability": 100
+    },
+    {
+      "name": "Mephisto",
+      "source": "Marvel",
+      "image": "",
+      "strength": 96,
+      "iq": 100,
+      "durability": 96,
+      "speed": 68,
+      "ability": 100
+    },
+    {
+      "name": "Ghost Rider",
+      "source": "Marvel",
+      "image": "",
+      "strength": 92,
+      "iq": 78,
+      "durability": 100,
+      "speed": 78,
+      "ability": 98
+    },
+    {
+      "name": "Blade",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 72,
+      "durability": 72,
+      "speed": 78,
+      "ability": 78
+    },
+    {
+      "name": "Daredevil",
+      "source": "Marvel",
+      "image": "",
+      "strength": 48,
+      "iq": 82,
+      "durability": 52,
+      "speed": 82,
+      "ability": 72
+    },
+    {
+      "name": "Luke Cage",
+      "source": "Marvel",
+      "image": "",
+      "strength": 78,
+      "iq": 62,
+      "durability": 100,
+      "speed": 48,
+      "ability": 68
+    },
+    {
+      "name": "Iron Fist",
+      "source": "Marvel",
+      "image": "",
+      "strength": 62,
+      "iq": 78,
+      "durability": 65,
+      "speed": 82,
+      "ability": 88
+    },
+    {
+      "name": "Jessica Jones",
+      "source": "Marvel",
+      "image": "",
+      "strength": 65,
+      "iq": 68,
+      "durability": 72,
+      "speed": 58,
+      "ability": 65
+    },
+    {
+      "name": "Punisher",
+      "source": "Marvel",
+      "image": "",
+      "strength": 55,
+      "iq": 78,
+      "durability": 58,
+      "speed": 58,
+      "ability": 68
+    },
+    {
+      "name": "Moon Knight",
+      "source": "Marvel",
+      "image": "",
+      "strength": 62,
+      "iq": 68,
+      "durability": 68,
+      "speed": 65,
+      "ability": 75
+    },
+    {
+      "name": "She-Hulk",
+      "source": "Marvel",
+      "image": "",
+      "strength": 92,
+      "iq": 82,
+      "durability": 96,
+      "speed": 72,
+      "ability": 82
+    },
+    {
+      "name": "Deadpool (Weapon X)",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 62,
+      "durability": 100,
+      "speed": 68,
+      "ability": 82
+    },
+    {
+      "name": "Colossus",
+      "source": "Marvel",
+      "image": "",
+      "strength": 92,
+      "iq": 58,
+      "durability": 100,
+      "speed": 42,
+      "ability": 72
+    },
+    {
+      "name": "Storm",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 92,
+      "durability": 68,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Cyclops",
+      "source": "Marvel",
+      "image": "",
+      "strength": 62,
+      "iq": 88,
+      "durability": 62,
+      "speed": 68,
+      "ability": 92
+    },
+    {
+      "name": "Jean Grey",
+      "source": "Marvel",
+      "image": "",
+      "strength": 72,
+      "iq": 96,
+      "durability": 72,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Professor X",
+      "source": "Marvel",
+      "image": "",
+      "strength": 18,
+      "iq": 100,
+      "durability": 22,
+      "speed": 18,
+      "ability": 100
+    },
+    {
+      "name": "Beast",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 98,
+      "durability": 72,
+      "speed": 78,
+      "ability": 78
+    },
+    {
+      "name": "Rogue",
+      "source": "Marvel",
+      "image": "",
+      "strength": 88,
+      "iq": 78,
+      "durability": 92,
+      "speed": 72,
+      "ability": 92
+    },
+    {
+      "name": "Gambit",
+      "source": "Marvel",
+      "image": "",
+      "strength": 58,
+      "iq": 78,
+      "durability": 58,
+      "speed": 78,
+      "ability": 88
+    },
+    {
+      "name": "Nightcrawler",
+      "source": "Marvel",
+      "image": "",
+      "strength": 58,
+      "iq": 78,
+      "durability": 58,
+      "speed": 100,
+      "ability": 88
+    },
+    {
+      "name": "Mystique",
+      "source": "Marvel",
+      "image": "",
+      "strength": 42,
+      "iq": 88,
+      "durability": 48,
+      "speed": 62,
+      "ability": 78
+    },
+    {
+      "name": "Magneto",
+      "source": "Marvel",
+      "image": "",
+      "strength": 82,
+      "iq": 98,
+      "durability": 82,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Quicksilver",
+      "source": "Marvel",
+      "image": "",
+      "strength": 58,
+      "iq": 78,
+      "durability": 58,
+      "speed": 100,
+      "ability": 88
+    },
+    {
+      "name": "Iceman",
+      "source": "Marvel",
+      "image": "",
+      "strength": 78,
+      "iq": 92,
+      "durability": 92,
+      "speed": 72,
+      "ability": 100
+    },
+    {
+      "name": "Kitty Pryde",
+      "source": "Marvel",
+      "image": "",
+      "strength": 38,
+      "iq": 82,
+      "durability": 42,
+      "speed": 68,
+      "ability": 88
+    },
+    {
+      "name": "Cable",
+      "source": "Marvel",
+      "image": "",
+      "strength": 78,
+      "iq": 92,
+      "durability": 82,
+      "speed": 72,
+      "ability": 96
+    },
+    {
+      "name": "Bishop",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 78,
+      "durability": 72,
+      "speed": 68,
+      "ability": 82
+    },
+    {
+      "name": "Psylocke",
+      "source": "Marvel",
+      "image": "",
+      "strength": 62,
+      "iq": 82,
+      "durability": 62,
+      "speed": 88,
+      "ability": 92
+    },
+    {
+      "name": "Apocalypse",
+      "source": "Marvel",
+      "image": "",
+      "strength": 100,
+      "iq": 96,
+      "durability": 100,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Mister Sinister",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 100,
+      "durability": 78,
+      "speed": 68,
+      "ability": 98
+    },
+    {
+      "name": "Green Goblin",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 82,
+      "durability": 68,
+      "speed": 78,
+      "ability": 88
+    },
+    {
+      "name": "Doctor Octopus",
+      "source": "Marvel",
+      "image": "",
+      "strength": 58,
+      "iq": 98,
+      "durability": 62,
+      "speed": 48,
+      "ability": 82
+    },
+    {
+      "name": "Venom",
+      "source": "Marvel",
+      "image": "",
+      "strength": 92,
+      "iq": 72,
+      "durability": 96,
+      "speed": 78,
+      "ability": 92
+    },
+    {
+      "name": "Carnage",
+      "source": "Marvel",
+      "image": "",
+      "strength": 92,
+      "iq": 68,
+      "durability": 92,
+      "speed": 88,
+      "ability": 96
+    },
+    {
+      "name": "Kingpin",
+      "source": "Marvel",
+      "image": "",
+      "strength": 68,
+      "iq": 82,
+      "durability": 72,
+      "speed": 42,
+      "ability": 58
+    },
+    {
+      "name": "Ultron",
+      "source": "Marvel",
+      "image": "",
+      "strength": 96,
+      "iq": 100,
+      "durability": 100,
+      "speed": 82,
+      "ability": 100
+    },
+    {
+      "name": "Kang the Conqueror",
+      "source": "Marvel",
+      "image": "",
+      "strength": 82,
+      "iq": 100,
+      "durability": 82,
+      "speed": 72,
+      "ability": 98
+    },
+    {
+      "name": "M.O.D.O.K.",
+      "source": "Marvel",
+      "image": "",
+      "strength": 42,
+      "iq": 100,
+      "durability": 48,
+      "speed": 28,
+      "ability": 92
+    },
+    {
+      "name": "Shang-Chi",
+      "source": "Marvel",
+      "image": "",
+      "strength": 58,
+      "iq": 88,
+      "durability": 62,
+      "speed": 92,
+      "ability": 82
+    },
+    {
+      "name": "Namor",
+      "source": "Marvel",
+      "image": "",
+      "strength": 92,
+      "iq": 82,
+      "durability": 92,
+      "speed": 88,
+      "ability": 92
+    },
+    {
+      "name": "Sentry",
+      "source": "Marvel",
+      "image": "",
+      "strength": 100,
+      "iq": 92,
+      "durability": 100,
+      "speed": 100,
+      "ability": 100
+    },
+    {
+      "name": "Blue Marvel",
+      "source": "Marvel",
+      "image": "",
+      "strength": 98,
+      "iq": 100,
+      "durability": 98,
+      "speed": 92,
+      "ability": 100
+    },
+    {
+      "name": "Nova (Richard Rider)",
+      "source": "Marvel",
+      "image": "",
+      "strength": 92,
+      "iq": 82,
+      "durability": 92,
+      "speed": 92,
+      "ability": 96
+    },
+    {
+      "name": "America Chavez",
+      "source": "Marvel",
+      "image": "",
+      "strength": 78,
+      "iq": 68,
+      "durability": 82,
+      "speed": 82,
+      "ability": 88
+    },
+    {
+      "name": "Miles Morales",
+      "source": "Marvel",
+      "image": "",
+      "strength": 62,
+      "iq": 78,
+      "durability": 62,
+      "speed": 82,
+      "ability": 82
+    },
+    {
+      "name": "Kate Bishop",
+      "source": "Marvel",
+      "image": "",
+      "strength": 42,
+      "iq": 78,
+      "durability": 45,
+      "speed": 62,
+      "ability": 68
+    },
+    {
+      "name": "Shuri",
+      "source": "Marvel",
+      "image": "",
+      "strength": 32,
+      "iq": 100,
+      "durability": 38,
+      "speed": 42,
+      "ability": 82
+    },
+    {
+      "name": "Batman (Armored)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 96,
+      "durability": 82,
+      "speed": 58,
+      "ability": 88
+    },
+    {
+      "name": "Nightwing",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 58,
+      "iq": 88,
+      "durability": 58,
+      "speed": 82,
+      "ability": 72
+    },
+    {
+      "name": "Robin (Damian Wayne)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 48,
+      "iq": 82,
+      "durability": 48,
+      "speed": 78,
+      "ability": 68
+    },
+    {
+      "name": "Red Hood",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 65,
+      "iq": 82,
+      "durability": 68,
+      "speed": 68,
+      "ability": 78
+    },
+    {
+      "name": "Batgirl (Barbara Gordon)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 42,
+      "iq": 96,
+      "durability": 45,
+      "speed": 68,
+      "ability": 72
+    },
+    {
+      "name": "Cyborg",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 88,
+      "iq": 92,
+      "durability": 92,
+      "speed": 78,
+      "ability": 96
+    },
+    {
+      "name": "Aquaman",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 92,
+      "iq": 82,
+      "durability": 96,
+      "speed": 72,
+      "ability": 92
+    },
+    {
+      "name": "Green Lantern (Hal Jordan)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 88,
+      "durability": 82,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Green Lantern (John Stewart)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 88,
+      "durability": 82,
+      "speed": 72,
+      "ability": 100
+    },
+    {
+      "name": "Green Lantern (Kyle Rayner)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 78,
+      "iq": 92,
+      "durability": 78,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Martian Manhunter",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 98,
+      "iq": 100,
+      "durability": 98,
+      "speed": 92,
+      "ability": 100
+    },
+    {
+      "name": "Shazam",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 98,
+      "iq": 78,
+      "durability": 98,
+      "speed": 92,
+      "ability": 98
+    },
+    {
+      "name": "Supergirl",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 96,
+      "iq": 82,
+      "durability": 96,
+      "speed": 92,
+      "ability": 96
+    },
+    {
+      "name": "Power Girl",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 98,
+      "iq": 78,
+      "durability": 98,
+      "speed": 88,
+      "ability": 92
+    },
+    {
+      "name": "Black Adam",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 98,
+      "iq": 82,
+      "durability": 98,
+      "speed": 88,
+      "ability": 98
+    },
+    {
+      "name": "Zatanna",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 48,
+      "iq": 92,
+      "durability": 48,
+      "speed": 58,
+      "ability": 100
+    },
+    {
+      "name": "John Constantine",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 28,
+      "iq": 100,
+      "durability": 35,
+      "speed": 38,
+      "ability": 98
+    },
+    {
+      "name": "Doctor Fate",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 100,
+      "durability": 88,
+      "speed": 72,
+      "ability": 100
+    },
+    {
+      "name": "Raven",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 68,
+      "iq": 92,
+      "durability": 72,
+      "speed": 68,
+      "ability": 100
+    },
+    {
+      "name": "Starfire",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 72,
+      "durability": 82,
+      "speed": 88,
+      "ability": 92
+    },
+    {
+      "name": "Beast Boy",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 58,
+      "iq": 68,
+      "durability": 78,
+      "speed": 72,
+      "ability": 88
+    },
+    {
+      "name": "Blue Beetle (Jaime Reyes)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 78,
+      "iq": 78,
+      "durability": 82,
+      "speed": 78,
+      "ability": 92
+    },
+    {
+      "name": "Booster Gold",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 68,
+      "iq": 72,
+      "durability": 78,
+      "speed": 68,
+      "ability": 82
+    },
+    {
+      "name": "Plastic Man",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 58,
+      "iq": 68,
+      "durability": 100,
+      "speed": 58,
+      "ability": 96
+    },
+    {
+      "name": "Hawkgirl",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 78,
+      "iq": 72,
+      "durability": 82,
+      "speed": 72,
+      "ability": 78
+    },
+    {
+      "name": "Hawkman",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 72,
+      "durability": 86,
+      "speed": 68,
+      "ability": 78
+    },
+    {
+      "name": "Green Arrow",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 48,
+      "iq": 82,
+      "durability": 48,
+      "speed": 62,
+      "ability": 68
+    },
+    {
+      "name": "Black Canary",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 52,
+      "iq": 82,
+      "durability": 55,
+      "speed": 78,
+      "ability": 82
+    },
+    {
+      "name": "The Atom (Ray Palmer)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 28,
+      "iq": 98,
+      "durability": 35,
+      "speed": 58,
+      "ability": 82
+    },
+    {
+      "name": "Firestorm",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 88,
+      "durability": 82,
+      "speed": 72,
+      "ability": 98
+    },
+    {
+      "name": "Vixen",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 72,
+      "iq": 78,
+      "durability": 72,
+      "speed": 78,
+      "ability": 92
+    },
+    {
+      "name": "Red Tornado",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 78,
+      "iq": 82,
+      "durability": 88,
+      "speed": 78,
+      "ability": 88
+    },
+    {
+      "name": "Mister Terrific",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 42,
+      "iq": 100,
+      "durability": 48,
+      "speed": 58,
+      "ability": 82
+    },
+    {
+      "name": "The Question",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 38,
+      "iq": 92,
+      "durability": 42,
+      "speed": 58,
+      "ability": 58
+    },
+    {
+      "name": "Static",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 58,
+      "iq": 78,
+      "durability": 58,
+      "speed": 82,
+      "ability": 88
+    },
+    {
+      "name": "Superboy (Conner Kent)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 92,
+      "iq": 72,
+      "durability": 92,
+      "speed": 88,
+      "ability": 88
+    },
+    {
+      "name": "Jon Kent",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 92,
+      "iq": 78,
+      "durability": 92,
+      "speed": 92,
+      "ability": 92
+    },
+    {
+      "name": "Doomsday",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 100,
+      "iq": 38,
+      "durability": 100,
+      "speed": 82,
+      "ability": 92
+    },
+    {
+      "name": "Darkseid",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 100,
+      "iq": 100,
+      "durability": 100,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Brainiac",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 100,
+      "durability": 88,
+      "speed": 72,
+      "ability": 100
+    },
+    {
+      "name": "Lex Luthor",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 42,
+      "iq": 100,
+      "durability": 48,
+      "speed": 42,
+      "ability": 92
+    },
+    {
+      "name": "Joker",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 28,
+      "iq": 92,
+      "durability": 32,
+      "speed": 42,
+      "ability": 72
+    },
+    {
+      "name": "Harley Quinn",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 42,
+      "iq": 72,
+      "durability": 48,
+      "speed": 68,
+      "ability": 68
+    },
+    {
+      "name": "Deathstroke",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 72,
+      "iq": 92,
+      "durability": 78,
+      "speed": 78,
+      "ability": 82
+    },
+    {
+      "name": "Bane",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 78,
+      "durability": 88,
+      "speed": 58,
+      "ability": 72
+    },
+    {
+      "name": "Ra's al Ghul",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 62,
+      "iq": 92,
+      "durability": 68,
+      "speed": 68,
+      "ability": 78
+    },
+    {
+      "name": "Poison Ivy",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 48,
+      "iq": 82,
+      "durability": 52,
+      "speed": 58,
+      "ability": 96
+    },
+    {
+      "name": "Scarecrow",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 28,
+      "iq": 88,
+      "durability": 32,
+      "speed": 42,
+      "ability": 82
+    },
+    {
+      "name": "Two-Face",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 38,
+      "iq": 72,
+      "durability": 42,
+      "speed": 48,
+      "ability": 58
+    },
+    {
+      "name": "Penguin",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 25,
+      "iq": 78,
+      "durability": 32,
+      "speed": 28,
+      "ability": 58
+    },
+    {
+      "name": "Riddler",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 22,
+      "iq": 100,
+      "durability": 28,
+      "speed": 38,
+      "ability": 62
+    },
+    {
+      "name": "Mr. Freeze",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 42,
+      "iq": 88,
+      "durability": 52,
+      "speed": 38,
+      "ability": 82
+    },
+    {
+      "name": "Clayface",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 78,
+      "iq": 58,
+      "durability": 100,
+      "speed": 42,
+      "ability": 82
+    },
+    {
+      "name": "Killer Croc",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 78,
+      "iq": 48,
+      "durability": 88,
+      "speed": 48,
+      "ability": 58
+    },
+    {
+      "name": "Black Manta",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 68,
+      "iq": 78,
+      "durability": 72,
+      "speed": 62,
+      "ability": 78
+    },
+    {
+      "name": "Sinestro",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 82,
+      "iq": 92,
+      "durability": 82,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Reverse-Flash",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 78,
+      "iq": 88,
+      "durability": 78,
+      "speed": 100,
+      "ability": 96
+    },
+    {
+      "name": "Zoom",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 78,
+      "iq": 82,
+      "durability": 78,
+      "speed": 100,
+      "ability": 92
+    },
+    {
+      "name": "Superboy-Prime",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 100,
+      "iq": 78,
+      "durability": 100,
+      "speed": 100,
+      "ability": 98
+    },
+    {
+      "name": "Anti-Monitor",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 100,
+      "iq": 100,
+      "durability": 100,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Trigon",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 100,
+      "iq": 100,
+      "durability": 100,
+      "speed": 72,
+      "ability": 100
+    },
+    {
+      "name": "Etrigan",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 88,
+      "iq": 72,
+      "durability": 92,
+      "speed": 72,
+      "ability": 88
+    },
+    {
+      "name": "Swamp Thing",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 92,
+      "iq": 88,
+      "durability": 100,
+      "speed": 42,
+      "ability": 100
+    },
+    {
+      "name": "Lobo",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 96,
+      "iq": 58,
+      "durability": 100,
+      "speed": 78,
+      "ability": 88
+    },
+    {
+      "name": "The Spectre",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 100,
+      "iq": 100,
+      "durability": 100,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Orion",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 96,
+      "iq": 78,
+      "durability": 96,
+      "speed": 82,
+      "ability": 92
+    },
+    {
+      "name": "Mister Mxyzptlk",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 28,
+      "iq": 100,
+      "durability": 100,
+      "speed": 78,
+      "ability": 100
+    },
+    {
+      "name": "Batwoman",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 48,
+      "iq": 88,
+      "durability": 52,
+      "speed": 68,
+      "ability": 72
+    },
+    {
+      "name": "Azrael",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 62,
+      "iq": 72,
+      "durability": 68,
+      "speed": 68,
+      "ability": 75
+    },
+    {
+      "name": "Huntress",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 48,
+      "iq": 78,
+      "durability": 52,
+      "speed": 68,
+      "ability": 68
+    },
+    {
+      "name": "Black Lightning",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 68,
+      "iq": 82,
+      "durability": 68,
+      "speed": 72,
+      "ability": 92
+    },
+    {
+      "name": "Katana",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 58,
+      "iq": 72,
+      "durability": 58,
+      "speed": 78,
+      "ability": 72
+    },
+    {
+      "name": "Metamorpho",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 72,
+      "iq": 72,
+      "durability": 88,
+      "speed": 58,
+      "ability": 92
+    },
+    {
+      "name": "Captain Atom",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 96,
+      "iq": 92,
+      "durability": 96,
+      "speed": 88,
+      "ability": 100
+    },
+    {
+      "name": "The Question (Vic Sage)",
+      "source": "DC Comics",
+      "image": "",
+      "strength": 38,
+      "iq": 92,
+      "durability": 42,
+      "speed": 58,
+      "ability": 58
     }
   ]
 }
