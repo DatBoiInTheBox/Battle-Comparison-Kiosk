@@ -163,6 +163,29 @@ button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulat
 @keyframes winBounce{0%{transform:scale(.4) rotate(-10deg);opacity:0}60%{transform:scale(1.15) rotate(3deg)}100%{transform:scale(1) rotate(0);opacity:1}}
 
 .err{color:var(--gold);font-size:1.4rem;max-width:34rem;line-height:1.5}
+
+/* ═══════════ LOOKUP ═══════════ */
+.cn-link{cursor:pointer;border-bottom:.12rem dashed rgba(255,255,255,.35);transition:border-color .15s,color .15s;display:inline}
+.cn-link:active{color:var(--gold);border-color:var(--gold)}
+/* lookup modal */
+.lookup-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);animation:overlayIn .2s ease}
+@keyframes overlayIn{from{opacity:0}to{opacity:1}}
+.lookup-sheet{background:var(--panel);border:.2rem solid var(--line);border-radius:1.6rem 1.6rem 0 0;padding:1.4rem 1.4rem 2.4rem;width:100%;max-width:44rem;display:flex;flex-direction:column;gap:1rem;animation:sheetUp .25s cubic-bezier(.22,.61,.36,1)}
+@keyframes sheetUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.lookup-header{display:flex;align-items:center;gap:1rem}
+.lookup-av{flex-shrink:0}
+.lookup-info{flex:1;text-align:left}
+.lookup-name{font-size:2.2rem;line-height:1}
+.lookup-src{font-size:1.2rem;color:var(--dim)}
+.lookup-btns{display:flex;flex-direction:column;gap:.7rem}
+.lookup-btn{display:flex;align-items:center;gap:1rem;background:#0d0b1e;border:.2rem solid var(--line);border-radius:1rem;padding:1rem 1.3rem;font-size:1.6rem;text-align:left;width:100%;transition:.1s}
+.lookup-btn:active{border-color:var(--gold);background:#1a1740}
+.lookup-btn .lk-icon{font-size:2rem;flex-shrink:0;width:2.5rem;text-align:center}
+.lookup-btn .lk-label{flex:1;line-height:1.3}
+.lookup-btn .lk-sub{font-size:1rem;color:var(--dim);display:block;margin-top:.15rem}
+.lookup-cancel{background:transparent;border:.2rem solid var(--line);border-radius:1rem;padding:.85rem;font-size:1.5rem;color:var(--dim);width:100%;transition:.1s}
+.lookup-cancel:active{background:var(--line)}
+
 .curse-banner{background:linear-gradient(135deg,#2a0845,#1f1b45);border:.2rem solid var(--curse);border-radius:1rem;padding:.55rem .9rem;text-align:center;font-size:1.2rem;color:var(--curse);flex-shrink:0}
 
 /* ═══════════ SOLO TIMER RING ═══════════ */
@@ -202,6 +225,88 @@ const uniq=arr=>[...new Set(arr)].sort();
 const rnd=n=>Math.random()*n|0;
 document.addEventListener("contextmenu",e=>e.preventDefault());
 document.addEventListener("touchstart",()=>{clearTimeout(idle);idle=setTimeout(title,120000)},{passive:true});
+
+/* ═══════════════════════════════════════
+   LOOKUP
+═══════════════════════════════════════ */
+// Wraps a character name as a tappable lookup link
+function cnLink(ch,extraClass=""){
+  const safe=ch.name.replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+  const src=ch.source.replace(/"/g,"&quot;").replace(/'/g,"&#39;");
+  return `<span class="cn-link ${extraClass}" onclick="showLookup('${safe}','${src}')">${ch.name}</span>`;
+}
+
+function showLookup(name,source){
+  // remove any existing overlay
+  const existing=document.getElementById("lookup-overlay");
+  if(existing)existing.remove();
+
+  // find character data for avatar
+  const ch=CHARS.find(c=>c.name===name)||{name,source,image:""};
+  const r=getRarity(ch);
+
+  const overlay=document.createElement("div");
+  overlay.className="lookup-overlay";
+  overlay.id="lookup-overlay";
+
+  // search queries
+  const q1=encodeURIComponent(`${name} ${source}`);
+  const q2=encodeURIComponent(`${name} wiki`);
+  const q3=encodeURIComponent(`${name} ${source} powers abilities`);
+
+  overlay.innerHTML=`
+    <div class="lookup-sheet">
+      <div class="lookup-header">
+        <div class="lookup-av">${avatarHTML(ch,"6rem")}</div>
+        <div class="lookup-info">
+          <div class="lookup-name display">${name}</div>
+          <div class="lookup-src">${source}</div>
+          <div style="margin-top:.4rem">${rarityBadge(ch)}</div>
+        </div>
+      </div>
+      <div class="lookup-btns">
+        <button class="lookup-btn" id="lk1">
+          <span class="lk-icon">🔍</span>
+          <span class="lk-label">Search Google
+            <span class="lk-sub">${name}, ${source}</span>
+          </span>
+          <span style="color:var(--dim);font-size:1.3rem">↗</span>
+        </button>
+        <button class="lookup-btn" id="lk2">
+          <span class="lk-icon">📖</span>
+          <span class="lk-label">Find Wiki page
+            <span class="lk-sub">${name} wiki</span>
+          </span>
+          <span style="color:var(--dim);font-size:1.3rem">↗</span>
+        </button>
+        <button class="lookup-btn" id="lk3">
+          <span class="lk-icon">⚡</span>
+          <span class="lk-label">Powers &amp; Abilities
+            <span class="lk-sub">${name} ${source} powers abilities</span>
+          </span>
+          <span style="color:var(--dim);font-size:1.3rem">↗</span>
+        </button>
+      </div>
+      <button class="lookup-cancel" id="lk-close">Cancel</button>
+    </div>`;
+
+  document.body.appendChild(overlay);
+
+  document.getElementById("lk1").onclick=()=>{window.open(`https://www.google.com/search?q=${q1}`,"_blank");closeLookup()};
+  document.getElementById("lk2").onclick=()=>{window.open(`https://www.google.com/search?q=${q2}`,"_blank");closeLookup()};
+  document.getElementById("lk3").onclick=()=>{window.open(`https://www.google.com/search?q=${q3}`,"_blank");closeLookup()};
+  document.getElementById("lk-close").onclick=closeLookup;
+  // tap backdrop to dismiss
+  overlay.addEventListener("touchstart",(e)=>{if(e.target===overlay)closeLookup()},{passive:true});
+}
+
+function closeLookup(){
+  const o=document.getElementById("lookup-overlay");
+  if(!o)return;
+  o.style.animation="overlayIn .15s ease reverse";
+  o.querySelector(".lookup-sheet").style.animation="sheetUp .2s cubic-bezier(.22,.61,.36,1) reverse";
+  setTimeout(()=>o.remove(),200);
+}
 
 /* ═══════════════════════════════════════
    PARTICLES
@@ -387,7 +492,7 @@ function boardHTML(activep){
   return `<div class="board ${cls}">${S.teams.map((t,i)=>`
     <div class="team c${i+1} ${i===activep?"active":""}">
       <h3 class="display">${S.numPlayers===1?"Your Team":pn(i)}</h3>
-      ${CATS.map(c=>`<div class="slot"><span>${c[2]}</span><b>${t[c[0]]?t[c[0]].name:"—"}</b></div>`).join("")}
+      ${CATS.map(c=>`<div class="slot"><span>${c[2]}</span><b>${t[c[0]]?cnLink(t[c[0]]):"—"}</b></div>`).join("")}
     </div>`).join("")}</div>`;
 }
 
@@ -435,7 +540,7 @@ function roll(p){
     if(n>=16){
       clearInterval(t);
       av.innerHTML=avatarHTML(consumed);
-      nm.textContent=consumed.name; nm.classList.add("pop");
+      nm.innerHTML=cnLink(consumed); nm.classList.add("pop");
       sr.textContent=consumed.source;
       av.querySelector(".avatar")&&av.querySelector(".avatar").classList.add("bounce");
       const r=getRarity(consumed);
@@ -465,13 +570,13 @@ function assign(p,ch){
       <div class="assign-row">
         ${avatarHTML(ch)}
         <div class="assign-info">
-          <div class="cname display">${ch.name}</div>
+          <div class="cname display">${cnLink(ch)}</div>
           <div class="csrc">${ch.source}</div>
           ${rarityBadge(ch)}
         </div>
       </div>
     </div>
-    <div class="hint ${cursed?"curse-hint":""}">${S.numPlayers===1?"You":pnLong(p)}: where does ${ch.name} fit ${cursed?"<b>worst</b>":"best"}?</div>
+    <div class="hint ${cursed?"curse-hint":""}">${S.numPlayers===1?"You":pnLong(p)}: where does ${ch.name} fit ${cursed?"<b>worst</b>":"best"}? <span style="font-size:1rem;color:var(--dim);display:block;margin-top:.2rem">🔍 Tap the name to look them up</span></div>
     <div class="picks">${CATS.map(c=>{const used=S.teams[p][c[0]];
       return `<button class="pick ${cursed?"curse-pick":""}" data-k="${c[0]}" ${used?"disabled":""}>
         <span class="icon">${c[2]}</span>
@@ -510,7 +615,7 @@ function soloResult(){
       const r=getRarity(ch);
       return `<div class="solo-row">
         <span class="cat">${c[2]} ${c[1]}</span>
-        <span style="font-size:1.1rem;color:var(--dim)">${ch.name}</span>
+        <span style="font-size:1.1rem;color:var(--dim)">${cnLink(ch)}</span>
         ${rarityBadgeSm(ch)}
         <span class="val" style="color:${r.color}">${ch[c[0]]}</span>
       </div>`;
@@ -550,7 +655,7 @@ function battle(){
     if(is4){
       const sides=S.teams.map((t,pi)=>{
         const ch=t[c[0]];const w=catWinners[ci][pi];
-        return `<div class="side c${pi+1} ${w?"win":"lose"}">${sideAvHTML(ch)}<div class="n">${pn(pi)}: ${ch.name}</div><div class="num">${ch[c[0]]}</div>${rarityBadgeSm(ch)}</div>`;
+        return `<div class="side c${pi+1} ${w?"win":"lose"}">${sideAvHTML(ch)}<div class="n">${pn(pi)}: ${cnLink(ch)}</div><div class="num">${ch[c[0]]}</div>${rarityBadgeSm(ch)}</div>`;
       });
       return `<div class="row p4" id="r${ci}"><div class="row-inner" id="ri${ci}">${sides[0]}${sides[1]}<div class="mid"><span>${c[2]}</span>${c[1]}</div>${sides[2]}${sides[3]}<div class="clash" id="cl${ci}">${clashIcon}</div></div></div>`;
     } else {
@@ -558,9 +663,9 @@ function battle(){
       const aw=catWinners[ci][0],bw=catWinners[ci][1];
       const tie=aw&&bw;
       return `<div class="row p2" id="r${ci}"><div class="row-inner" id="ri${ci}">
-        <div class="side c1 ${tie?"tie":aw?"win":"lose"}">${sideAvHTML(a)}<div class="n">${a.name}</div><div class="num">${a[c[0]]}</div>${rarityBadgeSm(a)}</div>
+        <div class="side c1 ${tie?"tie":aw?"win":"lose"}">${sideAvHTML(a)}<div class="n">${cnLink(a)}</div><div class="num">${a[c[0]]}</div>${rarityBadgeSm(a)}</div>
         <div class="mid"><span>${c[2]}</span>${c[1]}<div class="clash" id="cl${ci}">${clashIcon}</div></div>
-        <div class="side c2 ${tie?"tie":bw?"win":"lose"}">${sideAvHTML(b)}<div class="n">${b.name}</div><div class="num">${b[c[0]]}</div>${rarityBadgeSm(b)}</div>
+        <div class="side c2 ${tie?"tie":bw?"win":"lose"}">${sideAvHTML(b)}<div class="n">${cnLink(b)}</div><div class="num">${b[c[0]]}</div>${rarityBadgeSm(b)}</div>
       </div></div>`;
     }
   }
