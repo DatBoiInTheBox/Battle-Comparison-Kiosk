@@ -498,7 +498,7 @@
   {
    "name": "Bugs Bunny",
    "source": "Looney Tunes",
-   "image": "",
+   "image": "https://cdn-www.bluestacks.com/bs-images/-DijYn2mjNEyn9lDflot55fMiDYdZ0IZUrzZTySj2htdtlzOjb8720tI7-EZlcyT3w.png",
    "strength": 5,
    "iq": 73,
    "durability": 45,
@@ -509,7 +509,7 @@
   {
    "name": "Avatar Aang",
    "source": "Avatar: The Last Airbender",
-   "image": "",
+   "image": "https://static1.personality-database.com/profile_images/2ac9b5b2362149a58d03751c763eb4ec.png",
    "strength": 31,
    "iq": 55,
    "durability": 26,
@@ -520,7 +520,7 @@
   {
    "name": "Rick Sanchez",
    "source": "Rick and Morty",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fb6a00b4-9cdc-401d-9a61-41fdbe9d09ce/dfn2sf2-7a7fdd29-0c1a-4d44-a50f-032b7a3b541c.png/v1/fill/w_1280,h_1700/rick_sanchez__render__2__by_yessing_dfn2sf2-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcwMCIsInBhdGgiOiJcL2ZcL2ZiNmEwMGI0LTljZGMtNDAxZC05YTYxLTQxZmRiZTlkMDljZVwvZGZuMnNmMi03YTdmZGQyOS0wYzFhLTRkNDQtYTUwZi0wMzJiN2EzYjU0MWMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.45jUjXaxfPFivlftPoFZJ4i5_2lG3HIq34da33YptD8",
    "strength": 7,
    "iq": 100,
    "durability": 18,
@@ -531,7 +531,7 @@
   {
    "name": "Homer Simpson",
    "source": "The Simpsons",
-   "image": "",
+   "image": "https://www.pngarts.com/files/11/Homer-Simpson-Cartoon-PNG-Download-Image.png",
    "strength": 16,
    "iq": 2,
    "durability": 51,
@@ -542,7 +542,7 @@
   {
    "name": "Neo",
    "source": "The Matrix",
-   "image": "",
+   "image": "https://cdna.artstation.com/p/assets/images/images/004/943/296/large/andrey-pankov-neo.jpg?1487365474",
    "strength": 56,
    "iq": 64,
    "durability": 54,
@@ -553,7 +553,7 @@
   {
    "name": "Jon Snow",
    "source": "Game of Thrones",
-   "image": "",
+   "image": "https://wallpaperaccess.com/full/482326.jpg",
    "strength": 26,
    "iq": 30,
    "durability": 28,
@@ -564,18 +564,18 @@
   {
    "name": "Sung Jin-Woo",
    "source": "Solo Leveling",
-   "image": "",
+   "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/02/sung-jin-woo-featured-image.jpg",
    "strength": 90,
    "iq": 62,
    "durability": 62,
-   "speed": 65,
+   "speed": 75,
    "ability": 91,
    "universe": "Anime Mix"
   },
   {
    "name": "Zoro",
    "source": "One Piece",
-   "image": "",
+   "image": "https://cdn.wallpapersafari.com/83/64/623vJc.png",
    "strength": 60,
    "iq": 38,
    "durability": 62,
@@ -586,7 +586,7 @@
   {
    "name": "Killua Zoldyck",
    "source": "Hunter x Hunter",
-   "image": "",
+   "image": "https://tse2.mm.bing.net/th/id/OIP.fIJQnXGLRkNMGlrAugKr0gHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 41,
    "iq": 66,
    "durability": 35,
@@ -597,7 +597,7 @@
   {
    "name": "Lelouch",
    "source": "Code Geass",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp2984313.jpg",
    "strength": 2,
    "iq": 95,
    "durability": 3,
@@ -938,7 +938,7 @@
   {
    "name": "Glenn Quagmire",
    "source": "Family Guy",
-   "image": "",
+   "image": "https://th.bing.com/th/id/R.a738b6fcb1c63f1364d97e1dd486be10?rik=Y%2bCeW%2bXuubL4pg&riu=http%3a%2f%2fimages.shoutwiki.com%2ffamilyguy%2ff%2ffe%2fGlenn_Quagmire.png&ehk=2EgTUf%2bDVzyDAJTLRQo0zCtGmocAKUNHri6EXvI6nbk%3d&risl=&pid=ImgRaw&r=0",
    "strength": 22,
    "iq": 42,
    "durability": 22,
@@ -949,7 +949,7 @@
   {
    "name": "Cleveland Brown",
    "source": "Family Guy",
-   "image": "",
+   "image": "https://pub-1de51ae1e68144d78f7c582e1dda3ab1.r2.dev/clh8n0i2200wsmi08eyobfu35/3efffdaa-7349-48e7-b7e3-0983e3acf0a6.webp",
    "strength": 18,
    "iq": 30,
    "durability": 26,
@@ -960,7 +960,7 @@
   {
    "name": "Meg Griffin",
    "source": "Family Guy",
-   "image": "",
+   "image": "https://facts.net/wp-content/uploads/2023/09/22-facts-about-meg-griffin-family-guy-1694082687.jpg",
    "strength": 15,
    "iq": 34,
    "durability": 18,
@@ -971,7 +971,7 @@
   {
    "name": "Chris Griffin",
    "source": "Family Guy",
-   "image": "",
+   "image": "https://th.bing.com/th/id/R.4405134d45d2d6d145e59df0ba59cb48?rik=Oq1aVkJRnLTqBA&riu=http%3a%2f%2fimages.shoutwiki.com%2ffamilyguy%2fthumb%2fd%2fdf%2fChris_Griffin.png%2f1200px-Chris_Griffin.png&ehk=nTTuVIWMJhyXpKghtpHUQCVFb0lPHnH7LIBXnbU9Tj0%3d&risl=&pid=ImgRaw&r=0",
    "strength": 20,
    "iq": 13,
    "durability": 30,
@@ -982,7 +982,7 @@
   {
    "name": "Joe Swanson",
    "source": "Family Guy",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/f2657aed-7e3b-42cc-a30e-053044f97216/d91izel-920e8640-6007-47fc-967c-349d2696e676.jpg/v1/fill/w_1024,h_1307,q_75,strp/joe_swanson__family_guy__1_by_frasier_and_niles_d91izel-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTMwNyIsInBhdGgiOiJcL2ZcL2YyNjU3YWVkLTdlM2ItNDJjYy1hMzBlLTA1MzA0NGY5NzIxNlwvZDkxaXplbC05MjBlODY0MC02MDA3LTQ3ZmMtOTY3Yy0zNDlkMjY5NmU2NzYuanBnIiwid2lkdGgiOiI8PTEwMjQifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.GelObshZ1I6w2hkG0DP4UUe_hOSO65kLqJSghtjycHo",
    "strength": 40,
    "iq": 52,
    "durability": 43,
@@ -993,20 +993,20 @@
   {
    "name": "Bart Simpson",
    "source": "The Simpsons",
-   "image": "",
+   "image": "https://pngimg.com/uploads/simpsons/simpsons_PNG31.png",
    "strength": 11,
    "iq": 38,
    "durability": 18,
-   "speed": 40,
+   "speed": 20,
    "ability": 17,
    "universe": "The Simpsons"
   },
   {
    "name": "Lisa Simpson",
    "source": "The Simpsons",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/415df2ff-b9dd-4f62-b9b2-7a3a9d00f9db/di2oev7-3330264d-155c-4db2-a2ff-5176675182e3.png/v1/fill/w_1280,h_1575/lisa_simpson__by_greenriver85_di2oev7-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTU3NSIsInBhdGgiOiJcL2ZcLzQxNWRmMmZmLWI5ZGQtNGY2Mi1iOWIyLTdhM2E5ZDAwZjlkYlwvZGkyb2V2Ny0zMzMwMjY0ZC0xNTVjLTRkYjItYTJmZi01MTc2Njc1MTgyZTMucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.7bXy6GCV9ZcOT5gdBcIwFkcWwZmNnGJlDuZipCkSGKU",
    "strength": 2,
-   "iq": 76,
+   "iq": 66,
    "durability": 5,
    "speed": 15,
    "ability": 26,
@@ -1015,7 +1015,7 @@
   {
    "name": "Marge Simpson",
    "source": "The Simpsons",
-   "image": "",
+   "image": "https://getdrawings.com/cliparts/marge-simpson-clipart-19.png",
    "strength": 9,
    "iq": 42,
    "durability": 15,
@@ -1026,7 +1026,7 @@
   {
    "name": "Mr. Burns",
    "source": "The Simpsons",
-   "image": "",
+   "image": "https://vignette.wikia.nocookie.net/simpsons/images/a/a7/Montgomery_Burns.png/revision/latest?cb=20100602062705",
    "strength": 2,
    "iq": 66,
    "durability": 2,
@@ -1037,7 +1037,7 @@
   {
    "name": "Ned Flanders",
    "source": "The Simpsons",
-   "image": "",
+   "image": "https://i.etsystatic.com/18744338/r/il/70faf0/2524494383/il_1140xN.2524494383_mhcf.jpg",
    "strength": 9,
    "iq": 47,
    "durability": 15,
@@ -1048,7 +1048,7 @@
   {
    "name": "Moe Szyslak",
    "source": "The Simpsons",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c52cfd32-9473-4939-abb6-1aed39529c1f/dhid5qc-cef479e7-9581-420f-99e1-ced5e59b24be.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2M1MmNmZDMyLTk0NzMtNDkzOS1hYmI2LTFhZWQzOTUyOWMxZlwvZGhpZDVxYy1jZWY0NzllNy05NTgxLTQyMGYtOTllMS1jZWQ1ZTU5YjI0YmUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.p0MfqeI7OuBADI91gCY85qsGikqsKKfL7_9CrmR2T8g",
    "strength": 18,
    "iq": 30,
    "durability": 22,
@@ -1059,7 +1059,7 @@
   {
    "name": "Krusty the Clown",
    "source": "The Simpsons",
-   "image": "",
+   "image": "https://www.pinclipart.com/picdir/big/180-1807808_pin-by-arkhael-greed-on-simpsons-pinterest-krusty.png",
    "strength": 5,
    "iq": 34,
    "durability": 9,
@@ -1081,7 +1081,7 @@
   {
    "name": "Morty Smith",
    "source": "Rick and Morty",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/b7/35/0b/b7350b62a2c024d91322fd96ecfd7f23.jpg",
    "strength": 5,
    "iq": 30,
    "durability": 11,
@@ -1092,7 +1092,7 @@
   {
    "name": "Summer Smith",
    "source": "Rick and Morty",
-   "image": "",
+   "image": "https://imagedelivery.net/LBWXYQ-XnKSYxbZ-NuYGqQ/ce31c74b-3775-42a8-2bb0-0f3273d5fb00/avatarhd",
    "strength": 12,
    "iq": 42,
    "durability": 18,
@@ -1169,7 +1169,7 @@
   {
    "name": "Yoichi Isagi",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp11696545.png",
    "strength": 30,
    "iq": 70,
    "durability": 30,
@@ -1180,7 +1180,7 @@
   {
    "name": "Meguru Bachira",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://wallpaperaccess.com/full/8877155.jpg",
    "strength": 35,
    "iq": 52,
    "durability": 30,
@@ -1191,7 +1191,7 @@
   {
    "name": "Rin Itoshi",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/0e/49/bb/0e49bbafa477818b103e7acca0f81a57.jpg",
    "strength": 51,
    "iq": 73,
    "durability": 43,
@@ -1202,7 +1202,7 @@
   {
    "name": "Seishiro Nagi",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://wallpaperbat.com/img/89600399-nagi-seishiro-wallpaper.jpg",
    "strength": 43,
    "iq": 62,
    "durability": 43,
@@ -1213,9 +1213,9 @@
   {
    "name": "Shoei Barou",
    "source": "Blue Lock",
-   "image": "",
-   "strength": 55,
-   "iq": 42,
+   "image": "https://wallpaperaccess.com/full/8887411.png",
+   "strength": 75,
+   "iq": 32,
    "durability": 51,
    "speed": 43,
    "ability": 54,
@@ -1224,7 +1224,7 @@
   {
    "name": "Hyoma Chigiri",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/32/5c/b0/325cb0a8395e02d407663756cad509b6.jpg",
    "strength": 22,
    "iq": 44,
    "durability": 22,
@@ -1235,7 +1235,7 @@
   {
    "name": "Reo Mikage",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://wallpaperaccess.com/full/9362150.jpg",
    "strength": 30,
    "iq": 65,
    "durability": 30,
@@ -1246,7 +1246,7 @@
   {
    "name": "Ryusei Shidou",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp14763363.jpg",
    "strength": 55,
    "iq": 34,
    "durability": 43,
@@ -1257,10 +1257,10 @@
   {
    "name": "Oliver Aiku",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/5d/76/e6/5d76e6d7967ef4e8d46834a63e83045d.jpg?nii=t",
    "strength": 43,
    "iq": 65,
-   "durability": 51,
+   "durability": 61,
    "speed": 40,
    "ability": 47,
    "universe": "Blue Lock"
@@ -1268,7 +1268,7 @@
   {
    "name": "Rensuke Kunigami",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://wallpaperaccess.com/full/9050465.jpg",
    "strength": 60,
    "iq": 34,
    "durability": 55,
@@ -1279,7 +1279,7 @@
   {
    "name": "Tabito Karasu",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/37/a2/50/37a250f1e917737337068dc3121fb14d.jpg",
    "strength": 30,
    "iq": 70,
    "durability": 30,
@@ -1290,7 +1290,7 @@
   {
    "name": "Jyubei Aryu",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://wallpaperaccess.com/full/9630565.jpg",
    "strength": 35,
    "iq": 38,
    "durability": 43,
@@ -1301,7 +1301,7 @@
   {
    "name": "Gin Gagamaru",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp12520844.jpg",
    "strength": 40,
    "iq": 34,
    "durability": 43,
@@ -1312,7 +1312,7 @@
   {
    "name": "Sae Itoshi",
    "source": "Blue Lock",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/df/42/7a/df427a1543be669bf789abe26d39b2a6.jpg?nii=t",
    "strength": 43,
    "iq": 80,
    "durability": 40,
@@ -1321,9 +1321,9 @@
    "universe": "Blue Lock"
   },
   {
-   "name": "Denji",
+   "name": "Denji (Human)",
    "source": "Chainsaw Man",
-   "image": "",
+   "image": "https://comicbook.com/wp-content/uploads/sites/4/2025/07/Chainsaw-Man-Denji-Reze-Arc-anime-movie.jpg",
    "strength": 51,
    "iq": 22,
    "durability": 55,
@@ -1332,9 +1332,20 @@
    "universe": "Anime Mix"
   },
   {
+   "name": "Denji (Chainsaw-Man)",
+   "source": "Chainsaw Man",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/054a91f2-3cd8-45d1-89f2-dd4828550aeb/dkxfcgd-7987b725-f3f9-4c98-998c-e2ca79f13b36.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiIvZi8wNTRhOTFmMi0zY2Q4LTQ1ZDEtODlmMi1kZDQ4Mjg1NTBhZWIvZGt4ZmNnZC03OTg3YjcyNS1mM2Y5LTRjOTgtOTk4Yy1lMmNhNzlmMTNiMzYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.FTYXxsYDXEWs_OriahJlPqsfAIQ_jxy7OfaFPjkF7o0",
+   "strength": 71,
+   "iq": 32,
+   "durability": 85,
+   "speed": 63,
+   "ability": 91,
+   "universe": "Anime Mix"
+  },
+  {
    "name": "Power",
    "source": "Chainsaw Man",
-   "image": "",
+   "image": "https://th.bing.com/th/id/R.0fe0f5b1cac5628a0795563c17fa649b?rik=MMWJqTw0B0OqhA&pid=ImgRaw&r=0",
    "strength": 43,
    "iq": 17,
    "durability": 40,
@@ -1345,7 +1356,7 @@
   {
    "name": "Makima",
    "source": "Chainsaw Man",
-   "image": "",
+   "image": "https://tse3.mm.bing.net/th/id/OIP.huEKMX4sP0NWgV4r_YQaIwHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 30,
    "iq": 80,
    "durability": 40,
@@ -1354,9 +1365,20 @@
    "universe": "Anime Mix"
   },
   {
+   "name": "Aki",
+   "source": "Chainsaw Man",
+   "image": "https://i.pinimg.com/originals/40/51/ca/4051cabfe5eb0d533ff916495687c138.png",
+   "strength": 56,
+   "iq": 66,
+   "durability": 50,
+   "speed": 40,
+   "ability": 73,
+   "universe": "Anime Mix"
+  },
+  {
    "name": "Asta",
    "source": "Black Clover",
-   "image": "",
+   "image": "https://4kwallpapers.com/images/wallpapers/asta-black-clover-3840x2160-12455.jpeg",
    "strength": 60,
    "iq": 34,
    "durability": 60,
@@ -1367,7 +1389,7 @@
   {
    "name": "Yuno",
    "source": "Black Clover",
-   "image": "",
+   "image": "https://www.thedigitalfix.com/wp-content/sites/thedigitalfix/2023/04/best-black-clover-characters-yuno.jpg",
    "strength": 51,
    "iq": 65,
    "durability": 43,
@@ -1378,7 +1400,7 @@
   {
    "name": "Jotaro Kujo",
    "source": "JoJo's Bizarre Adventure",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/cd/97/f1/cd97f101e2603a65a826b184aa4ab58a.jpg",
    "strength": 51,
    "iq": 62,
    "durability": 51,
@@ -1389,7 +1411,7 @@
   {
    "name": "Dio Brando",
    "source": "JoJo's Bizarre Adventure",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/12/6e/b5/126eb5c81d5f5ef9bd3696950151783e.jpg",
    "strength": 55,
    "iq": 65,
    "durability": 65,
