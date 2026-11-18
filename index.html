@@ -134,9 +134,10 @@ button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulat
 .row.p2{grid-template-columns:1fr 5.5rem 1fr}
 .row.p4{grid-template-columns:1fr 1fr 4.5rem 1fr 1fr}
 
-/* row reveal animation */
-.row-inner{opacity:0;transform:translateY(1.5rem);transition:opacity .4s ease,transform .4s ease}
-.row-inner.show{opacity:1;transform:translateY(0)}
+/* row reveal — row-inner IS the grid, so sides animate together */
+.row-inner{display:contents}
+.row{opacity:0;transform:translateY(1.5rem);transition:opacity .45s ease,transform .45s ease}
+.row.show{opacity:1;transform:translateY(0)}
 
 .side{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.4rem .5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.2rem;text-align:center;transition:background .4s,border-color .4s,transform .3s,box-shadow .3s}
 .side-av{width:3.4rem;height:3.4rem;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;color:#fff;overflow:hidden;flex-shrink:0;border:.15rem solid rgba(255,255,255,.2)}
@@ -145,14 +146,14 @@ button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulat
 .side .num{font-family:Impact,sans-serif;font-size:2rem;line-height:1}
 .side .r-badge-sm{font-size:.7rem;padding:.1rem .4rem;border-radius:1rem;border:.1rem solid currentColor;text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-top:.1rem}
 
-.row-inner.show .side.win{border-color:var(--c);background:var(--c);color:var(--ink);transform:scale(1.04);box-shadow:0 .3rem 1.2rem rgba(0,0,0,.4)}
-.row-inner.show .side.lose{opacity:.45}
-.row-inner.show .side.tie{border-color:var(--gold);background:rgba(255,210,63,.15)}
+.row.show .side.win{border-color:var(--c);background:var(--c);color:var(--ink);transform:scale(1.05);box-shadow:0 .3rem 1.4rem rgba(0,0,0,.5)}
+.row.show .side.lose{opacity:.4}
+.row.show .side.tie{border-color:var(--gold);background:rgba(255,210,63,.12)}
 
-/* clash flash between sides */
-.clash{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:2.5rem;opacity:0;z-index:10;pointer-events:none}
-.clash.fire{animation:clashPop .6s ease forwards}
-@keyframes clashPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.4)}70%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.8)}}
+/* clash flash — sits inside .mid so it's always centred */
+.clash{display:block;font-size:2.4rem;opacity:0;pointer-events:none;line-height:1}
+.clash.fire{animation:clashPop .65s ease forwards}
+@keyframes clashPop{0%{opacity:0;transform:scale(.2)}25%{opacity:1;transform:scale(1.5)}60%{opacity:1;transform:scale(1.1)}100%{opacity:0;transform:scale(.7)}}
 
 .mid{text-align:center;font-size:.95rem;color:var(--dim);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.12rem}
 .mid span{font-size:1.6rem}
@@ -228,62 +229,67 @@ document.addEventListener("touchstart",()=>{clearTimeout(idle);idle=setTimeout(t
 
 /* ═══════════════════════════════════════
    LOOKUP
+   Uses data-idx so no string escaping needed.
+   Event delegation on document handles taps
+   after any innerHTML swap.
 ═══════════════════════════════════════ */
-// Wraps a character name as a tappable lookup link
-function cnLink(ch,extraClass=""){
-  const safe=ch.name.replace(/"/g,"&quot;").replace(/'/g,"&#39;");
-  const src=ch.source.replace(/"/g,"&quot;").replace(/'/g,"&#39;");
-  return `<span class="cn-link ${extraClass}" onclick="showLookup('${safe}','${src}')">${ch.name}</span>`;
+// Store lookup targets by index so HTML attributes stay safe
+const _lookupMap=[];
+function cnLink(ch){
+  let idx=_lookupMap.findIndex(c=>c===ch);
+  if(idx<0){idx=_lookupMap.length;_lookupMap.push(ch);}
+  return `<span class="cn-link" data-lookup="${idx}">${ch.name}</span>`;
 }
 
-function showLookup(name,source){
-  // remove any existing overlay
+// Single delegated listener — survives innerHTML swaps
+document.addEventListener("click",e=>{
+  const el=e.target.closest("[data-lookup]");
+  if(el){e.stopPropagation();showLookup(_lookupMap[+el.dataset.lookup]);}
+});
+document.addEventListener("touchend",e=>{
+  const el=e.target.closest("[data-lookup]");
+  if(el){e.preventDefault();e.stopPropagation();showLookup(_lookupMap[+el.dataset.lookup]);}
+},{passive:false});
+
+function showLookup(ch){
+  if(!ch)return;
   const existing=document.getElementById("lookup-overlay");
   if(existing)existing.remove();
-
-  // find character data for avatar
-  const ch=CHARS.find(c=>c.name===name)||{name,source,image:""};
-  const r=getRarity(ch);
 
   const overlay=document.createElement("div");
   overlay.className="lookup-overlay";
   overlay.id="lookup-overlay";
 
-  // search queries
-  const q1=encodeURIComponent(`${name} ${source}`);
-  const q2=encodeURIComponent(`${name} wiki`);
-  const q3=encodeURIComponent(`${name} ${source} powers abilities`);
+  // Build search URLs
+  const q1=encodeURIComponent(ch.name+" "+ch.source);
+  const q2=encodeURIComponent(ch.name+" wiki");
+  const q3=encodeURIComponent(ch.name+" "+ch.source+" powers abilities");
+  const urls=["https://www.google.com/search?q="+q1,"https://www.google.com/search?q="+q2,"https://www.google.com/search?q="+q3];
 
   overlay.innerHTML=`
     <div class="lookup-sheet">
       <div class="lookup-header">
         <div class="lookup-av">${avatarHTML(ch,"6rem")}</div>
         <div class="lookup-info">
-          <div class="lookup-name display">${name}</div>
-          <div class="lookup-src">${source}</div>
+          <div class="lookup-name display">${ch.name}</div>
+          <div class="lookup-src">${ch.source}</div>
           <div style="margin-top:.4rem">${rarityBadge(ch)}</div>
         </div>
       </div>
       <div class="lookup-btns">
-        <button class="lookup-btn" id="lk1">
+        <button class="lookup-btn lkb" data-url="${urls[0]}">
           <span class="lk-icon">🔍</span>
-          <span class="lk-label">Search Google
-            <span class="lk-sub">${name}, ${source}</span>
-          </span>
+          <span class="lk-label">Search Google<span class="lk-sub">${ch.name}, ${ch.source}</span></span>
           <span style="color:var(--dim);font-size:1.3rem">↗</span>
         </button>
-        <button class="lookup-btn" id="lk2">
+        <button class="lookup-btn lkb" data-url="${urls[1]}">
           <span class="lk-icon">📖</span>
-          <span class="lk-label">Find Wiki page
-            <span class="lk-sub">${name} wiki</span>
-          </span>
+          <span class="lk-label">Find Wiki page<span class="lk-sub">${ch.name} wiki</span></span>
           <span style="color:var(--dim);font-size:1.3rem">↗</span>
         </button>
-        <button class="lookup-btn" id="lk3">
+        <button class="lookup-btn lkb" data-url="${urls[2]}">
           <span class="lk-icon">⚡</span>
-          <span class="lk-label">Powers &amp; Abilities
-            <span class="lk-sub">${name} ${source} powers abilities</span>
-          </span>
+          <span class="lk-label">Powers &amp; Abilities<span class="lk-sub">${ch.name} ${ch.source} powers</span></span>
           <span style="color:var(--dim);font-size:1.3rem">↗</span>
         </button>
       </div>
@@ -292,19 +298,33 @@ function showLookup(name,source){
 
   document.body.appendChild(overlay);
 
-  document.getElementById("lk1").onclick=()=>{window.open(`https://www.google.com/search?q=${q1}`,"_blank");closeLookup()};
-  document.getElementById("lk2").onclick=()=>{window.open(`https://www.google.com/search?q=${q2}`,"_blank");closeLookup()};
-  document.getElementById("lk3").onclick=()=>{window.open(`https://www.google.com/search?q=${q3}`,"_blank");closeLookup()};
+  // Attach search button listeners — use anchor-click trick so kiosk doesn't block
+  overlay.querySelectorAll(".lkb").forEach(btn=>{
+    btn.addEventListener("touchend",e=>{
+      e.preventDefault();
+      const a=document.createElement("a");
+      a.href=btn.dataset.url;a.target="_blank";a.rel="noopener";
+      document.body.appendChild(a);a.click();a.remove();
+      closeLookup();
+    },{passive:false});
+    btn.onclick=()=>{
+      const a=document.createElement("a");
+      a.href=btn.dataset.url;a.target="_blank";a.rel="noopener";
+      document.body.appendChild(a);a.click();a.remove();
+      closeLookup();
+    };
+  });
+
+  document.getElementById("lk-close").addEventListener("touchend",e=>{e.preventDefault();closeLookup();},{passive:false});
   document.getElementById("lk-close").onclick=closeLookup;
-  // tap backdrop to dismiss
-  overlay.addEventListener("touchstart",(e)=>{if(e.target===overlay)closeLookup()},{passive:true});
+  overlay.addEventListener("touchend",e=>{if(e.target===overlay){e.preventDefault();closeLookup();}},{passive:false});
+  overlay.onclick=e=>{if(e.target===overlay)closeLookup();};
 }
 
 function closeLookup(){
   const o=document.getElementById("lookup-overlay");
   if(!o)return;
-  o.style.animation="overlayIn .15s ease reverse";
-  o.querySelector(".lookup-sheet").style.animation="sheetUp .2s cubic-bezier(.22,.61,.36,1) reverse";
+  o.style.transition="opacity .18s";o.style.opacity="0";
   setTimeout(()=>o.remove(),200);
 }
 
@@ -657,14 +677,14 @@ function battle(){
         const ch=t[c[0]];const w=catWinners[ci][pi];
         return `<div class="side c${pi+1} ${w?"win":"lose"}">${sideAvHTML(ch)}<div class="n">${pn(pi)}: ${cnLink(ch)}</div><div class="num">${ch[c[0]]}</div>${rarityBadgeSm(ch)}</div>`;
       });
-      return `<div class="row p4" id="r${ci}"><div class="row-inner" id="ri${ci}">${sides[0]}${sides[1]}<div class="mid"><span>${c[2]}</span>${c[1]}</div>${sides[2]}${sides[3]}<div class="clash" id="cl${ci}">${clashIcon}</div></div></div>`;
+      return `<div class="row p4" id="r${ci}"><div class="row-inner">${sides[0]}${sides[1]}<div class="mid"><span>${c[2]}</span>${c[1]}<span class="clash" id="cl${ci}">${clashIcon}</span></div>${sides[2]}${sides[3]}</div></div>`;
     } else {
       const a=S.teams[0][c[0]],b=S.teams[1][c[0]];
       const aw=catWinners[ci][0],bw=catWinners[ci][1];
       const tie=aw&&bw;
-      return `<div class="row p2" id="r${ci}"><div class="row-inner" id="ri${ci}">
+      return `<div class="row p2" id="r${ci}"><div class="row-inner">
         <div class="side c1 ${tie?"tie":aw?"win":"lose"}">${sideAvHTML(a)}<div class="n">${cnLink(a)}</div><div class="num">${a[c[0]]}</div>${rarityBadgeSm(a)}</div>
-        <div class="mid"><span>${c[2]}</span>${c[1]}<div class="clash" id="cl${ci}">${clashIcon}</div></div>
+        <div class="mid"><span>${c[2]}</span>${c[1]}<span class="clash" id="cl${ci}">${clashIcon}</span></div>
         <div class="side c2 ${tie?"tie":bw?"win":"lose"}">${sideAvHTML(b)}<div class="n">${cnLink(b)}</div><div class="num">${b[c[0]]}</div>${rarityBadgeSm(b)}</div>
       </div></div>`;
     }
