@@ -4,772 +4,496 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Mashup Brawl</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Barlow:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
-/* ═══════════ BASE ═══════════ */
+/* ═══ TOKENS ═══ */
 :root{
-  --ink:#0d0b1e;--panel:#1a1740;--line:#322d6a;
-  --p1:#ff5a36;--p2:#2ec4ff;--p3:#7cff6b;--p4:#ff6bde;
-  --gold:#ffd23f;--paper:#f6f1ff;--dim:#9a94c9;--curse:#b44fff;
-  --r-common:#9a94c9;--r-uncommon:#4ade80;--r-rare:#60a5fa;
-  --r-epic:#c084fc;--r-legendary:#fbbf24;--r-mythic:#ff6b6b;
+  --bg:#0c1020;--bg2:#131a36;--card:#1a2247;--line:#2c3668;--chalk:#e9edf8;--dim:#8f9acb;
+  --gold:#ffc83d;--curse:#b36bff;
+  --p1:#ff6a3d;--p2:#3cc8ff;--p3:#b4f23c;--p4:#ff7ad9;
+  --common:#8f9acb;--uncommon:#46d68a;--rare:#4aa8ff;--epic:#b980ff;--legendary:#ffc83d;--mythic:#ff5470;
+  --disp:"Big Shoulders Display","Barlow Condensed","Arial Narrow",Impact,sans-serif;
+  --body:"Barlow","Segoe UI",system-ui,sans-serif;
 }
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;margin:0;padding:0}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
 html{font-size:min(3.1vw,1.75vh)}
-html,body{height:100%;overflow:hidden;background:var(--ink);color:var(--paper);touch-action:manipulation;overscroll-behavior:none;font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif}
-button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulation}
-.display{font-family:Impact,"Arial Black",sans-serif;letter-spacing:.04em;text-transform:uppercase}
-#app{height:100%;display:flex;flex-direction:column;padding:1.3rem;gap:.9rem}
+html,body{height:100%;overflow:hidden;background:var(--bg);color:var(--chalk);font-family:var(--body);font-weight:600;touch-action:manipulation;overscroll-behavior:none}
+body{background:radial-gradient(120% 70% at 50% 0%,#1a2352 0%,transparent 60%),repeating-linear-gradient(115deg,transparent 0 3.4rem,rgba(255,255,255,.022) 3.4rem 3.55rem),var(--bg)}
+button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-action:manipulation}
+.d{font-family:var(--disp);font-weight:900;letter-spacing:.02em;text-transform:uppercase;line-height:.95}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:50}
+#app{position:relative;z-index:1;height:100%;display:flex;flex-direction:column;gap:.9rem;padding:calc(1.2rem + env(safe-area-inset-top)) 1.3rem calc(1.2rem + env(safe-area-inset-bottom))}
 .c1{--c:var(--p1)}.c2{--c:var(--p2)}.c3{--c:var(--p3)}.c4{--c:var(--p4)}
+.fill{flex:1;min-height:0}
+.scroll{flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+.scroll::-webkit-scrollbar{display:none}
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.4rem;text-align:center;min-height:0}
+.muted{color:var(--dim)}
 
-/* ═══════════ PARTICLES CANVAS ═══════════ */
-#particles{position:fixed;inset:0;pointer-events:none;z-index:0}
-#app{position:relative;z-index:1}
+/* ═══ BUTTONS ═══ */
+.btn{background:var(--gold);color:#241a00;font-size:2.3rem;padding:1rem 2.8rem;border-radius:1rem;box-shadow:0 .4rem 0 #a97d00;transition:transform .08s,box-shadow .08s;white-space:nowrap}
+.btn:active{transform:translateY(.35rem);box-shadow:0 .05rem 0 #a97d00}
+.btn.pc{background:var(--c);color:#14101a;box-shadow:0 .4rem 0 rgba(0,0,0,.45)}
+.btn.pc:active{box-shadow:0 .05rem 0 rgba(0,0,0,.45)}
+.btn.ghost{background:transparent;color:var(--dim);box-shadow:none;border:.18rem solid var(--line);font-size:1.5rem;padding:.65rem 1.8rem}
+.btn.ghost:active{background:var(--line);transform:none}
+.btn.sm{font-size:1.9rem;padding:.85rem 2.2rem}
+.row-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;align-items:center}
 
-/* ═══════════ TITLE ═══════════ */
-.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.5rem}
-.title{font-size:6rem;line-height:.9;transform:rotate(-3deg);text-shadow:.35rem .35rem 0 var(--p1),-.3rem -.3rem 0 var(--p2);animation:titleFloat 3s ease-in-out infinite}
-@keyframes titleFloat{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-.6rem)}}
-.sub{font-size:1.5rem;color:var(--dim);max-width:32rem;line-height:1.4}
-.big{background:var(--gold);color:var(--ink);font-size:2.3rem;padding:1.1rem 2.8rem;border-radius:1rem;box-shadow:0 .5rem 0 #b38b00;transition:transform .08s,box-shadow .08s;white-space:nowrap;position:relative;overflow:hidden}
-.big::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.25) 0%,transparent 50%);pointer-events:none}
-.big:active{transform:translateY(.4rem);box-shadow:0 .1rem 0 #b38b00}
-.big.ghost{background:transparent;color:var(--dim);box-shadow:none;border:.2rem solid var(--line);font-size:1.5rem;padding:.7rem 1.8rem}
-.big.ghost:active{background:var(--line)}
-.big.c1,.big.c2,.big.c3,.big.c4{background:var(--c);box-shadow:0 .5rem 0 rgba(0,0,0,.5)}
+/* ═══ TOP BAR ═══ */
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-shrink:0}
+.mark{font-size:1.5rem;color:var(--dim)}
+.chip{display:inline-flex;align-items:center;gap:.5rem;font-size:1.05rem;padding:.3rem .9rem;border-radius:2rem;background:var(--bg2);border:.12rem solid var(--line);color:var(--dim)}
+.chip.curse{color:var(--curse);border-color:var(--curse)}
+.pips{display:flex;gap:.35rem}
+.pips i{width:.8rem;height:.8rem;border-radius:50%;background:var(--line)}
+.pips i.on{background:var(--c,var(--gold))}
+.pips i.now{background:var(--c,var(--gold));box-shadow:0 0 .7rem var(--c,var(--gold))}
 
-/* ═══════════ MODES ═══════════ */
-.modes{display:flex;flex-direction:column;gap:.85rem;width:100%;max-width:38rem}
-.mode-btn{display:flex;align-items:center;gap:1.2rem;background:var(--panel);border:.2rem solid var(--line);border-radius:1.2rem;padding:1rem 1.4rem;text-align:left;width:100%;transition:border-color .15s,background .15s,transform .08s}
-.mode-btn:active{border-color:var(--gold);background:#2a255a;transform:scale(.98)}
-.mode-icon{font-size:2.5rem;flex-shrink:0;width:3rem;text-align:center}
-.mode-title{font-size:1.75rem;line-height:1;color:var(--paper)}
-.mode-title.curse{color:var(--curse)}
-.mode-desc{font-size:1.05rem;color:var(--dim);margin-top:.2rem}
+/* ═══ TITLE ═══ */
+.fan{position:relative;width:100%;height:21rem;margin-top:-1rem}
+.fan .mini{position:absolute;left:50%;top:0;width:12.5rem;margin-left:-6.25rem;transform-origin:50% 120%;transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.fan .mini:nth-child(1){transform:rotate(-13deg) translateX(-5rem)}
+.fan .mini:nth-child(2){transform:translateY(-1.2rem);z-index:2}
+.fan .mini:nth-child(3){transform:rotate(13deg) translateX(5rem)}
+.wordmark{font-size:7.2rem;line-height:.84;letter-spacing:.01em}
+.wordmark span{display:block}
+.wordmark .b{color:var(--gold);margin-left:2.2rem}
+.tag{font-size:1.45rem;max-width:28rem;line-height:1.4;color:var(--dim);font-weight:500}
+.stats-line{display:flex;gap:1.8rem;font-size:1.15rem;color:var(--dim)}
+.stats-line b{display:block;font-family:var(--disp);font-weight:900;font-size:2.2rem;color:var(--chalk);line-height:1}
 
-/* ═══════════ UNIVERSE ═══════════ */
-.uni-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;width:100%;overflow-y:auto;flex:1}
-.uni-btn{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.85rem .7rem;font-size:1.35rem;text-align:center;line-height:1.3;transition:.12s}
-.uni-btn:active{border-color:var(--gold);background:#2a255a;color:var(--gold)}
+/* ═══ MODE / UNIVERSE LISTS ═══ */
+.head{font-size:3.2rem;text-align:center;flex-shrink:0}
+.modes{display:flex;flex-direction:column;gap:.8rem;width:100%}
+.mode{display:flex;align-items:center;gap:1.1rem;width:100%;text-align:left;background:var(--bg2);border:.16rem solid var(--line);border-left:.55rem solid var(--m,var(--gold));border-radius:1rem;padding:1rem 1.2rem;transition:transform .08s,background .1s}
+.mode:active{background:var(--card);transform:scale(.985)}
+.mode .t{font-size:2.1rem}
+.mode .s{font-size:1.1rem;color:var(--dim);margin-top:.2rem;font-weight:500}
+.mode .pips{margin-left:auto}
+.mode.curse{--m:var(--curse)}
+.uni-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;padding-bottom:.5rem}
+.uni{background:var(--bg2);border:.16rem solid var(--line);border-radius:.9rem;padding:.8rem .9rem;text-align:left;display:flex;flex-direction:column;gap:.2rem;transition:.1s}
+.uni:active{border-color:var(--gold);background:var(--card)}
+.uni .n{font-size:1.55rem;line-height:1.05}
+.uni .k{font-size:1rem;color:var(--dim);font-weight:500}
 
-/* ═══════════ BOARD ═══════════ */
-.board{display:grid;gap:.6rem}
-.board.p2{grid-template-columns:1fr 1fr}
-.board.p4{grid-template-columns:1fr 1fr}
-.board.p1{grid-template-columns:1fr}
-.team{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.65rem .85rem;transition:border-color .2s,box-shadow .2s}
-.team.active{border-color:var(--c);box-shadow:0 0 1.4rem -.2rem var(--c)}
-.team h3{font-size:1.4rem;color:var(--c);margin-bottom:.35rem}
-.slot{display:flex;justify-content:space-between;gap:.4rem;font-size:.9rem;padding:.18rem 0;border-top:.1rem solid var(--line);color:var(--dim)}
-.slot b{color:var(--paper);font-weight:600;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}
-.banner{font-size:2.4rem;text-align:center;color:var(--c);flex-shrink:0}
+/* ═══ AVATAR / CARD ═══ */
+.av{--h:200;position:relative;width:var(--s,5rem);height:var(--s,5rem);border-radius:.9rem;overflow:hidden;flex-shrink:0;background:linear-gradient(150deg,hsl(var(--h) 55% 46%),hsl(calc(var(--h) + 40) 60% 24%));display:grid;place-items:center}
+.av .mono{font-family:var(--disp);font-weight:900;font-size:calc(var(--s,5rem)*.42);color:rgba(255,255,255,.9);letter-spacing:.02em}
+.av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;opacity:0;transition:opacity .25s}
+.av.ok img{opacity:1}.av.ok .mono{opacity:0}
 
-/* ═══════════ RARITY ═══════════ */
-.rarity-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.25rem .8rem;border-radius:2rem;font-size:1.1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:.15rem solid currentColor}
-.r-common   {color:var(--r-common);  background:rgba(154,148,201,.12)}
-.r-uncommon {color:var(--r-uncommon);background:rgba(74,222,128,.12)}
-.r-rare     {color:var(--r-rare);    background:rgba(96,165,250,.12)}
-.r-epic     {color:var(--r-epic);    background:rgba(192,132,252,.12)}
-.r-legendary{color:var(--r-legendary);background:rgba(251,191,36,.12)}
-.r-mythic   {color:var(--r-mythic);  background:rgba(255,107,107,.12);animation:mythicPulse 1.5s ease-in-out infinite}
-@keyframes mythicPulse{0%,100%{box-shadow:0 0 .4rem var(--r-mythic)}50%{box-shadow:0 0 1.2rem var(--r-mythic),0 0 2rem rgba(255,107,107,.4)}}
+.card{--rc:var(--common);position:relative;width:100%;background:var(--card);border:.24rem solid var(--rc);border-radius:1.2rem;padding:.8rem;display:flex;flex-direction:column;gap:.7rem;overflow:hidden}
+.card .av{width:100%;height:auto;aspect-ratio:1/1;--s:11rem}
+.card .nm{font-size:2.6rem}
+.card .src{font-size:1.15rem;color:var(--dim);font-weight:500;margin-top:.2rem}
+.card .foil{display:flex;justify-content:space-between;align-items:center;background:var(--rc);color:#10131f;border-radius:.6rem;padding:.35rem .8rem;font-size:1.35rem}
+.card.h{flex-direction:row;align-items:center;gap:1rem;padding:.7rem}
+.card.h .av{width:6.5rem;height:6.5rem;--s:6.5rem;aspect-ratio:auto}
+.card.h .info{flex:1;text-align:left;display:flex;flex-direction:column;gap:.35rem}
+.card.h .nm{font-size:2.3rem}
+.card.h .foil{align-self:flex-start;gap:.5rem}
+.mini{width:12.5rem}
+.mini .av{--s:10.5rem;width:100%;height:auto;aspect-ratio:1/1}
+.mini .nm{font-size:1.5rem}
+.mini .foil{font-size:1rem;padding:.2rem .6rem}
+.mini .card{padding:.55rem;gap:.5rem}
+.r-common{--rc:var(--common)}.r-uncommon{--rc:var(--uncommon)}.r-rare{--rc:var(--rare)}.r-epic{--rc:var(--epic)}.r-legendary{--rc:var(--legendary)}.r-mythic{--rc:var(--mythic)}
+.card.r-rare{box-shadow:0 0 1.6rem -.2rem var(--rc)}
+.card.r-epic{box-shadow:0 0 2.2rem -.1rem var(--rc)}
+.card.r-legendary{box-shadow:0 0 2.8rem 0 var(--rc)}
+.card.r-mythic{box-shadow:0 0 3.4rem .1rem var(--rc)}
+.card.r-legendary::after,.card.r-mythic::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(255,255,255,.22) 50%,transparent 65%);transform:translateX(-120%);animation:sweep 2.6s ease-in-out infinite;pointer-events:none}
+@keyframes sweep{0%,30%{transform:translateX(-120%)}70%,100%{transform:translateX(120%)}}
+.flip{animation:flip .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes flip{0%{transform:rotateY(90deg) scale(.9);opacity:0}100%{transform:none;opacity:1}}
+.spin .nm{opacity:.55}
+.rflash{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:0;transition:opacity .15s}
+.rflash.go{opacity:1}
 
-/* ═══════════ ROLL CARD ═══════════ */
-.roll-card{background:var(--panel);border:.25rem solid var(--c);border-radius:1.4rem;padding:1.3rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;flex-shrink:0;position:relative;overflow:hidden;transition:border-color .3s}
-.roll-card.reveal-common   {border-color:var(--r-common)}
-.roll-card.reveal-uncommon {border-color:var(--r-uncommon);box-shadow:0 0 1.5rem rgba(74,222,128,.3)}
-.roll-card.reveal-rare     {border-color:var(--r-rare);box-shadow:0 0 2rem rgba(96,165,250,.4)}
-.roll-card.reveal-epic     {border-color:var(--r-epic);box-shadow:0 0 2rem rgba(192,132,252,.5);animation:epicShimmer 2s ease-in-out infinite}
-.roll-card.reveal-legendary{border-color:var(--r-legendary);box-shadow:0 0 3rem rgba(251,191,36,.6);animation:legendaryShimmer 1.5s ease-in-out infinite}
-.roll-card.reveal-mythic   {border-color:var(--r-mythic);box-shadow:0 0 4rem rgba(255,107,107,.7);animation:mythicCard 1s ease-in-out infinite}
-@keyframes epicShimmer{0%,100%{box-shadow:0 0 2rem rgba(192,132,252,.5)}50%{box-shadow:0 0 3rem rgba(192,132,252,.8),inset 0 0 2rem rgba(192,132,252,.1)}}
-@keyframes legendaryShimmer{0%,100%{box-shadow:0 0 3rem rgba(251,191,36,.6)}50%{box-shadow:0 0 5rem rgba(251,191,36,1),inset 0 0 2rem rgba(251,191,36,.15)}}
-@keyframes mythicCard{0%,100%{box-shadow:0 0 4rem rgba(255,107,107,.7),0 0 1rem rgba(255,107,107,.4)}50%{box-shadow:0 0 7rem rgba(255,107,107,1),0 0 2rem rgba(255,107,107,.8),inset 0 0 3rem rgba(255,107,107,.2)}}
+/* ═══ BOARD ═══ */
+.board{display:grid;gap:.6rem;flex-shrink:0}
+.board.n2,.board.n4{grid-template-columns:1fr 1fr}
+.team{background:var(--bg2);border:.16rem solid var(--line);border-radius:.9rem;padding:.55rem .75rem .45rem;transition:border-color .2s,box-shadow .2s}
+.team.active{border-color:var(--c);box-shadow:0 0 1.3rem -.3rem var(--c)}
+.team h3{font-size:1.45rem;color:var(--c);margin-bottom:.25rem;display:flex;align-items:center;gap:.5rem}
+.slot{display:flex;align-items:baseline;gap:.5rem;padding:.2rem 0;border-top:.1rem solid var(--line);font-size:.95rem}
+.slot em{font-style:normal;font-family:var(--disp);font-weight:800;color:var(--dim);width:2.6rem;flex-shrink:0;font-size:1rem}
+.slot b{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex:1}
+.slot b.empty{color:var(--line)}
+.curse-bar{background:rgba(179,107,255,.12);border:.14rem solid var(--curse);color:var(--curse);border-radius:.8rem;padding:.5rem .9rem;text-align:center;font-size:1.15rem;flex-shrink:0}
 
-/* rarity flash overlay */
-.rarity-flash{position:fixed;inset:0;z-index:100;pointer-events:none;opacity:0;transition:opacity .15s}
-.rarity-flash.go{opacity:1}
+/* ═══ TURN / ASSIGN ═══ */
+.who{font-size:3.4rem;color:var(--c)}
+.round{font-size:1.25rem;color:var(--dim);font-weight:500}
+.hint{font-size:1.35rem;text-align:center;flex-shrink:0;line-height:1.3}
+.hint small{display:block;font-size:1rem;color:var(--dim);margin-top:.2rem;font-weight:500}
+.picks{display:flex;flex-direction:column;gap:.55rem;flex:1;min-height:0}
+.pick{flex:1;display:flex;align-items:center;gap:1rem;background:var(--bg2);border:.16rem solid var(--line);border-radius:1rem;padding:.4rem 1.1rem;text-align:left;transition:transform .08s,background .1s,border-color .1s}
+.pick .ab{font-family:var(--disp);font-weight:900;font-size:1.3rem;width:4rem;padding:.3rem 0;text-align:center;border-radius:.5rem;background:var(--line);color:var(--chalk)}
+.pick .lb{font-size:1.9rem}
+.pick:active:not(:disabled){background:var(--c);color:#14101a;border-color:var(--c);transform:scale(.98)}
+.pick:active:not(:disabled) .ab{background:rgba(0,0,0,.25);color:inherit}
+.pick:disabled{opacity:.28}
+.pick.curse{border-color:var(--curse)}
+.pick.curse:active:not(:disabled){background:var(--curse);border-color:var(--curse)}
+.cn{border-bottom:.1rem dashed rgba(255,255,255,.35)}
 
-/* ═══════════ AVATAR ═══════════ */
-.avatar{border-radius:50%;display:grid;place-items:center;font-size:3rem;color:#fff;border:.3rem solid var(--paper);text-shadow:0 .15rem 0 rgba(0,0,0,.4);overflow:hidden;flex-shrink:0;transition:transform .3s}
-.avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.avatar.bounce{animation:avatarBounce .5s cubic-bezier(.36,.07,.19,.97)}
-@keyframes avatarBounce{0%,100%{transform:scale(1)}30%{transform:scale(1.18)}60%{transform:scale(.95)}80%{transform:scale(1.06)}}
+/* ═══ BATTLE ═══ */
+.scorebar{display:flex;justify-content:space-around;gap:.6rem;flex-shrink:0}
+.sc{display:flex;align-items:baseline;gap:.5rem;font-size:2.7rem;color:var(--c)}
+.sc small{font-size:1.1rem;color:var(--dim);font-family:var(--body);font-weight:600;text-transform:none;letter-spacing:0}
+.sc.pop{animation:pop .4s cubic-bezier(.36,.07,.19,.97)}
+@keyframes pop{40%{transform:scale(1.35)}}
+.blk{background:var(--bg2);border:.16rem solid var(--line);border-radius:1rem;padding:.6rem .8rem .7rem;display:flex;flex-direction:column;gap:.4rem;opacity:0;transform:translateY(1.2rem);transition:opacity .4s,transform .4s;flex-shrink:0;position:relative}
+.blk.show{opacity:1;transform:none}
+.blk h4{font-size:1.35rem;color:var(--dim);display:flex;justify-content:space-between;align-items:center}
+.blk h4 .clash{color:var(--gold);opacity:0;font-size:1.1rem}
+.blk.fired h4 .clash{animation:flash 1.1s ease-out forwards}
+@keyframes flash{0%{opacity:0;transform:scale(.6)}25%{opacity:1;transform:scale(1.2)}100%{opacity:0}}
+.ln{display:grid;grid-template-columns:2.6rem 1fr 3.8rem;align-items:center;gap:.7rem;padding:.25rem .3rem;border-radius:.7rem;transition:opacity .4s,background .4s}
+.ln .av{--s:2.6rem;border-radius:.5rem}
+.ln .mid{min-width:0;display:flex;flex-direction:column;gap:.2rem}
+.ln .who2{display:flex;justify-content:space-between;align-items:baseline;gap:.5rem;font-size:1rem;white-space:nowrap}
+.ln .who2 span{overflow:hidden;text-overflow:ellipsis}
+.ln .who2 i{font-style:normal;font-size:.78rem;color:var(--rc);font-weight:700}
+.ln .bar{height:.65rem;background:var(--line);border-radius:1rem;overflow:hidden}
+.ln .bar s{display:block;height:100%;width:0;background:var(--c);border-radius:1rem;transition:width 1s cubic-bezier(.2,.8,.2,1) .15s}
+.ln .v{font-family:var(--disp);font-weight:900;font-size:2.1rem;text-align:right;line-height:1}
+.ln.win{background:color-mix(in srgb,var(--c) 22%,transparent);box-shadow:inset .3rem 0 0 var(--c)}
+.ln.lose{opacity:.5}
+.ln.tie{background:rgba(255,200,61,.12)}
+.final{text-align:center;display:flex;flex-direction:column;gap:.9rem;align-items:center;padding:1rem 0 1.5rem;flex-shrink:0}
+.final .w{font-size:4.4rem;color:var(--gold);animation:pop2 .6s cubic-bezier(.36,.07,.19,.97)}
+@keyframes pop2{0%{transform:scale(.4);opacity:0}60%{transform:scale(1.12)}}
+.final .sub{font-size:1.25rem;color:var(--dim)}
 
-.cname{font-size:2.5rem;line-height:1;animation:none}
-.cname.pop{animation:namePop .4s cubic-bezier(.36,.07,.19,.97)}
-@keyframes namePop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
-.csrc{font-size:1.15rem;color:var(--dim)}
+/* ═══ SOLO ═══ */
+.solo-top{background:var(--bg2);border:.16rem solid var(--gold);border-radius:1.2rem;padding:1rem;text-align:center;flex-shrink:0}
+.solo-top .big{font-size:6rem;color:var(--gold)}
+.solo-top .gr{font-size:2rem;margin-top:.3rem}
+.srow{display:grid;grid-template-columns:4rem 1fr 3.5rem;align-items:center;gap:.8rem;padding:.55rem .2rem;border-top:.1rem solid var(--line);font-size:1.2rem}
+.srow .nm2{display:flex;flex-direction:column}
+.srow .nm2 small{color:var(--dim);font-weight:500;font-size:.95rem}
+.srow .ab{font-family:var(--disp);font-weight:900;font-size:1.3rem;color:var(--dim)}
+.srow .v{font-family:var(--disp);font-weight:900;font-size:2.2rem;text-align:right}
 
-/* ═══════════ ASSIGN ═══════════ */
-.assign-row{display:flex;gap:1rem;align-items:center}
-.assign-info{text-align:left;display:flex;flex-direction:column;gap:.35rem}
-.hint{text-align:center;font-size:1.3rem;color:var(--dim);flex-shrink:0}
-.hint.curse-hint{color:var(--curse)}
-.picks{display:flex;flex-direction:column;gap:.55rem;flex:1}
-.pick{display:flex;align-items:center;gap:.9rem;background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.85rem 1.2rem;font-size:2rem;text-align:left;flex:1;width:100%;transition:transform .08s,background .1s,border-color .1s}
-.pick .icon{font-size:2.1rem;line-height:1;flex-shrink:0}
-.pick .label{font-size:1.6rem;flex:1}
-.pick:active:not(:disabled){background:var(--c);color:var(--ink);transform:scale(.97)}
-.pick:disabled{opacity:.3}
-.pick.curse-pick{border-color:var(--curse)}
-.pick.curse-pick:active:not(:disabled){background:var(--curse)}
-
-/* ═══════════ SOLO ═══════════ */
-.solo-result{background:var(--panel);border:.2rem solid var(--gold);border-radius:1.2rem;padding:1rem 1.2rem;text-align:center;flex-shrink:0}
-.solo-score{font-size:5rem;color:var(--gold);line-height:1}
-.solo-grade{font-size:2.5rem;margin-top:.3rem}
-.solo-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-top:.1rem solid var(--line);font-size:1.2rem}
-.solo-row .cat{color:var(--dim)}
-.solo-row .val{font-family:Impact,sans-serif;font-size:1.8rem}
-
-/* ═══════════ BATTLE ═══════════ */
-.score{display:flex;justify-content:space-around;font-size:2.8rem;flex-shrink:0;flex-wrap:wrap;gap:.4rem}
-.score span{padding:0 .3rem;transition:transform .3s,color .3s}
-.score span.scored{animation:scorePop .4s cubic-bezier(.36,.07,.19,.97)}
-@keyframes scorePop{0%{transform:scale(1)}40%{transform:scale(1.4)}100%{transform:scale(1)}}
-
-.battle-wrap{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;gap:.65rem;padding-bottom:1rem}
-
-.row{display:grid;gap:.45rem;align-items:stretch;min-height:7.5rem;position:relative}
-.row.p2{grid-template-columns:1fr 5.5rem 1fr}
-.row.p4{grid-template-columns:1fr 1fr 4.5rem 1fr 1fr}
-
-/* row reveal — row-inner IS the grid, so sides animate together */
-.row-inner{display:contents}
-.row{opacity:0;transform:translateY(1.5rem) scale(.97);transition:opacity .4s ease,transform .4s ease;isolation:isolate}
-.row.show{opacity:1;transform:translateY(0) scale(1);animation:rowImpact .55s cubic-bezier(.2,.8,.2,1)}
-@keyframes rowImpact{0%{filter:brightness(2);transform:translateY(1.5rem) scale(.94)}55%{filter:brightness(1.35);transform:translateY(0) scale(1.015)}100%{filter:brightness(1);transform:translateY(0) scale(1)}}
-
-.side{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.4rem .5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.2rem;text-align:center;opacity:.35;transition:opacity .35s ease,background .4s,border-color .4s,transform .4s,box-shadow .4s;transform:scale(.94)}
-.row.show .side{opacity:1;transform:scale(1);animation:sideReveal .55s cubic-bezier(.2,.8,.2,1) both}
-.row.show.p2 .side:first-child,.row.show.p4 .side:nth-child(-n+2){animation-name:sideEnterLeft}
-.row.show.p2 .side:last-child,.row.show.p4 .side:nth-last-child(-n+2){animation-name:sideEnterRight}
-@keyframes sideReveal{from{opacity:0;transform:scale(.7) rotate(-3deg)}to{opacity:1;transform:scale(1) rotate(0)}}
-@keyframes sideEnterLeft{from{opacity:0;transform:translateX(-2rem) scale(.8)}to{opacity:1;transform:translateX(0) scale(1)}}
-@keyframes sideEnterRight{from{opacity:0;transform:translateX(2rem) scale(.8)}to{opacity:1;transform:translateX(0) scale(1)}}
-.side-av{width:3.4rem;height:3.4rem;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;color:#fff;overflow:hidden;flex-shrink:0;border:.15rem solid rgba(255,255,255,.2)}
-.side-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.side .n{font-size:.95rem;line-height:1.1}
-.side .num{font-family:Impact,sans-serif;font-size:2rem;line-height:1}
-.side .r-badge-sm{font-size:.7rem;padding:.1rem .4rem;border-radius:1rem;border:.1rem solid currentColor;text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-top:.1rem}
-
-.row.show .side.win{border-color:var(--c);background:var(--c);color:var(--ink);transform:scale(1.05);box-shadow:0 0 1.8rem var(--c),0 .3rem 1.4rem rgba(0,0,0,.5);animation:winnerPunch .55s cubic-bezier(.2,.8,.2,1) both}
-.row.show .side.lose{opacity:.42;filter:saturate(.45)}
-.row.show .side.tie{border-color:var(--gold);background:rgba(255,210,63,.12);box-shadow:0 0 1.2rem rgba(255,210,63,.3)}
-@keyframes winnerPunch{0%{transform:scale(.94)}45%{transform:scale(1.12)}100%{transform:scale(1.05)}}
-
-/* clash flash — sits inside .mid so it's always centred */
-.clash{display:block;font-size:2.4rem;opacity:0;pointer-events:none;line-height:1;filter:drop-shadow(0 0 .5rem var(--gold))}
-.clash.fire{animation:clashPop .8s cubic-bezier(.16,1,.3,1) forwards}
-.mid:has(.clash.fire){color:var(--gold);text-shadow:0 0 .8rem rgba(255,210,63,.65)}
-@keyframes clashPop{0%{opacity:0;transform:scale(.2)}25%{opacity:1;transform:scale(1.5)}60%{opacity:1;transform:scale(1.1)}100%{opacity:0;transform:scale(.7)}}
-
-.mid{text-align:center;font-size:.95rem;color:var(--dim);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.12rem}
-.mid span{font-size:1.6rem}
-
-.final{text-align:center;display:flex;flex-direction:column;gap:.9rem;align-items:center;padding:1rem 0 2rem;flex-shrink:0}
-.final .w{font-size:3.8rem;line-height:1;color:var(--gold)}
-.final .w.animate-win{animation:winBounce .6s cubic-bezier(.36,.07,.19,.97)}
-@keyframes winBounce{0%{transform:scale(.4) rotate(-10deg);opacity:0}60%{transform:scale(1.15) rotate(3deg)}100%{transform:scale(1) rotate(0);opacity:1}}
-
-.err{color:var(--gold);font-size:1.4rem;max-width:34rem;line-height:1.5}
-
-/* ═══════════ LOOKUP ═══════════ */
-.cn-link{cursor:pointer;border-bottom:.12rem dashed rgba(255,255,255,.35);transition:border-color .15s,color .15s;display:inline}
-.cn-link:active{color:var(--gold);border-color:var(--gold)}
-/* lookup modal */
-.lookup-overlay{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center;background:rgba(0,0,0,.55);backdrop-filter:blur(4px);animation:overlayIn .2s ease}
-@keyframes overlayIn{from{opacity:0}to{opacity:1}}
-.lookup-sheet{background:var(--panel);border:.2rem solid var(--line);border-radius:1.6rem 1.6rem 0 0;padding:1.4rem 1.4rem 2.4rem;width:100%;max-width:44rem;display:flex;flex-direction:column;gap:1rem;animation:sheetUp .25s cubic-bezier(.22,.61,.36,1)}
-@keyframes sheetUp{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.lookup-header{display:flex;align-items:center;gap:1rem}
-.lookup-av{flex-shrink:0}
-.lookup-info{flex:1;text-align:left}
-.lookup-name{font-size:2.2rem;line-height:1}
-.lookup-src{font-size:1.2rem;color:var(--dim)}
-.lookup-btns{display:flex;flex-direction:column;gap:.7rem}
-.lookup-btn{display:flex;align-items:center;gap:1rem;background:#0d0b1e;border:.2rem solid var(--line);border-radius:1rem;padding:1rem 1.3rem;font-size:1.6rem;text-align:left;width:100%;transition:.1s}
-.lookup-btn:active{border-color:var(--gold);background:#1a1740}
-.lookup-btn .lk-icon{font-size:2rem;flex-shrink:0;width:2.5rem;text-align:center}
-.lookup-btn .lk-label{flex:1;line-height:1.3}
-.lookup-btn .lk-sub{font-size:1rem;color:var(--dim);display:block;margin-top:.15rem}
-.lookup-cancel{background:transparent;border:.2rem solid var(--line);border-radius:1rem;padding:.85rem;font-size:1.5rem;color:var(--dim);width:100%;transition:.1s}
-.lookup-cancel:active{background:var(--line)}
-
-.curse-banner{background:linear-gradient(135deg,#2a0845,#1f1b45);border:.2rem solid var(--curse);border-radius:1rem;padding:.55rem .9rem;text-align:center;font-size:1.2rem;color:var(--curse);flex-shrink:0}
-
-/* ═══════════ SOLO TIMER RING ═══════════ */
-.timer-ring{position:relative;width:4rem;height:4rem;flex-shrink:0}
-.timer-ring svg{transform:rotate(-90deg)}
-.timer-ring .track{fill:none;stroke:var(--line);stroke-width:3}
-.timer-ring .prog{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:0;transition:stroke-dashoffset .9s linear,stroke .3s}
-.timer-ring .num{position:absolute;inset:0;display:grid;place-items:center;font-family:Impact,sans-serif;font-size:1.4rem;color:var(--gold)}
+/* ═══ LOOKUP SHEET ═══ */
+.ov{position:fixed;inset:0;z-index:200;display:flex;align-items:flex-end;justify-content:center;background:rgba(5,7,16,.65);backdrop-filter:blur(4px);animation:fade .2s}
+@keyframes fade{from{opacity:0}}
+.sheet{background:var(--bg2);border:.16rem solid var(--line);border-bottom:0;border-radius:1.5rem 1.5rem 0 0;padding:1.3rem 1.3rem calc(1.6rem + env(safe-area-inset-bottom));width:100%;max-width:46rem;display:flex;flex-direction:column;gap:1rem;animation:up .25s cubic-bezier(.22,.61,.36,1)}
+@keyframes up{from{transform:translateY(100%)}}
+.sheet .hd{display:flex;gap:1rem;align-items:center}
+.sheet .hd .av{--s:6.5rem}
+.sheet .nm{font-size:2.5rem}
+.lk{display:flex;align-items:center;gap:1rem;background:var(--bg);border:.16rem solid var(--line);border-radius:1rem;padding:.9rem 1.2rem;font-size:1.5rem;text-align:left;width:100%}
+.lk:active{border-color:var(--gold)}
+.lk small{display:block;font-size:.95rem;color:var(--dim);font-weight:500}
+.err{color:var(--gold);font-size:1.3rem;max-width:32rem;line-height:1.5}
+.foilchip{display:inline-block;background:var(--rc);color:#10131f;border-radius:.5rem;padding:.2rem .7rem;font-size:1.1rem;font-family:var(--disp);font-weight:900;text-transform:uppercase}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
 <canvas id="particles"></canvas>
 <div id="app"></div>
 <script>
-/* ═══════════════════════════════════════
-   CONSTANTS
-═══════════════════════════════════════ */
-const CATS=[["strength","Strength","💪"],["iq","IQ","🧠"],["durability","Durability","🛡️"],["speed","Speed","⚡"],["ability","Ability","✨"]];
+/* ═══ CONFIG ═══ */
+const CATS=[["strength","Strength","STR"],["iq","IQ","IQ"],["durability","Durability","DUR"],["speed","Speed","SPD"],["ability","Ability","ABL"]];
+// rarity = where a character's average stat sits in the roster (cutoffs are computed from the data, so adding characters keeps tiers balanced)
 const RARITIES=[
-  {key:"common",   label:"Common",   min:0,  max:59,  color:"var(--r-common)",   icon:"⬜",flash:"rgba(154,148,201,.18)"},
-  {key:"uncommon", label:"Uncommon", min:60, max:69,  color:"var(--r-uncommon)", icon:"🟩",flash:"rgba(74,222,128,.2)"},
-  {key:"rare",     label:"Rare",     min:70, max:79,  color:"var(--r-rare)",     icon:"🟦",flash:"rgba(96,165,250,.25)"},
-  {key:"epic",     label:"Epic",     min:80, max:89,  color:"var(--r-epic)",     icon:"🟪",flash:"rgba(192,132,252,.35)"},
-  {key:"legendary",label:"Legendary",min:90, max:95,  color:"var(--r-legendary)",icon:"🌟",flash:"rgba(251,191,36,.4)"},
-  {key:"mythic",   label:"Mythic",   min:96, max:100, color:"var(--r-mythic)",   icon:"🔥",flash:"rgba(255,107,107,.5)"},
+  {key:"common",label:"Common",q:0,color:"#8f9acb"},
+  {key:"uncommon",label:"Uncommon",q:.50,color:"#46d68a"},
+  {key:"rare",label:"Rare",q:.72,color:"#4aa8ff",flash:"rgba(74,168,255,.25)"},
+  {key:"epic",label:"Epic",q:.88,color:"#b980ff",flash:"rgba(185,128,255,.33)"},
+  {key:"legendary",label:"Legendary",q:.95,color:"#ffc83d",flash:"rgba(255,200,61,.38)"},
+  {key:"mythic",label:"Mythic",q:.985,color:"#ff5470",flash:"rgba(255,84,112,.45)"}
 ];
-const CLASH_ICONS=["💥","⚡","🔥","✨","💢","🌟","❤️‍🔥","☄️"];
+const WEIGHT_EXP=.6;   // per-character draw weight = universeSize^-0.6 (bigger universes get a lighter weight each)
+const REPEAT_DAMP=.5;  // each time a universe already appeared this game, its weight is halved
+const PCOLORS=["#ff6a3d","#3cc8ff","#b4f23c","#ff7ad9"];
+const ROW_MS=2300, IDLE_MS=120000;
 const app=document.getElementById("app");
-let CHARS=[],S,idle;
-const $=(h)=>{app.innerHTML=h};
-const pn=p=>"P"+(p+1);
-const pnLong=p=>"Player "+(p+1);
-const hue=n=>[...n].reduce((a,c)=>a*31+c.charCodeAt(0),7)%360;
-const initials=ch=>ch.name.split(" ").map(w=>w[0]).join("").slice(0,2).replace(/'/g,"");
-const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[b[i],b[j]]=[b[j],b[i]]}return b};
-const uniq=arr=>[...new Set(arr)].sort();
+let CHARS=[],UNIS={},S,idle;
+const $=h=>{app.innerHTML=h};
+const pn=p=>"P"+(p+1), pnLong=p=>"Player "+(p+1);
 const rnd=n=>Math.random()*n|0;
+const hue=n=>[...n].reduce((a,c)=>a*31+c.charCodeAt(0),7)%360;
+const initials=ch=>ch.name.replace(/\(.*?\)/g,"").split(/[\s.]+/).filter(Boolean).map(w=>w[0]).join("").slice(0,2).toUpperCase();
+const avg=ch=>CATS.reduce((s,c)=>s+ch[c[0]],0)/5;
+const esc=s=>String(s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]));
 document.addEventListener("contextmenu",e=>e.preventDefault());
-document.addEventListener("touchstart",()=>{clearTimeout(idle);idle=setTimeout(title,120000)},{passive:true});
+document.addEventListener("touchstart",()=>{clearTimeout(idle);idle=setTimeout(title,IDLE_MS)},{passive:true});
 
-/* ═══════════════════════════════════════
-   LOOKUP
-   Uses data-idx so no string escaping needed.
-   Event delegation on document handles taps
-   after any innerHTML swap.
-═══════════════════════════════════════ */
-// Store lookup targets by index so HTML attributes stay safe
-const _lookupMap=[];
-function cnLink(ch){
-  let idx=_lookupMap.findIndex(c=>c===ch);
-  if(idx<0){idx=_lookupMap.length;_lookupMap.push(ch);}
-  return `<span class="cn-link" data-lookup="${idx}">${ch.name}</span>`;
+/* ═══ RARITY ═══ */
+function calibrate(){
+  const a=CHARS.map(avg).sort((x,y)=>x-y);
+  RARITIES.forEach(r=>r.min=r.q?a[Math.floor(a.length*r.q)]:-1);
+}
+function getRarity(ch){for(let i=RARITIES.length-1;i>0;i--)if(avg(ch)>=RARITIES[i].min)return RARITIES[i];return RARITIES[0]}
+const foilChip=ch=>`<span class="foilchip r-${getRarity(ch).key}">${getRarity(ch).label}</span>`;
+
+/* ═══ WEIGHTED DRAW ═══
+   Keeps Marvel / DC / MHA / JJK from flooding every game. */
+function weightOf(ch){
+  let w=Math.pow(UNIS[ch.universe],-WEIGHT_EXP);
+  if(!S.universe)w*=Math.pow(REPEAT_DAMP,S.seen[ch.universe]||0);
+  return w;
+}
+function drawOne(){
+  const ws=S.pool.map(weightOf);
+  let r=Math.random()*ws.reduce((a,b)=>a+b,0),i=0;
+  for(;i<ws.length-1;i++){r-=ws[i];if(r<=0)break}
+  const ch=S.pool.splice(i,1)[0];
+  S.seen[ch.universe]=(S.seen[ch.universe]||0)+1;
+  return ch;
 }
 
-// Single delegated listener — survives innerHTML swaps
+/* ═══ AVATAR ═══ */
+function avatar(ch,size){
+  const img=ch.image?`<img src="${esc(ch.image)}" alt="" referrerpolicy="no-referrer" onload="this.parentNode.classList.add('ok')">`:"";
+  return `<div class="av" style="--h:${hue(ch.name)};${size?`--s:${size}`:""}"><span class="mono">${esc(initials(ch))}</span>${img}</div>`;
+}
+
+/* ═══ LOOKUP ═══ */
+const _lk=[];
+function cnLink(ch){
+  let i=_lk.indexOf(ch);if(i<0){i=_lk.push(ch)-1}
+  return `<span class="cn" data-lookup="${i}">${esc(ch.name)}</span>`;
+}
 document.addEventListener("click",e=>{
   const el=e.target.closest("[data-lookup]");
-  if(el){e.stopPropagation();showLookup(_lookupMap[+el.dataset.lookup]);}
+  if(el){e.stopPropagation();showLookup(_lk[+el.dataset.lookup])}
 });
-document.addEventListener("touchend",e=>{
-  const el=e.target.closest("[data-lookup]");
-  if(el){e.preventDefault();e.stopPropagation();showLookup(_lookupMap[+el.dataset.lookup]);}
-},{passive:false});
-
+function openUrl(u){const a=document.createElement("a");a.href=u;a.target="_blank";a.rel="noopener";document.body.appendChild(a);a.click();a.remove()}
 function showLookup(ch){
-  if(!ch)return;
-  const existing=document.getElementById("lookup-overlay");
-  if(existing)existing.remove();
-
-  const overlay=document.createElement("div");
-  overlay.className="lookup-overlay";
-  overlay.id="lookup-overlay";
-
-  // Build search URLs
-  const q1=encodeURIComponent(ch.name+" "+ch.source);
-  const q2=encodeURIComponent(ch.name+" wiki");
-  const q3=encodeURIComponent(ch.name+" "+ch.source+" powers abilities");
-  const urls=["https://www.google.com/search?q="+q1,"https://www.google.com/search?q="+q2,"https://www.google.com/search?q="+q3];
-
-  overlay.innerHTML=`
-    <div class="lookup-sheet">
-      <div class="lookup-header">
-        <div class="lookup-av">${avatarHTML(ch,"6rem")}</div>
-        <div class="lookup-info">
-          <div class="lookup-name display">${ch.name}</div>
-          <div class="lookup-src">${ch.source}</div>
-          <div style="margin-top:.4rem">${rarityBadge(ch)}</div>
-        </div>
-      </div>
-      <div class="lookup-btns">
-        <button class="lookup-btn lkb" data-url="${urls[0]}">
-          <span class="lk-icon">🔍</span>
-          <span class="lk-label">Search Google<span class="lk-sub">${ch.name}, ${ch.source}</span></span>
-          <span style="color:var(--dim);font-size:1.3rem">↗</span>
-        </button>
-        <button class="lookup-btn lkb" data-url="${urls[1]}">
-          <span class="lk-icon">📖</span>
-          <span class="lk-label">Find Wiki page<span class="lk-sub">${ch.name} wiki</span></span>
-          <span style="color:var(--dim);font-size:1.3rem">↗</span>
-        </button>
-        <button class="lookup-btn lkb" data-url="${urls[2]}">
-          <span class="lk-icon">⚡</span>
-          <span class="lk-label">Powers &amp; Abilities<span class="lk-sub">${ch.name} ${ch.source} powers</span></span>
-          <span style="color:var(--dim);font-size:1.3rem">↗</span>
-        </button>
-      </div>
-      <button class="lookup-cancel" id="lk-close">Cancel</button>
-    </div>`;
-
-  document.body.appendChild(overlay);
-
-  // Attach search button listeners — use anchor-click trick so kiosk doesn't block
-  overlay.querySelectorAll(".lkb").forEach(btn=>{
-    btn.addEventListener("touchend",e=>{
-      e.preventDefault();
-      const a=document.createElement("a");
-      a.href=btn.dataset.url;a.target="_blank";a.rel="noopener";
-      document.body.appendChild(a);a.click();a.remove();
-      closeLookup();
-    },{passive:false});
-    btn.onclick=()=>{
-      const a=document.createElement("a");
-      a.href=btn.dataset.url;a.target="_blank";a.rel="noopener";
-      document.body.appendChild(a);a.click();a.remove();
-      closeLookup();
-    };
-  });
-
-  document.getElementById("lk-close").addEventListener("touchend",e=>{e.preventDefault();closeLookup();},{passive:false});
-  document.getElementById("lk-close").onclick=closeLookup;
-  overlay.addEventListener("touchend",e=>{if(e.target===overlay){e.preventDefault();closeLookup();}},{passive:false});
-  overlay.onclick=e=>{if(e.target===overlay)closeLookup();};
+  if(!ch)return;closeLookup(true);
+  const q=t=>"https://www.google.com/search?q="+encodeURIComponent(t);
+  const links=[
+    ["Search Google",`${ch.name}, ${ch.source}`,q(ch.name+" "+ch.source)],
+    ["Find the wiki page",`${ch.name} wiki`,q(ch.name+" wiki")],
+    ["Powers and abilities",`${ch.name} powers`,q(ch.name+" "+ch.source+" powers abilities")]];
+  const o=document.createElement("div");o.className="ov";o.id="ov";
+  o.innerHTML=`<div class="sheet">
+    <div class="hd">${avatar(ch)}<div style="flex:1"><div class="nm d">${esc(ch.name)}</div>
+    <div class="muted" style="font-size:1.2rem;margin:.2rem 0 .5rem">${esc(ch.source)}</div>${foilChip(ch)}</div></div>
+    ${links.map((l,i)=>`<button class="lk" data-i="${i}"><span style="flex:1">${l[0]}<small>${esc(l[1])}</small></span><span class="muted">↗</span></button>`).join("")}
+    <button class="btn ghost" id="lkx">Close</button></div>`;
+  document.body.appendChild(o);
+  o.onclick=e=>{
+    if(e.target===o||e.target.id==="lkx")return closeLookup();
+    const b=e.target.closest(".lk");if(b){openUrl(links[+b.dataset.i][2]);closeLookup()}
+  };
+}
+function closeLookup(now){
+  const o=document.getElementById("ov");if(!o)return;
+  if(now){o.remove();return}
+  o.style.transition="opacity .18s";o.style.opacity="0";setTimeout(()=>o.remove(),200);
 }
 
-function closeLookup(){
-  const o=document.getElementById("lookup-overlay");
-  if(!o)return;
-  o.style.transition="opacity .18s";o.style.opacity="0";
-  setTimeout(()=>o.remove(),200);
+/* ═══ PARTICLES ═══ */
+const cvs=document.getElementById("particles"),cx=cvs.getContext("2d");let parts=[];
+const fit=()=>{cvs.width=innerWidth;cvs.height=innerHeight};fit();addEventListener("resize",fit);
+function burst(x,y,color,n=18){
+  for(let i=0;i<n;i++){const a=Math.random()*6.283,s=1+Math.random()*5;
+    parts.push({x,y,vx:Math.cos(a)*s,vy:Math.sin(a)*s-2,r:3+Math.random()*4,color,life:1,dec:.018+Math.random()*.025})}
 }
+const burstMid=(c,n=35)=>burst(innerWidth/2,innerHeight/2,c,n);
+(function loop(){requestAnimationFrame(loop);cx.clearRect(0,0,cvs.width,cvs.height);
+  parts=parts.filter(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.12;p.vx*=.98;p.life-=p.dec;if(p.life<=0)return false;
+    cx.globalAlpha=p.life;cx.fillStyle=p.color;cx.beginPath();cx.arc(p.x,p.y,p.r,0,6.283);cx.fill();return true});
+  cx.globalAlpha=1})();
 
-/* ═══════════════════════════════════════
-   PARTICLES
-═══════════════════════════════════════ */
-const cvs=document.getElementById("particles");
-const ctx2d=cvs.getContext("2d");
-let particles=[];
-function resizeCvs(){cvs.width=innerWidth;cvs.height=innerHeight}
-resizeCvs();window.addEventListener("resize",resizeCvs);
-function spawnParticles(x,y,color,count=18){
-  for(let i=0;i<count;i++){
-    const angle=Math.random()*Math.PI*2,speed=1+Math.random()*5;
-    particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-2,r:3+Math.random()*5,color,life:1,decay:.018+Math.random()*.025});
-  }
-}
-function spawnBurst(color,count=35){spawnParticles(innerWidth/2,innerHeight/2,color,count)}
-(function loop(){requestAnimationFrame(loop);ctx2d.clearRect(0,0,cvs.width,cvs.height);
-  particles=particles.filter(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.12;p.life-=p.decay;p.vx*=.98;
-    if(p.life<=0)return false;
-    ctx2d.globalAlpha=p.life;ctx2d.fillStyle=p.color;ctx2d.beginPath();ctx2d.arc(p.x,p.y,p.r,0,Math.PI*2);ctx2d.fill();
-    return true;
-  });ctx2d.globalAlpha=1;
-})();
-
-/* ═══════════════════════════════════════
-   RARITY ENGINE
-═══════════════════════════════════════ */
-function getScore(ch){return(ch.strength+ch.iq+ch.durability+ch.speed+ch.ability)/5}
-function getRarity(ch){
-  const avg=getScore(ch);
-  for(const r of RARITIES)if(avg<=r.max)return r;
-  return RARITIES[RARITIES.length-1];
-}
-function rarityBadge(ch){
-  const r=getRarity(ch);
-  return `<span class="rarity-badge r-${r.key}">${r.icon} ${r.label}</span>`;
-}
-function rarityBadgeSm(ch){
-  const r=getRarity(ch);
-  return `<span class="r-badge-sm r-${r.key}">${r.icon} ${r.label}</span>`;
-}
-
-/* ═══════════════════════════════════════
-   AVATAR
-═══════════════════════════════════════ */
-function avatarHTML(ch,size="8rem"){
-  const bg=`hsl(${hue(ch.name)} 55% 42%)`;
-  const ini=initials(ch);
-  if(ch.image)return `<div class="avatar" style="width:${size};height:${size};background:${bg}"><img src="${ch.image}" alt="${ch.name}" onerror="this.parentNode.innerHTML='<span class=display>${ini}</span>'"></div>`;
-  return `<div class="avatar display" style="width:${size};height:${size};background:${bg}">${ini}</div>`;
-}
-function sideAvHTML(ch){
-  const bg=`hsl(${hue(ch.name)} 55% 42%)`;
-  const ini=initials(ch);
-  if(ch.image)return `<div class="side-av" style="background:${bg}"><img src="${ch.image}" alt="${ch.name}" onerror="this.parentNode.innerHTML='<span class=display style=font-size:1rem>${ini}</span>'"></div>`;
-  return `<div class="side-av display" style="background:${bg}">${ini}</div>`;
-}
-
-/* ═══════════════════════════════════════
-   RARITY REVEAL FLASH
-═══════════════════════════════════════ */
 function rarityFlash(ch,cb){
-  const r=getRarity(ch);
-  // particles burst
-  const pColor=r.color.replace("var(","").replace(")","");
-  const resolvedColor={
-    "--r-common":"#9a94c9","--r-uncommon":"#4ade80","--r-rare":"#60a5fa",
-    "--r-epic":"#c084fc","--r-legendary":"#fbbf24","--r-mythic":"#ff6b6b"
-  }[pColor]||"#fff";
-  // only do dramatic effect for rare+
-  const idx=RARITIES.findIndex(x=>x.key===r.key);
-  if(idx>=2){
-    spawnBurst(resolvedColor, 15+idx*12);
-    const fl=document.createElement("div");
-    fl.className="rarity-flash";
-    fl.style.background=r.flash;
-    document.body.appendChild(fl);
-    requestAnimationFrame(()=>{fl.classList.add("go");
-      setTimeout(()=>{fl.classList.remove("go");setTimeout(()=>{fl.remove();cb&&cb()},200)},300+idx*80);
-    });
-  } else cb&&cb();
+  const r=getRarity(ch),i=RARITIES.indexOf(r);
+  if(i<2)return cb&&cb();
+  burstMid(r.color,15+i*12);
+  const f=document.createElement("div");f.className="rflash";f.style.background=r.flash;document.body.appendChild(f);
+  requestAnimationFrame(()=>{f.classList.add("go");setTimeout(()=>{f.classList.remove("go");setTimeout(()=>{f.remove();cb&&cb()},200)},300+i*80)});
 }
 
-/* ═══════════════════════════════════════
-   INIT
-═══════════════════════════════════════ */
+/* ═══ INIT ═══ */
 async function init(){
   try{
     const r=await fetch("data.json",{cache:"no-store"});
     CHARS=(await r.json()).characters;
-    if(CHARS.length<10)throw new Error("Need at least 10 characters in data.json");
-    title();
+    CHARS.forEach(c=>{c.universe=c.universe||c.source;UNIS[c.universe]=(UNIS[c.universe]||0)+1});
+    if(CHARS.length<10)throw new Error("data.json needs at least 10 characters");
+    calibrate();title();
   }catch(e){
-    $(`<div class="center"><h1 class="title display">Mashup Brawl</h1><p class="err">Could not load data.json — ${e.message}.<br>Serve from a local web server or use --allow-file-access-from-files.</p></div>`);
+    $(`<div class="center"><h1 class="wordmark d"><span>Mashup</span><span class="b">Brawl</span></h1><p class="err">Couldn’t load data.json: ${esc(e.message)}.<br>Open the game from a local web server, or launch the browser with file access allowed.</p></div>`);
   }
 }
 
-/* ═══════════════════════════════════════
-   TITLE
-═══════════════════════════════════════ */
+/* ═══ TITLE ═══ */
 function title(){
+  closeLookup(true);
+  const hi=shuffleArr(CHARS.filter(c=>getRarity(c).q>=.72&&c.image));
+  const pick=[hi[0],hi[1],hi[2]].filter(Boolean);
+  while(pick.length<3)pick.push(CHARS[rnd(CHARS.length)]);
   $(`<div class="center">
-    <h1 class="title display">Mashup<br>Brawl</h1>
-    <p class="sub">Build your ultimate fighter. Assign characters to stats. Win the brawl.</p>
-    <button class="big display" id="go">Choose Mode</button>
+    <div class="fan">${pick.map(c=>`<div class="mini"><div class="card r-${getRarity(c).key}">${avatar(c)}<div><div class="nm d">${esc(c.name)}</div></div><div class="foil d">${getRarity(c).label}</div></div></div>`).join("")}</div>
+    <h1 class="wordmark d"><span>Mashup</span><span class="b">Brawl</span></h1>
+    <p class="tag">Roll fighters from across every universe, slot each one into a stat, and out-build your rival.</p>
+    <div class="stats-line"><div><b>${CHARS.length}</b>fighters</div><div><b>${Object.keys(UNIS).length}</b>universes</div><div><b>5</b>stats</div></div>
+    <button class="btn d" id="go">Start</button>
   </div>`);
   document.getElementById("go").onclick=modeSelect;
 }
+function shuffleArr(a){const b=[...a];for(let i=b.length-1;i>0;i--){const j=rnd(i+1);[b[i],b[j]]=[b[j],b[i]]}return b}
 
-/* ═══════════════════════════════════════
-   MODE SELECT
-═══════════════════════════════════════ */
+/* ═══ MODES ═══ */
+const MODES=[
+  ["classic","Classic brawl","2 players · whole roster · best team wins",2,""],
+  ["four","4-player mayhem","4 players · whole roster · most category wins",4,""],
+  ["universe","Universe draft","2 players · one universe only",2,""],
+  ["cursed","Cursed mode","2 players · whole roster · lowest stats win",2,"curse"],
+  ["solo","Solo challenge","1 player · chase your best score",1,""]];
 function modeSelect(){
-  $(`<div class="center">
-    <div class="banner display" style="color:var(--gold)">Select Mode</div>
-    <div class="modes">
-      <button class="mode-btn" data-mode="classic">
-        <span class="mode-icon">⚔️</span>
-        <div><div class="mode-title display">Classic Brawl</div><div class="mode-desc">2 players · all characters · best team wins</div></div>
-      </button>
-      <button class="mode-btn" data-mode="four">
-        <span class="mode-icon">🔥</span>
-        <div><div class="mode-title display">4-Player Mayhem</div><div class="mode-desc">4 players · all characters · most categories wins</div></div>
-      </button>
-      <button class="mode-btn" data-mode="universe">
-        <span class="mode-icon">🌌</span>
-        <div><div class="mode-title display">Universe Draft</div><div class="mode-desc">2 players · pick one universe · characters from that world</div></div>
-      </button>
-      <button class="mode-btn" data-mode="cursed">
-        <span class="mode-icon">💀</span>
-        <div><div class="mode-title curse display">Cursed Mode</div><div class="mode-desc">2 players · all characters · lowest stats win</div></div>
-      </button>
-      <button class="mode-btn" data-mode="solo">
-        <span class="mode-icon">🎯</span>
-        <div><div class="mode-title display">Solo Challenge</div><div class="mode-desc">1 player · beat your own high score · see how high you can roll</div></div>
-      </button>
-    </div>
-    <button class="big ghost display" id="back">← Back</button>
-  </div>`);
-  document.querySelectorAll(".mode-btn").forEach(b=>b.onclick=()=>startMode(b.dataset.mode));
+  $(`<div class="head d">Choose a mode</div>
+  <div class="scroll"><div class="modes">${MODES.map(m=>`<button class="mode ${m[4]}" data-mode="${m[0]}">
+    <div><div class="t d" style="${m[4]?"color:var(--curse)":""}">${m[1]}</div><div class="s">${m[2]}</div></div>
+    <div class="pips">${PCOLORS.slice(0,m[3]).map(c=>`<i class="on" style="background:${c}"></i>`).join("")}</div></button>`).join("")}</div></div>
+  <button class="btn ghost d" id="back">Back</button>`);
+  document.querySelectorAll(".mode").forEach(b=>b.onclick=()=>b.dataset.mode==="universe"?universePicker():newGame(b.dataset.mode));
   document.getElementById("back").onclick=title;
 }
-
-function startMode(mode){
-  if(mode==="universe")universePicker();
-  else newGame(mode);
-}
-
-/* ═══════════════════════════════════════
-   UNIVERSE PICKER
-═══════════════════════════════════════ */
 function universePicker(){
-  const valid=uniq(CHARS.map(c=>c.source)).filter(s=>CHARS.filter(c=>c.source===s).length>=2);
-  $(`<div class="banner display" style="color:var(--gold)">Pick a Universe</div>
-  <div class="sub" style="flex-shrink:0;text-align:center;font-size:1.3rem">Only characters from this universe will appear.</div>
-  <div class="uni-grid">${valid.map(s=>`<button class="uni-btn" data-src="${s}">${s}<br><span style="font-size:.95rem;color:var(--dim)">${CHARS.filter(c=>c.source===s).length} chars</span></button>`).join("")}</div>
-  <button class="big ghost display" id="back" style="flex-shrink:0">← Back</button>`);
-  document.querySelectorAll(".uni-btn").forEach(b=>b.onclick=()=>newGame("universe",b.dataset.src));
+  const valid=Object.keys(UNIS).filter(u=>UNIS[u]>=10).sort((a,b)=>a.localeCompare(b));
+  $(`<div class="head d">Pick a universe</div>
+  <p class="muted" style="text-align:center;font-size:1.2rem;flex-shrink:0">Every fighter in the draft comes from this universe.</p>
+  <div class="scroll"><div class="uni-grid">${valid.map(u=>`<button class="uni" data-u="${esc(u)}"><span class="n d">${esc(u)}</span><span class="k">${UNIS[u]} fighters</span></button>`).join("")}</div></div>
+  <button class="btn ghost d" id="back">Back</button>`);
+  document.querySelectorAll(".uni").forEach(b=>b.onclick=()=>newGame("universe",b.dataset.u));
   document.getElementById("back").onclick=modeSelect;
 }
 
-/* ═══════════════════════════════════════
-   GAME INIT
-═══════════════════════════════════════ */
+/* ═══ GAME ═══ */
 function newGame(mode,universe){
-  const numPlayers=mode==="four"?4:mode==="solo"?1:2;
-  const totalTurns=numPlayers*CATS.length;
-  let pool;
-  if(mode==="universe"){
-    const src=CHARS.filter(c=>c.source===universe);
-    pool=shuffle(src.length>=totalTurns?src:[...src,...shuffle(CHARS.filter(c=>c.source!==universe)).slice(0,totalTurns-src.length)]);
-  } else pool=shuffle([...CHARS]);
-  S={mode,universe:universe||null,numPlayers,totalTurns,pool,turn:0,
-     teams:Array.from({length:numPlayers},()=>({}))};
+  const n=mode==="four"?4:mode==="solo"?1:2;
+  S={mode,universe:universe||null,n,total:n*5,turn:0,seen:{},
+     pool:CHARS.filter(c=>!universe||c.universe===universe),teams:Array.from({length:n},()=>({}))};
   turnScreen();
 }
-
-/* ═══════════════════════════════════════
-   BOARD HTML
-═══════════════════════════════════════ */
-function boardHTML(activep){
-  const cls=S.numPlayers===4?"p4":S.numPlayers===1?"p1":"p2";
-  return `<div class="board ${cls}">${S.teams.map((t,i)=>`
-    <div class="team c${i+1} ${i===activep?"active":""}">
-      <h3 class="display">${S.numPlayers===1?"Your Team":pn(i)}</h3>
-      ${CATS.map(c=>`<div class="slot"><span>${c[2]}</span><b>${t[c[0]]?cnLink(t[c[0]]):"—"}</b></div>`).join("")}
-    </div>`).join("")}</div>`;
+const modeChip=()=>S.mode==="cursed"?`<span class="chip curse">Cursed · lowest wins</span>`:`<span class="chip">${S.universe?esc(S.universe):MODES.find(m=>m[0]===S.mode)[1]}</span>`;
+const topBar=(p)=>`<div class="top"><span class="mark d">Mashup Brawl</span>${modeChip()}</div>`;
+function board(act){
+  return `<div class="board n${S.n===1?1:S.n===4?4:2}">${S.teams.map((t,i)=>`<div class="team c${i+1} ${i===act?"active":""}">
+    <h3 class="d">${S.n===1?"Your team":pn(i)}</h3>
+    ${CATS.map(c=>`<div class="slot"><em>${c[2]}</em><b class="${t[c[0]]?"":"empty"}">${t[c[0]]?cnLink(t[c[0]]):"—"}</b></div>`).join("")}</div>`).join("")}</div>`;
 }
-
-/* ═══════════════════════════════════════
-   TURN SCREEN
-═══════════════════════════════════════ */
 function turnScreen(){
-  const p=S.turn%S.numPlayers;
-  const round=Math.floor(S.turn/S.numPlayers)+1;
-  const cursed=S.mode==="cursed";
-  const solo=S.mode==="solo";
+  const p=S.turn%S.n,round=Math.floor(S.turn/S.n);
   $(`<div class="c${p+1}" style="display:contents">
-    ${cursed?`<div class="curse-banner">💀 CURSED MODE — Build the WORST team! Lowest stats win! 💀</div>`:""}
-    ${boardHTML(p)}
+    ${topBar()}${board(p)}
     <div class="center">
-      <div class="banner display">${solo?"Your Turn":pnLong(p)+", your turn"}</div>
-      <div class="sub">Round ${round} of 5${S.universe?` · ${S.universe}`:""}${cursed?" · Worst team wins!":""}</div>
-      <button class="big c${p+1} display" id="roll">🎲 Roll Character</button>
-    </div>
-  </div>`);
-  document.getElementById("roll").onclick=()=>roll(p);
+      <div class="who d">${S.n===1?"Your turn":pnLong(p)+"’s turn"}</div>
+      <div class="pips">${[0,1,2,3,4].map(i=>`<i class="${i<round?"on":i===round?"now":""}"></i>`).join("")}</div>
+      <div class="round">Round ${round+1} of 5</div>
+      <button class="btn pc d" id="roll">Roll a fighter</button>
+    </div></div>`);
+  document.getElementById("roll").onclick=function(){this.disabled=true;roll(p)};
 }
 
-/* ═══════════════════════════════════════
-   ROLL + REVEAL
-═══════════════════════════════════════ */
+/* ═══ ROLL ═══ */
 function roll(p){
-  const consumed=S.pool.splice(0,1)[0];
-  const pool=S.universe?CHARS.filter(c=>c.source===S.universe):CHARS;
-  $(`<div class="c${p+1}" style="display:contents">
-    ${boardHTML(p)}
-    <div class="center">
-      <div class="roll-card" id="card" style="width:100%">
-        <div id="av"></div>
-        <div class="cname display" id="nm">Rolling…</div>
-        <div class="csrc" id="sr"></div>
-      </div>
-    </div>
-  </div>`);
+  const got=drawOne();
+  const src=S.universe?S.pool.concat(got):CHARS;
+  $(`<div class="c${p+1}" style="display:contents">${topBar()}
+    <div class="center"><div style="width:100%;max-width:26rem"><div class="card spin" id="card">
+      <div id="av"></div><div><div class="nm d" id="nm">Rolling…</div><div class="src" id="sr">&nbsp;</div></div>
+      <div class="foil d" id="fo" style="visibility:hidden">&nbsp;</div></div></div></div></div>`);
   let n=0;
   const t=setInterval(()=>{
-    const fake=pool[rnd(pool.length)];
-    av.innerHTML=avatarHTML(fake);nm.textContent=fake.name;sr.textContent=fake.source;
-    n++;
-    if(n>=16){
-      clearInterval(t);
-      av.innerHTML=avatarHTML(consumed);
-      nm.innerHTML=cnLink(consumed); nm.classList.add("pop");
-      sr.textContent=consumed.source;
-      av.querySelector(".avatar")&&av.querySelector(".avatar").classList.add("bounce");
-      const r=getRarity(consumed);
-      card.classList.add("reveal-"+r.key);
-      rarityFlash(consumed,()=>{
-        // show rarity badge after flash
-        if(!document.getElementById("rbadge")){
-          const b=document.createElement("div");b.id="rbadge";
-          b.innerHTML=rarityBadge(consumed);
-          card.appendChild(b);
-        }
-        setTimeout(()=>assign(p,consumed),400);
-      });
-    }
+    const f=src[rnd(src.length)];
+    av.innerHTML=avatar(f);nm.textContent=f.name;sr.textContent=f.source;
+    if(++n<16)return;
+    clearInterval(t);
+    const r=getRarity(got);
+    card.className="card flip r-"+r.key;
+    av.innerHTML=avatar(got);nm.innerHTML=cnLink(got);sr.textContent=got.source;
+    fo.textContent=r.label;fo.style.visibility="visible";
+    rarityFlash(got,()=>setTimeout(()=>assign(p,got),650));
   },70);
 }
 
-/* ═══════════════════════════════════════
-   ASSIGN
-═══════════════════════════════════════ */
+/* ═══ ASSIGN ═══ */
 function assign(p,ch){
-  const cursed=S.mode==="cursed";
-  const r=getRarity(ch);
-  $(`<div class="c${p+1}" style="display:contents">
-    ${cursed?`<div class="curse-banner">💀 Pick where ${ch.name} fits WORST!</div>`:""}
-    <div class="roll-card reveal-${r.key}">
-      <div class="assign-row">
-        ${avatarHTML(ch)}
-        <div class="assign-info">
-          <div class="cname display">${cnLink(ch)}</div>
-          <div class="csrc">${ch.source}</div>
-          ${rarityBadge(ch)}
-        </div>
-      </div>
-    </div>
-    <div class="hint ${cursed?"curse-hint":""}">${S.numPlayers===1?"You":pnLong(p)}: where does ${ch.name} fit ${cursed?"<b>worst</b>":"best"}? <span style="font-size:1rem;color:var(--dim);display:block;margin-top:.2rem">🔍 Tap the name to look them up</span></div>
-    <div class="picks">${CATS.map(c=>{const used=S.teams[p][c[0]];
-      return `<button class="pick ${cursed?"curse-pick":""}" data-k="${c[0]}" ${used?"disabled":""}>
-        <span class="icon">${c[2]}</span>
-        <span class="label">${c[1]}</span>
-      </button>`}).join("")}</div>
+  const cur=S.mode==="cursed",r=getRarity(ch);
+  $(`<div class="c${p+1}" style="display:contents">${topBar()}
+    <div class="card h r-${r.key}">${avatar(ch)}<div class="info"><div class="nm d">${cnLink(ch)}</div><div class="src muted" style="font-size:1.15rem">${esc(ch.source)}</div>${foilChip(ch)}</div></div>
+    <div class="hint">${S.n===1?"Where does":pnLong(p)+": where does"} ${esc(ch.name)} fit ${cur?"<b style='color:var(--curse)'>worst</b>":"best"}?<small>Tap the name to look them up</small></div>
+    <div class="picks">${CATS.map(c=>`<button class="pick ${cur?"curse":""}" data-k="${c[0]}" ${S.teams[p][c[0]]?"disabled":""}><span class="ab">${c[2]}</span><span class="lb d">${c[1]}</span></button>`).join("")}</div>
   </div>`);
   document.querySelectorAll(".pick").forEach(b=>b.onclick=()=>{
-    S.teams[p][b.dataset.k]=ch;
-    S.turn++;
-    if(S.turn>=S.totalTurns){S.mode==="solo"?soloResult():battle();}
-    else turnScreen();
+    S.teams[p][b.dataset.k]=ch;S.turn++;
+    S.turn>=S.total?(S.mode==="solo"?soloResult():battle()):turnScreen();
   });
 }
 
-/* ═══════════════════════════════════════
-   SOLO RESULT
-═══════════════════════════════════════ */
+/* ═══ SOLO ═══ */
 function soloResult(){
-  const team=S.teams[0];
-  const total=CATS.reduce((s,c)=>s+team[c[0]][c[0]],0);
-  const avg=(total/CATS.length).toFixed(1);
-  const best=Math.max(...CATS.map(c=>team[c[0]][c[0]]));
-  const worst=Math.min(...CATS.map(c=>team[c[0]][c[0]]));
-  // grade
-  const grade=avg>=90?"S":avg>=80?"A":avg>=70?"B":avg>=60?"C":avg>=50?"D":"F";
-  const gradeColor=avg>=90?"var(--r-mythic)":avg>=80?"var(--r-legendary)":avg>=70?"var(--r-epic)":avg>=60?"var(--r-rare)":avg>=50?"var(--r-uncommon)":"var(--r-common)";
-  spawnBurst(gradeColor.replace("var(","").replace(")","").split("--r-")[0]||"#fff",25);
-  $(`<div class="banner display" style="color:var(--gold)">Your Score</div>
-  <div class="solo-result">
-    <div class="solo-score display">${total}</div>
-    <div class="solo-grade display" style="color:${gradeColor}">Grade: ${grade} · Avg: ${avg}</div>
-  </div>
-  <div class="battle-wrap">
-    ${CATS.map(c=>{
-      const ch=team[c[0]];
-      const r=getRarity(ch);
-      return `<div class="solo-row">
-        <span class="cat">${c[2]} ${c[1]}</span>
-        <span style="font-size:1.1rem;color:var(--dim)">${cnLink(ch)}</span>
-        ${rarityBadgeSm(ch)}
-        <span class="val" style="color:${r.color}">${ch[c[0]]}</span>
-      </div>`;
-    }).join("")}
-    <div class="final" id="final">
-      <div style="font-size:1.3rem;color:var(--dim)">Total power: ${total} · Best stat: ${best} · Worst: ${worst}</div>
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
-        <button class="big display" id="again" style="padding:.9rem 2.2rem;font-size:1.9rem">🎯 Try Again</button>
-        <button class="big ghost display" id="menu" style="font-size:1.5rem">Menu</button>
-      </div>
-    </div>
-  </div>`);
+  const t=S.teams[0],tot=CATS.reduce((s,c)=>s+t[c[0]][c[0]],0),a=tot/5;
+  const g=a>=90?["S","#ff5470"]:a>=80?["A","#ffc83d"]:a>=70?["B","#b980ff"]:a>=60?["C","#4aa8ff"]:a>=50?["D","#46d68a"]:["F","#8f9acb"];
+  let best=0,isBest=false;
+  try{best=+localStorage.getItem("mb_solo_best")||0;if(tot>best){localStorage.setItem("mb_solo_best",tot);isBest=best>0;best=tot}}catch(e){}
+  burstMid(g[1],25);
+  $(`${topBar()}
+  <div class="solo-top"><div class="big d">${tot}</div>
+    <div class="gr d" style="color:${g[1]}">Grade ${g[0]} · avg ${a.toFixed(1)}</div>
+    <div class="muted" style="font-size:1.1rem;margin-top:.4rem">${isBest?"New personal best!":best?"Personal best: "+best:""}</div></div>
+  <div class="scroll">${CATS.map(c=>{const ch=t[c[0]],r=getRarity(ch);
+    return `<div class="srow"><span class="ab">${c[2]}</span><span class="nm2">${cnLink(ch)}<small>${esc(ch.source)} · ${r.label}</small></span><span class="v" style="color:${r.color}">${ch[c[0]]}</span></div>`}).join("")}</div>
+  <div class="row-btns" style="flex-shrink:0"><button class="btn sm d" id="again">Try again</button><button class="btn ghost d" id="menu">Menu</button></div>`);
   document.getElementById("again").onclick=()=>newGame("solo");
   document.getElementById("menu").onclick=title;
 }
 
-/* ═══════════════════════════════════════
-   BATTLE
-═══════════════════════════════════════ */
+/* ═══ BATTLE ═══ */
 function battle(){
-  const cursed=S.mode==="cursed";
-  const is4=S.numPlayers===4;
-  const wins=Array(S.numPlayers).fill(0);
+  const cur=S.mode==="cursed",n=S.n,wins=Array(n).fill(0);
   const totals=S.teams.map(t=>CATS.reduce((s,c)=>s+t[c[0]][c[0]],0));
-
-  const catWinners=CATS.map(c=>{
-    const vals=S.teams.map(t=>t[c[0]][c[0]]);
-    const best=cursed?Math.min(...vals):Math.max(...vals);
-    return vals.map(v=>v===best);
-  });
-
-  const scoreSpans=S.teams.map((_,i)=>`<span id="sc${i}" style="color:var(--p${i+1})">${pn(i)}: 0</span>`).join("");
-
-  function rowHTML(ci){
-    const c=CATS[ci];
-    const clashIcon=CLASH_ICONS[rnd(CLASH_ICONS.length)];
-    if(is4){
-      const sides=S.teams.map((t,pi)=>{
-        const ch=t[c[0]];const w=catWinners[ci][pi];
-        return `<div class="side c${pi+1} ${w?"win":"lose"}">${sideAvHTML(ch)}<div class="n">${pn(pi)}: ${cnLink(ch)}</div><div class="num">${ch[c[0]]}</div>${rarityBadgeSm(ch)}</div>`;
-      });
-      return `<div class="row p4" id="r${ci}"><div class="row-inner">${sides[0]}${sides[1]}<div class="mid"><span>${c[2]}</span>${c[1]}<span class="clash" id="cl${ci}">${clashIcon}</span></div>${sides[2]}${sides[3]}</div></div>`;
-    } else {
-      const a=S.teams[0][c[0]],b=S.teams[1][c[0]];
-      const aw=catWinners[ci][0],bw=catWinners[ci][1];
-      const tie=aw&&bw;
-      return `<div class="row p2" id="r${ci}"><div class="row-inner">
-        <div class="side c1 ${tie?"tie":aw?"win":"lose"}">${sideAvHTML(a)}<div class="n">${cnLink(a)}</div><div class="num">${a[c[0]]}</div>${rarityBadgeSm(a)}</div>
-        <div class="mid"><span>${c[2]}</span>${c[1]}<span class="clash" id="cl${ci}">${clashIcon}</span></div>
-        <div class="side c2 ${tie?"tie":bw?"win":"lose"}">${sideAvHTML(b)}<div class="n">${cnLink(b)}</div><div class="num">${b[c[0]]}</div>${rarityBadgeSm(b)}</div>
-      </div></div>`;
-    }
-  }
-
-  $(`${cursed
-    ?`<div class="curse-banner" style="flex-shrink:0">💀 CURSED BATTLE — Lowest stat wins! 💀</div>`
-    :`<div class="banner display" style="color:var(--gold);flex-shrink:0">⚔️ Battle!</div>`}
-  <div class="score display">${scoreSpans}</div>
-  <div class="battle-wrap">
-    ${CATS.map((_,i)=>rowHTML(i)).join("")}
-    <div class="final" id="final"></div>
-  </div>`);
-
+  const win=CATS.map(c=>{const v=S.teams.map(t=>t[c[0]][c[0]]),b=cur?Math.min(...v):Math.max(...v);return v.map(x=>x===b)});
+  const blk=i=>{const c=CATS[i],tie=win[i].every(Boolean);
+    return `<div class="blk" id="b${i}"><h4 class="d"><span>${c[1]}</span><span class="clash">${cur?"Lowest wins":"Clash!"}</span></h4>
+    ${S.teams.map((t,pi)=>{const ch=t[c[0]],w=win[i][pi],r=getRarity(ch);
+      return `<div class="ln c${pi+1} ${tie?"tie":w?"win":"lose"} r-${r.key}">${avatar(ch)}
+        <div class="mid"><div class="who2"><span>${n>1?`<b style="color:var(--c)">${pn(pi)}</b> `:""}${cnLink(ch)}</span><i>${r.label}</i></div><div class="bar"><s data-w="${ch[c[0]]}"></s></div></div>
+        <div class="v">${ch[c[0]]}</div></div>`}).join("")}</div>`};
+  $(`${topBar()}
+  <div class="scorebar d">${S.teams.map((_,i)=>`<div class="sc c${i+1}" id="sc${i}">${pn(i)} <span>0</span></div>`).join("")}</div>
+  <div class="scroll" id="bw">${CATS.map((_,i)=>blk(i)).join("")}<div class="final" id="final"></div></div>`);
   CATS.forEach((c,i)=>{
-    const delay=450+i*2600;
     setTimeout(()=>{
-      // slide row in
-      const ri=document.getElementById("r"+i);
-      if(ri)ri.classList.add("show");
-      // clash icon
-      setTimeout(()=>{const cl=document.getElementById("cl"+i);if(cl)cl.classList.add("fire");spawnBurst("#ffd23f",12);},520);
-      // Resolve and score this matchup only after the clash animation.
+      const b=document.getElementById("b"+i);if(!b)return;
+      b.classList.add("show");b.scrollIntoView({behavior:"smooth",block:"center"});
+      b.querySelectorAll(".bar s").forEach(s=>s.style.width=s.dataset.w+"%");
+      setTimeout(()=>{b.classList.add("fired");burstMid("#ffc83d",12)},600);
       setTimeout(()=>{
-        catWinners[i].forEach((w,pi)=>{if(w)wins[pi]++;});
-        S.teams.forEach((_,pi)=>{
-          const el=document.getElementById("sc"+pi);
-          if(el){
-            el.textContent=`${pn(pi)}: ${wins[pi]}`;
-            el.classList.remove("scored");
-            void el.offsetWidth;
-            el.classList.add("scored");
-          }
-        });
-        const colors=["#ff5a36","#2ec4ff","#7cff6b","#ff6bde"];
-        catWinners[i].forEach((won,pi)=>{
-          if(won){
-            const x=innerWidth*(S.numPlayers===4?(pi%2===0?.25:.75):(pi===0?.25:.75));
-            spawnParticles(x,innerHeight*.58,colors[pi],20);
-          }
-        });
-      },1050);
-    },delay);
+        win[i].forEach((w,pi)=>{if(w)wins[pi]++});
+        S.teams.forEach((_,pi)=>{const el=document.getElementById("sc"+pi);if(!el)return;
+          el.lastElementChild.textContent=wins[pi];el.classList.remove("pop");void el.offsetWidth;el.classList.add("pop")});
+        win[i].forEach((w,pi)=>{if(w)burst(innerWidth*(n===1?.5:.25+.5*(pi%2)),innerHeight*.5,PCOLORS[pi],18)});
+      },1200);
+    },450+i*ROW_MS);
   });
-
-  const finalDelay=450+CATS.length*2600+1500;
   setTimeout(()=>{
-    const maxWins=Math.max(...wins);
-    const topPlayers=wins.map((w,i)=>w===maxWins?i:-1).filter(i=>i>=0);
+    const mx=Math.max(...wins),top=wins.map((w,i)=>w===mx?i:-1).filter(i=>i>=0);
     let winner=-1;
-    if(topPlayers.length===1)winner=topPlayers[0];
-    else{
-      const best=cursed?Math.min(...topPlayers.map(i=>totals[i])):Math.max(...topPlayers.map(i=>totals[i]));
-      const tb=topPlayers.filter(i=>totals[i]===best);
-      if(tb.length===1)winner=tb[0];
-    }
-    const winsStr=wins.map((w,i)=>`${pn(i)}: ${w}`).join(" · ");
-    const winColor=winner>=0?`var(--p${winner+1})`:"var(--gold)";
-    if(winner>=0){
-      const colors=["#ff5a36","#2ec4ff","#7cff6b","#ff6bde"];
-      spawnBurst(colors[winner],40);
-      setTimeout(()=>spawnBurst(colors[winner],30),400);
-    }
-    final.innerHTML=(winner<0
-      ?`<div class="w animate-win display">🤝 It's a Draw!</div>`
-      :`<div class="w animate-win display" style="color:${winColor}">${pnLong(winner)} Wins! 🏆</div>`)+
-      `<div class="sub" style="font-size:1.2rem">${winsStr}</div>
-      ${cursed?`<div style="font-size:1.1rem;color:var(--curse)">💀 Lowest stats won the day! 💀</div>`:""}
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem">
-        <button class="big display" id="again" style="padding:.9rem 2.2rem;font-size:1.9rem">Play Again</button>
-        <button class="big ghost display" id="menu" style="font-size:1.5rem">Menu</button>
-      </div>`;
+    if(top.length===1)winner=top[0];
+    else{const b=(cur?Math.min:Math.max)(...top.map(i=>totals[i])),tb=top.filter(i=>totals[i]===b);if(tb.length===1)winner=tb[0]}
+    if(winner>=0){burstMid(PCOLORS[winner],40);setTimeout(()=>burstMid(PCOLORS[winner],30),400)}
+    final.innerHTML=(winner<0?`<div class="w d">It’s a draw</div>`:`<div class="w d" style="color:var(--p${winner+1})">${pnLong(winner)} wins</div>`)+
+      `<div class="sub">${wins.map((w,i)=>`${pn(i)}: ${w} categories · ${totals[i]} total`).join("<br>")}</div>
+      ${cur?`<div style="color:var(--curse);font-size:1.15rem">The lowest stats took it.</div>`:""}
+      <div class="row-btns"><button class="btn sm d" id="again">Play again</button><button class="btn ghost d" id="menu">Menu</button></div>`;
     document.getElementById("again").onclick=()=>newGame(S.mode,S.universe);
     document.getElementById("menu").onclick=title;
-    document.getElementById("final").scrollIntoView({behavior:"smooth",block:"nearest"});
-  },finalDelay);
+    final.scrollIntoView({behavior:"smooth",block:"end"});
+  },450+CATS.length*ROW_MS+1300);
 }
 
 init();
