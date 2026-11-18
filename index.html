@@ -136,23 +136,32 @@ button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulat
 
 /* row reveal — row-inner IS the grid, so sides animate together */
 .row-inner{display:contents}
-.row{opacity:0;transform:translateY(1.5rem);transition:opacity .45s ease,transform .45s ease}
-.row.show{opacity:1;transform:translateY(0)}
+.row{opacity:0;transform:translateY(1.5rem) scale(.97);transition:opacity .4s ease,transform .4s ease;isolation:isolate}
+.row.show{opacity:1;transform:translateY(0) scale(1);animation:rowImpact .55s cubic-bezier(.2,.8,.2,1)}
+@keyframes rowImpact{0%{filter:brightness(2);transform:translateY(1.5rem) scale(.94)}55%{filter:brightness(1.35);transform:translateY(0) scale(1.015)}100%{filter:brightness(1);transform:translateY(0) scale(1)}}
 
-.side{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.4rem .5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.2rem;text-align:center;transition:background .4s,border-color .4s,transform .3s,box-shadow .3s}
+.side{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.4rem .5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.2rem;text-align:center;opacity:.35;transition:opacity .35s ease,background .4s,border-color .4s,transform .4s,box-shadow .4s;transform:scale(.94)}
+.row.show .side{opacity:1;transform:scale(1);animation:sideReveal .55s cubic-bezier(.2,.8,.2,1) both}
+.row.show.p2 .side:first-child,.row.show.p4 .side:nth-child(-n+2){animation-name:sideEnterLeft}
+.row.show.p2 .side:last-child,.row.show.p4 .side:nth-last-child(-n+2){animation-name:sideEnterRight}
+@keyframes sideReveal{from{opacity:0;transform:scale(.7) rotate(-3deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes sideEnterLeft{from{opacity:0;transform:translateX(-2rem) scale(.8)}to{opacity:1;transform:translateX(0) scale(1)}}
+@keyframes sideEnterRight{from{opacity:0;transform:translateX(2rem) scale(.8)}to{opacity:1;transform:translateX(0) scale(1)}}
 .side-av{width:3.4rem;height:3.4rem;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;color:#fff;overflow:hidden;flex-shrink:0;border:.15rem solid rgba(255,255,255,.2)}
 .side-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
 .side .n{font-size:.95rem;line-height:1.1}
 .side .num{font-family:Impact,sans-serif;font-size:2rem;line-height:1}
 .side .r-badge-sm{font-size:.7rem;padding:.1rem .4rem;border-radius:1rem;border:.1rem solid currentColor;text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-top:.1rem}
 
-.row.show .side.win{border-color:var(--c);background:var(--c);color:var(--ink);transform:scale(1.05);box-shadow:0 .3rem 1.4rem rgba(0,0,0,.5)}
-.row.show .side.lose{opacity:.4}
-.row.show .side.tie{border-color:var(--gold);background:rgba(255,210,63,.12)}
+.row.show .side.win{border-color:var(--c);background:var(--c);color:var(--ink);transform:scale(1.05);box-shadow:0 0 1.8rem var(--c),0 .3rem 1.4rem rgba(0,0,0,.5);animation:winnerPunch .55s cubic-bezier(.2,.8,.2,1) both}
+.row.show .side.lose{opacity:.42;filter:saturate(.45)}
+.row.show .side.tie{border-color:var(--gold);background:rgba(255,210,63,.12);box-shadow:0 0 1.2rem rgba(255,210,63,.3)}
+@keyframes winnerPunch{0%{transform:scale(.94)}45%{transform:scale(1.12)}100%{transform:scale(1.05)}}
 
 /* clash flash — sits inside .mid so it's always centred */
-.clash{display:block;font-size:2.4rem;opacity:0;pointer-events:none;line-height:1}
-.clash.fire{animation:clashPop .65s ease forwards}
+.clash{display:block;font-size:2.4rem;opacity:0;pointer-events:none;line-height:1;filter:drop-shadow(0 0 .5rem var(--gold))}
+.clash.fire{animation:clashPop .8s cubic-bezier(.16,1,.3,1) forwards}
+.mid:has(.clash.fire){color:var(--gold);text-shadow:0 0 .8rem rgba(255,210,63,.65)}
 @keyframes clashPop{0%{opacity:0;transform:scale(.2)}25%{opacity:1;transform:scale(1.5)}60%{opacity:1;transform:scale(1.1)}100%{opacity:0;transform:scale(.7)}}
 
 .mid{text-align:center;font-size:.95rem;color:var(--dim);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.12rem}
@@ -700,30 +709,37 @@ function battle(){
   </div>`);
 
   CATS.forEach((c,i)=>{
-    const delay=800+i*1800;
+    const delay=450+i*2600;
     setTimeout(()=>{
       // slide row in
-      const ri=document.getElementById("ri"+i);
+      const ri=document.getElementById("r"+i);
       if(ri)ri.classList.add("show");
       // clash icon
-      setTimeout(()=>{const cl=document.getElementById("cl"+i);if(cl)cl.classList.add("fire");},300);
-      // update scores
-      catWinners[i].forEach((w,pi)=>{if(w)wins[pi]++;});
-      S.teams.forEach((_,pi)=>{
-        const el=document.getElementById("sc"+pi);
-        if(el){el.textContent=`${pn(pi)}: ${wins[pi]}`;el.classList.remove("scored");
-          void el.offsetWidth;el.classList.add("scored");}
-      });
-      // particles on win side
-      const winPi=catWinners[i].findIndex(w=>w);
-      if(winPi>=0){
+      setTimeout(()=>{const cl=document.getElementById("cl"+i);if(cl)cl.classList.add("fire");spawnBurst("#ffd23f",12);},520);
+      // Resolve and score this matchup only after the clash animation.
+      setTimeout(()=>{
+        catWinners[i].forEach((w,pi)=>{if(w)wins[pi]++;});
+        S.teams.forEach((_,pi)=>{
+          const el=document.getElementById("sc"+pi);
+          if(el){
+            el.textContent=`${pn(pi)}: ${wins[pi]}`;
+            el.classList.remove("scored");
+            void el.offsetWidth;
+            el.classList.add("scored");
+          }
+        });
         const colors=["#ff5a36","#2ec4ff","#7cff6b","#ff6bde"];
-        spawnParticles(innerWidth*(winPi===0?.25:.75),innerHeight*.6,colors[winPi],12);
-      }
+        catWinners[i].forEach((won,pi)=>{
+          if(won){
+            const x=innerWidth*(S.numPlayers===4?(pi%2===0?.25:.75):(pi===0?.25:.75));
+            spawnParticles(x,innerHeight*.58,colors[pi],20);
+          }
+        });
+      },1050);
     },delay);
   });
 
-  const finalDelay=800+CATS.length*1800+500;
+  const finalDelay=450+CATS.length*2600+1500;
   setTimeout(()=>{
     const maxWins=Math.max(...wins);
     const topPlayers=wins.map((w,i)=>w===maxWins?i:-1).filter(i=>i>=0);
