@@ -1323,7 +1323,7 @@
     {
       "name": "All Might",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://fortnite-api.com/images/cosmetics/br/character_emeraldglasstransform/variants/parts/stage1.png",
       "strength": 91,
       "iq": 62,
       "durability": 84,
@@ -1333,7 +1333,7 @@
     {
       "name": "Shoto Todoroki",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://preview.redd.it/who-is-your-favorite-crossover-ship-for-shoto-todoroki-v0-0s83dz7u6lhe1.jpeg?auto=webp&s=523272bb35f327e10efc596433f4cf6b293b3581",
       "strength": 68,
       "iq": 68,
       "durability": 62,
@@ -1343,7 +1343,7 @@
     {
       "name": "Katsuki Bakugo",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/deathbattle/images/d/db/Portrait.bakugou.png/revision/latest/thumbnail/width/360/height/360?cb=20260404155533",
       "strength": 68,
       "iq": 59,
       "durability": 62,
@@ -1983,7 +1983,7 @@
     {
       "name": "Momo Yaoyorozu",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://preview.redd.it/day-11-what-are-your-favorite-headcanons-about-momo-v0-hnrhm0dme1ld1.jpg?width=640&crop=smart&auto=webp&s=06e451e4d21786fce3aec93c30d2898198a2e7f4",
       "strength": 42,
       "iq": 96,
       "durability": 48,
@@ -1993,7 +1993,7 @@
     {
       "name": "Fumikage Tokoyami",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://ultrarumble.com/assets/Character/Ch011/GUI/FaceIcon/T_ui_Ch011_CharaImage.png",
       "strength": 78,
       "iq": 72,
       "durability": 78,
@@ -2003,7 +2003,7 @@
     {
       "name": "Tsuyu Asui",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLz3y63kHX-JC-tRcrnhmhlHZDj_z0SQZP3q3K0xcytVQiDmV9QTt0Y5GD&s=10",
       "strength": 52,
       "iq": 68,
       "durability": 58,
@@ -2013,7 +2013,7 @@
     {
       "name": "Mina Ashido",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2023/06/mha-mina-ashido.jpg?w=1200&h=900&fit=crop",
       "strength": 58,
       "iq": 58,
       "durability": 62,
@@ -2023,7 +2023,7 @@
     {
       "name": "Kyoka Jiro",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://c-cf.cdn.smule.com/rs-s-sf-3/arr/55/83/f505774c-7b69-4deb-960b-4de6e81cf9c9.jpg",
       "strength": 35,
       "iq": 65,
       "durability": 42,
@@ -2033,7 +2033,7 @@
     {
       "name": "Yuga Aoyama",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/villainsfanon/images/7/79/Yuga_Aoyama.png/revision/latest?cb=20250613044131",
       "strength": 48,
       "iq": 58,
       "durability": 48,
@@ -2043,8 +2043,8 @@
     {
       "name": "Mashirao Ojiro",
       "source": "My Hero Academia",
-      "image": "",
-      "strength": 55,
+      "image": "https://i.redd.it/445tyoiyu2md1.jpg",
+      "strength": 58,
       "iq": 52,
       "durability": 55,
       "speed": 58,
@@ -2053,7 +2053,7 @@
     {
       "name": "Mezo Shoji",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2021/05/mezo-shoji-close-up.jpg?w=1600&h=900&fit=crop",
       "strength": 65,
       "iq": 58,
       "durability": 72,
@@ -2063,7 +2063,7 @@
     {
       "name": "Hanta Sero",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/super-battlesaga/images/4/4d/Hanta_Sero.png/revision/latest?cb=20200406095451",
       "strength": 48,
       "iq": 55,
       "durability": 52,
@@ -2073,7 +2073,7 @@
     {
       "name": "Rikido Sato",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2020/01/rikido-sato-nervous.jpg?q=50&fit=crop&w=825&dpr=1.5",
       "strength": 78,
       "iq": 38,
       "durability": 78,
@@ -2083,7 +2083,7 @@
     {
       "name": "Koji Koda",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://i.redd.it/2uemvowldgmd1.jpg",
       "strength": 32,
       "iq": 52,
       "durability": 42,
@@ -2093,7 +2093,7 @@
     {
       "name": "Toru Hagakure",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSPC5WG8XriJoBcV78fqkCm9EpK5bOB1XnfcSnXOap0vAeS5usqjBdLn3Q&s=10",
       "strength": 28,
       "iq": 58,
       "durability": 35,
@@ -2103,7 +2103,7 @@
     {
       "name": "Minoru Mineta",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/a/a6/Minoru_Mineta_Action_3.png/revision/latest?cb=20250602032233",
       "strength": 22,
       "iq": 48,
       "durability": 28,
@@ -2113,7 +2113,7 @@
     {
       "name": "Mirio Togata",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://i.redd.it/hn6441eqp3zg1.jpeg",
       "strength": 88,
       "iq": 82,
       "durability": 88,
@@ -2123,7 +2123,7 @@
     {
       "name": "Tamaki Amajiki",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSY8bF7ilrZJqRwyy3rlAkTge3qN0vveJE6crj6ADkzKy4DkNAe6ph3DN02&s=10",
       "strength": 82,
       "iq": 82,
       "durability": 82,
@@ -2133,7 +2133,7 @@
     {
       "name": "Nejire Hado",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/2/28/Nejire_Hado_Post-War_%28Anime%29.png/revision/latest?cb=20240525123551",
       "strength": 78,
       "iq": 82,
       "durability": 78,
@@ -2143,7 +2143,7 @@
     {
       "name": "Shota Aizawa",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/digitousailorcure/images/6/61/Shota_aizawa.png/revision/latest?cb=20221215092934",
       "strength": 72,
       "iq": 92,
       "durability": 72,
@@ -2153,7 +2153,7 @@
     {
       "name": "Present Mic",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://www.gematsu.com/wp-content/uploads/2021/11/MHOJ2_11-25-21.jpg",
       "strength": 62,
       "iq": 68,
       "durability": 62,
@@ -2163,7 +2163,7 @@
     {
       "name": "Midnight",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrAKBRaQ5aClyega4j0kUPY_LBKWqvTVb97W6pYVgsxCffYEj3Udqpn0oG&s=10",
       "strength": 42,
       "iq": 68,
       "durability": 45,
@@ -2173,7 +2173,7 @@
     {
       "name": "Cementoss",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://i.redd.it/dai2npmm4a1g1.jpeg",
       "strength": 72,
       "iq": 68,
       "durability": 82,
@@ -2183,7 +2183,7 @@
     {
       "name": "Ectoplasm",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://i.redd.it/gq5z9uf87ove1.jpeg",
       "strength": 62,
       "iq": 72,
       "durability": 62,
@@ -2193,7 +2193,7 @@
     {
       "name": "Snipe",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://preview.redd.it/what-is-your-opinion-on-the-snipe-has-no-quirk-its-just-a-v0-rhjsz4uekiff1.jpeg?auto=webp&s=e9151f6ed0827f5b59ddc813bb40cbb9f4717fda",
       "strength": 48,
       "iq": 78,
       "durability": 48,
@@ -2203,7 +2203,7 @@
     {
       "name": "Thirteen",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/0/06/Thirteen_Hero_Costume_%28Anime%29.png/revision/latest?cb=20251115175412",
       "strength": 52,
       "iq": 78,
       "durability": 58,
@@ -2213,7 +2213,7 @@
     {
       "name": "Vlad King",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bnha-weasy-au/images/2/27/Vlad_King_icon.png/revision/latest?cb=20241013102113",
       "strength": 68,
       "iq": 62,
       "durability": 68,
@@ -2223,7 +2223,7 @@
     {
       "name": "Endeavor",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2022/06/My-Hero-Academia-Endeavor-Looking-Down.jpg",
       "strength": 92,
       "iq": 82,
       "durability": 88,
@@ -2233,7 +2233,7 @@
     {
       "name": "Hawks",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/near-pure-good-hero/images/d/d7/Hawks_Action_Pose.png/revision/latest?cb=20210530002222",
       "strength": 68,
       "iq": 92,
       "durability": 68,
@@ -2243,7 +2243,7 @@
     {
       "name": "Best Jeanist",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://i.pinimg.com/736x/19/30/f3/1930f3c441c0bb39ec4396089e511761.jpg",
       "strength": 68,
       "iq": 82,
       "durability": 72,
@@ -2253,7 +2253,7 @@
     {
       "name": "Edgeshot",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/0/09/Shinya_Kamihara_S7_Visual.png/revision/latest?cb=20240615232138",
       "strength": 72,
       "iq": 88,
       "durability": 68,
@@ -2263,7 +2263,7 @@
     {
       "name": "Mirko",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/ensemble-dark-horse/images/9/99/Mirko.webp/revision/latest/scale-to-width/360?cb=20260923035436",
       "strength": 92,
       "iq": 68,
       "durability": 88,
@@ -2273,7 +2273,7 @@
     {
       "name": "Crust",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/vsbattles/images/d/de/No6Crust.png/revision/latest?cb=20200608010837",
       "strength": 72,
       "iq": 58,
       "durability": 88,
@@ -2283,7 +2283,7 @@
     {
       "name": "Kamui Woods",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/p__/images/4/49/Shinji_Nishiya_First_Hero_Costume.png/revision/latest?cb=20201204133832&path-prefix=protagonist",
       "strength": 62,
       "iq": 65,
       "durability": 68,
@@ -2293,7 +2293,7 @@
     {
       "name": "Gang Orca",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2020/10/He-Went-From-Number-10-to-12-In-The-Top-Heroes-List.jpg?w=1200&h=675&fit=crop",
       "strength": 78,
       "iq": 72,
       "durability": 82,
@@ -2303,7 +2303,7 @@
     {
       "name": "Fat Gum",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/c/c1/Taishiro_Toyomitsu_Anime_Action.png/revision/latest?cb=20251115180655",
       "strength": 82,
       "iq": 62,
       "durability": 100,
@@ -2313,7 +2313,7 @@
     {
       "name": "Gran Torino",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/4/4e/Sorahiko_Torino_Hero_Costume_%28Anime%29.png/revision/latest?cb=20251115180227",
       "strength": 65,
       "iq": 88,
       "durability": 58,
@@ -2323,7 +2323,7 @@
     {
       "name": "Sir Nighteye",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/characterprofile/images/a/ac/Mirai_Sasaki_%28Sir_Nighteye%29_render.webp/revision/latest?cb=20240406102503",
       "strength": 48,
       "iq": 98,
       "durability": 48,
@@ -2333,7 +2333,7 @@
     {
       "name": "Recovery Girl",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/6/65/Chiyo_Shuzenji_Work_Uniform_%28Anime%29.png/revision/latest?cb=20251115174955",
       "strength": 12,
       "iq": 82,
       "durability": 18,
@@ -2343,7 +2343,7 @@
     {
       "name": "All For One",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/a/ae/Post-War_All_For_One_Action.png/revision/latest?cb=20240615225342",
       "strength": 98,
       "iq": 100,
       "durability": 98,
@@ -2353,7 +2353,17 @@
     {
       "name": "Tomura Shigaraki",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/monster/images/4/45/Tomura_Shigaraki_Anime_Action.png/revision/latest/scale-to-width-down/340?cb=20220104232344",
+      "strength": 75,
+      "iq": 70,
+      "durability": 64,
+      "speed": 60,
+      "ability": 72
+    },
+    {
+      "name": "Tomura Shigaraki (Awakened)",
+      "source": "My Hero Academia",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/2/25/Final_War_Tomura_Shigaraki.png/revision/latest?cb=20251225225936",
       "strength": 100,
       "iq": 78,
       "durability": 100,
@@ -2363,7 +2373,7 @@
     {
       "name": "Dabi",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/world-war-fan-fiction-series/images/0/05/Dabi.png/revision/latest?cb=20191129183527",
       "strength": 72,
       "iq": 72,
       "durability": 62,
@@ -2373,7 +2383,7 @@
     {
       "name": "Himiko Toga",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/versus-compendium/images/7/70/Himiko_Toga_Anime_Action.png/revision/latest?cb=20200726201244",
       "strength": 52,
       "iq": 78,
       "durability": 55,
@@ -2383,7 +2393,7 @@
     {
       "name": "Twice",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/villains/images/8/84/Twice_headshot.png/revision/latest?cb=20191123035218",
       "strength": 58,
       "iq": 68,
       "durability": 62,
@@ -2393,7 +2403,7 @@
     {
       "name": "Spinner",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/b/b9/Spinner_Anime_Action.png/revision/latest?cb=20240615231308",
       "strength": 58,
       "iq": 48,
       "durability": 68,
@@ -2403,7 +2413,7 @@
     {
       "name": "Mr. Compress",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/5/5d/Mr._Compress_Anime_Action.png/revision/latest?cb=20240615231007",
       "strength": 42,
       "iq": 78,
       "durability": 45,
@@ -2413,7 +2423,7 @@
     {
       "name": "Kurogiri",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/goldbattles/images/1/1d/Kurogiri_Artwork_Monster_Strike.png/revision/latest?cb=20200206022625",
       "strength": 62,
       "iq": 78,
       "durability": 78,
@@ -2423,7 +2433,7 @@
     {
       "name": "Overhaul",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://i.redd.it/gx08vdx07jze1.jpeg",
       "strength": 78,
       "iq": 88,
       "durability": 78,
@@ -2433,7 +2443,7 @@
     {
       "name": "Gentle Criminal",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/villains/images/0/05/Danjuro_Tobita_Anime_Profile.png/revision/latest?cb=20200218141947",
       "strength": 58,
       "iq": 78,
       "durability": 62,
@@ -2443,7 +2453,7 @@
     {
       "name": "La Brava",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/7/76/Manami_Aiba_Anime_Profile.png/revision/latest/scale-to-width-down/250?cb=20200208100313",
       "strength": 18,
       "iq": 88,
       "durability": 22,
@@ -2453,8 +2463,8 @@
     {
       "name": "Stain",
       "source": "My Hero Academia",
-      "image": "",
-      "strength": 68,
+      "image": "https://static0.cbrimages.com/wordpress/wp-content/uploads/2020/04/Stain.jpg?w=1200&h=675&fit=crop",
+      "strength": 78,
       "iq": 82,
       "durability": 65,
       "speed": 88,
@@ -2463,7 +2473,7 @@
     {
       "name": "Muscular",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/pure-evil-wiki/images/1/1a/Muscular.png/revision/latest?cb=20210903152127",
       "strength": 98,
       "iq": 38,
       "durability": 100,
@@ -2473,7 +2483,7 @@
     {
       "name": "Re-Destro",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/my-hero-academia-fanon/images/a/ad/Rikiya_Yotsubashi.jpg.jpg/revision/latest/thumbnail/width/360/height/450?cb=20220429181302",
       "strength": 92,
       "iq": 88,
       "durability": 92,
@@ -2483,7 +2493,7 @@
     {
       "name": "Lady Nagant",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/vsbattles/images/f/f3/Lady_Nagant_Villain.png/revision/latest/scale-to-width-down/1200?cb=20251223214141",
       "strength": 62,
       "iq": 92,
       "durability": 62,
@@ -2493,7 +2503,7 @@
     {
       "name": "Star and Stripe",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/d/d6/Star_and_Stripe_Hero_Costume_%28Anime%29.png/revision/latest?cb=20240427123805",
       "strength": 96,
       "iq": 92,
       "durability": 96,
@@ -2503,7 +2513,7 @@
     {
       "name": "Inasa Yoarashi",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/4/4a/Inasa_Yoarashi_wearing_the_school_uniform.png/revision/latest/scale-to-width-down/250?cb=20251016160753",
       "strength": 78,
       "iq": 68,
       "durability": 78,
@@ -2513,7 +2523,7 @@
     {
       "name": "Camie Utsushimi",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/camie.jpg",
       "strength": 42,
       "iq": 62,
       "durability": 42,
@@ -2523,7 +2533,7 @@
     {
       "name": "Seiji Shishikura",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/videogaming/images/d/d9/My_Hero_Ultra_Impact_-_Character_Art_-_Seiji_Shishikura_-_Dutiful_-_1.png/revision/latest?cb=20260111232230",
       "strength": 52,
       "iq": 68,
       "durability": 55,
@@ -2533,7 +2543,7 @@
     {
       "name": "Yo Shindo",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://preview.redd.it/do-you-think-yo-shindos-quirk-usage-allows-him-to-be-a-good-v0-1ejw9q1jd1x21.jpg?width=1200&format=pjpg&auto=webp&s=1c437002019dad51edbb2fb79bcc10e02b11fafa",
       "strength": 58,
       "iq": 62,
       "durability": 58,
@@ -2543,7 +2553,7 @@
     {
       "name": "Flect Turn",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/b/bf/Flect_Turn_Full_Body_Profile.png/revision/latest?cb=20210616013802",
       "strength": 72,
       "iq": 82,
       "durability": 78,
@@ -2553,7 +2563,7 @@
     {
       "name": "Nine",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://i.redd.it/qpss7wwdputa1.jpg",
       "strength": 88,
       "iq": 82,
       "durability": 88,
@@ -2563,7 +2573,7 @@
     {
       "name": "Wolfram",
       "source": "My Hero Academia",
-      "image": "",
+      "image": "https://static.wikia.nocookie.net/bokunoheroacademia/images/7/74/Wolfram.png/revision/latest?cb=20190211003900",
       "strength": 82,
       "iq": 68,
       "durability": 88,
