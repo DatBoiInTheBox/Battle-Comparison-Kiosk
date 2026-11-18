@@ -5,125 +5,289 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, viewport-fit=cover">
 <title>Mashup Brawl</title>
 <style>
-:root{--ink:#12102a;--panel:#1f1b45;--line:#3a3470;--p1:#ff5a36;--p2:#2ec4ff;--p3:#7cff6b;--p4:#ff6bde;--gold:#ffd23f;--paper:#f6f1ff;--dim:#9a94c9;--curse:#b44fff}
-*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+/* ═══════════ BASE ═══════════ */
+:root{
+  --ink:#0d0b1e;--panel:#1a1740;--line:#322d6a;
+  --p1:#ff5a36;--p2:#2ec4ff;--p3:#7cff6b;--p4:#ff6bde;
+  --gold:#ffd23f;--paper:#f6f1ff;--dim:#9a94c9;--curse:#b44fff;
+  --r-common:#9a94c9;--r-uncommon:#4ade80;--r-rare:#60a5fa;
+  --r-epic:#c084fc;--r-legendary:#fbbf24;--r-mythic:#ff6b6b;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;-webkit-user-select:none;user-select:none;-webkit-touch-callout:none;margin:0;padding:0}
 html{font-size:min(3.1vw,1.75vh)}
-html,body{margin:0;height:100%;overflow:hidden;background:var(--ink);color:var(--paper);touch-action:manipulation;overscroll-behavior:none;font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif}
+html,body{height:100%;overflow:hidden;background:var(--ink);color:var(--paper);touch-action:manipulation;overscroll-behavior:none;font-family:"Trebuchet MS","Segoe UI",system-ui,sans-serif}
 button{font:inherit;color:inherit;border:0;cursor:pointer;touch-action:manipulation}
-.display{font-family:Impact,"Arial Black","Haettenschweiler",sans-serif;letter-spacing:.04em;text-transform:uppercase}
-#app{height:100%;display:flex;flex-direction:column;padding:1.4rem;gap:1rem}
+.display{font-family:Impact,"Arial Black",sans-serif;letter-spacing:.04em;text-transform:uppercase}
+#app{height:100%;display:flex;flex-direction:column;padding:1.3rem;gap:.9rem}
 .c1{--c:var(--p1)}.c2{--c:var(--p2)}.c3{--c:var(--p3)}.c4{--c:var(--p4)}
 
-/* ── TITLE ── */
-.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.6rem}
-.title{font-size:6rem;line-height:.9;margin:0;transform:rotate(-3deg);text-shadow:.35rem .35rem 0 var(--p1),-.3rem -.3rem 0 var(--p2)}
-.sub{font-size:1.6rem;color:var(--dim);max-width:32rem;line-height:1.4}
-.big{background:var(--gold);color:var(--ink);font-size:2.4rem;padding:1.2rem 3rem;border-radius:1rem;box-shadow:0 .5rem 0 #b38b00;transition:transform .08s,box-shadow .08s;white-space:nowrap}
+/* ═══════════ PARTICLES CANVAS ═══════════ */
+#particles{position:fixed;inset:0;pointer-events:none;z-index:0}
+#app{position:relative;z-index:1}
+
+/* ═══════════ TITLE ═══════════ */
+.center{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:1.5rem}
+.title{font-size:6rem;line-height:.9;transform:rotate(-3deg);text-shadow:.35rem .35rem 0 var(--p1),-.3rem -.3rem 0 var(--p2);animation:titleFloat 3s ease-in-out infinite}
+@keyframes titleFloat{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(-3deg) translateY(-.6rem)}}
+.sub{font-size:1.5rem;color:var(--dim);max-width:32rem;line-height:1.4}
+.big{background:var(--gold);color:var(--ink);font-size:2.3rem;padding:1.1rem 2.8rem;border-radius:1rem;box-shadow:0 .5rem 0 #b38b00;transition:transform .08s,box-shadow .08s;white-space:nowrap;position:relative;overflow:hidden}
+.big::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.25) 0%,transparent 50%);pointer-events:none}
 .big:active{transform:translateY(.4rem);box-shadow:0 .1rem 0 #b38b00}
-.big.ghost{background:transparent;color:var(--dim);box-shadow:none;border:.2rem solid var(--line);font-size:1.6rem;padding:.8rem 2rem}
+.big.ghost{background:transparent;color:var(--dim);box-shadow:none;border:.2rem solid var(--line);font-size:1.5rem;padding:.7rem 1.8rem}
 .big.ghost:active{background:var(--line)}
+.big.c1,.big.c2,.big.c3,.big.c4{background:var(--c);box-shadow:0 .5rem 0 rgba(0,0,0,.5)}
 
-/* ── MODE SELECT ── */
-.modes{display:flex;flex-direction:column;gap:.9rem;width:100%;max-width:38rem}
-.mode-btn{display:flex;align-items:center;gap:1.2rem;background:var(--panel);border:.2rem solid var(--line);border-radius:1.2rem;padding:1rem 1.4rem;text-align:left;width:100%;transition:.08s}
-.mode-btn:active{border-color:var(--gold);background:#2a255a}
-.mode-btn.selected{border-color:var(--gold);background:#2a255a}
-.mode-icon{font-size:2.6rem;flex-shrink:0;width:3rem;text-align:center}
-.mode-title{font-size:1.8rem;line-height:1;color:var(--paper)}
+/* ═══════════ MODES ═══════════ */
+.modes{display:flex;flex-direction:column;gap:.85rem;width:100%;max-width:38rem}
+.mode-btn{display:flex;align-items:center;gap:1.2rem;background:var(--panel);border:.2rem solid var(--line);border-radius:1.2rem;padding:1rem 1.4rem;text-align:left;width:100%;transition:border-color .15s,background .15s,transform .08s}
+.mode-btn:active{border-color:var(--gold);background:#2a255a;transform:scale(.98)}
+.mode-icon{font-size:2.5rem;flex-shrink:0;width:3rem;text-align:center}
+.mode-title{font-size:1.75rem;line-height:1;color:var(--paper)}
 .mode-title.curse{color:var(--curse)}
-.mode-desc{font-size:1.1rem;color:var(--dim);margin-top:.2rem}
+.mode-desc{font-size:1.05rem;color:var(--dim);margin-top:.2rem}
 
-/* ── UNIVERSE PICKER ── */
+/* ═══════════ UNIVERSE ═══════════ */
 .uni-grid{display:grid;grid-template-columns:1fr 1fr;gap:.7rem;width:100%;overflow-y:auto;flex:1}
-.uni-btn{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.9rem .8rem;font-size:1.4rem;text-align:center;line-height:1.3}
-.uni-btn:active,.uni-btn.selected{border-color:var(--gold);background:#2a255a;color:var(--gold)}
+.uni-btn{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.85rem .7rem;font-size:1.35rem;text-align:center;line-height:1.3;transition:.12s}
+.uni-btn:active{border-color:var(--gold);background:#2a255a;color:var(--gold)}
 
-/* ── BOARD ── */
-.board{display:grid;gap:.7rem}
+/* ═══════════ BOARD ═══════════ */
+.board{display:grid;gap:.6rem}
 .board.p2{grid-template-columns:1fr 1fr}
 .board.p4{grid-template-columns:1fr 1fr}
-.team{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.7rem .9rem}
-.team.active{border-color:var(--c);box-shadow:0 0 1.5rem -.2rem var(--c)}
-.team h3{margin:0 0 .4rem;font-size:1.5rem;color:var(--c)}
-.slot{display:flex;justify-content:space-between;gap:.4rem;font-size:.95rem;padding:.2rem 0;border-top:.1rem solid var(--line);color:var(--dim)}
-.slot b{color:var(--paper);font-weight:600;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:55%}
-.banner{font-size:2.6rem;text-align:center;color:var(--c);flex-shrink:0}
+.board.p1{grid-template-columns:1fr}
+.team{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.65rem .85rem;transition:border-color .2s,box-shadow .2s}
+.team.active{border-color:var(--c);box-shadow:0 0 1.4rem -.2rem var(--c)}
+.team h3{font-size:1.4rem;color:var(--c);margin-bottom:.35rem}
+.slot{display:flex;justify-content:space-between;gap:.4rem;font-size:.9rem;padding:.18rem 0;border-top:.1rem solid var(--line);color:var(--dim)}
+.slot b{color:var(--paper);font-weight:600;text-align:right;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:60%}
+.banner{font-size:2.4rem;text-align:center;color:var(--c);flex-shrink:0}
 
-/* ── AVATAR ── */
-.avatar{border-radius:50%;display:grid;place-items:center;font-size:3.2rem;color:#fff;border:.3rem solid var(--paper);text-shadow:0 .15rem 0 rgba(0,0,0,.4);overflow:hidden;flex-shrink:0}
+/* ═══════════ RARITY ═══════════ */
+.rarity-badge{display:inline-flex;align-items:center;gap:.4rem;padding:.25rem .8rem;border-radius:2rem;font-size:1.1rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border:.15rem solid currentColor}
+.r-common   {color:var(--r-common);  background:rgba(154,148,201,.12)}
+.r-uncommon {color:var(--r-uncommon);background:rgba(74,222,128,.12)}
+.r-rare     {color:var(--r-rare);    background:rgba(96,165,250,.12)}
+.r-epic     {color:var(--r-epic);    background:rgba(192,132,252,.12)}
+.r-legendary{color:var(--r-legendary);background:rgba(251,191,36,.12)}
+.r-mythic   {color:var(--r-mythic);  background:rgba(255,107,107,.12);animation:mythicPulse 1.5s ease-in-out infinite}
+@keyframes mythicPulse{0%,100%{box-shadow:0 0 .4rem var(--r-mythic)}50%{box-shadow:0 0 1.2rem var(--r-mythic),0 0 2rem rgba(255,107,107,.4)}}
+
+/* ═══════════ ROLL CARD ═══════════ */
+.roll-card{background:var(--panel);border:.25rem solid var(--c);border-radius:1.4rem;padding:1.3rem;display:flex;flex-direction:column;align-items:center;gap:.6rem;flex-shrink:0;position:relative;overflow:hidden;transition:border-color .3s}
+.roll-card.reveal-common   {border-color:var(--r-common)}
+.roll-card.reveal-uncommon {border-color:var(--r-uncommon);box-shadow:0 0 1.5rem rgba(74,222,128,.3)}
+.roll-card.reveal-rare     {border-color:var(--r-rare);box-shadow:0 0 2rem rgba(96,165,250,.4)}
+.roll-card.reveal-epic     {border-color:var(--r-epic);box-shadow:0 0 2rem rgba(192,132,252,.5);animation:epicShimmer 2s ease-in-out infinite}
+.roll-card.reveal-legendary{border-color:var(--r-legendary);box-shadow:0 0 3rem rgba(251,191,36,.6);animation:legendaryShimmer 1.5s ease-in-out infinite}
+.roll-card.reveal-mythic   {border-color:var(--r-mythic);box-shadow:0 0 4rem rgba(255,107,107,.7);animation:mythicCard 1s ease-in-out infinite}
+@keyframes epicShimmer{0%,100%{box-shadow:0 0 2rem rgba(192,132,252,.5)}50%{box-shadow:0 0 3rem rgba(192,132,252,.8),inset 0 0 2rem rgba(192,132,252,.1)}}
+@keyframes legendaryShimmer{0%,100%{box-shadow:0 0 3rem rgba(251,191,36,.6)}50%{box-shadow:0 0 5rem rgba(251,191,36,1),inset 0 0 2rem rgba(251,191,36,.15)}}
+@keyframes mythicCard{0%,100%{box-shadow:0 0 4rem rgba(255,107,107,.7),0 0 1rem rgba(255,107,107,.4)}50%{box-shadow:0 0 7rem rgba(255,107,107,1),0 0 2rem rgba(255,107,107,.8),inset 0 0 3rem rgba(255,107,107,.2)}}
+
+/* rarity flash overlay */
+.rarity-flash{position:fixed;inset:0;z-index:100;pointer-events:none;opacity:0;transition:opacity .15s}
+.rarity-flash.go{opacity:1}
+
+/* ═══════════ AVATAR ═══════════ */
+.avatar{border-radius:50%;display:grid;place-items:center;font-size:3rem;color:#fff;border:.3rem solid var(--paper);text-shadow:0 .15rem 0 rgba(0,0,0,.4);overflow:hidden;flex-shrink:0;transition:transform .3s}
 .avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.avatar.bounce{animation:avatarBounce .5s cubic-bezier(.36,.07,.19,.97)}
+@keyframes avatarBounce{0%,100%{transform:scale(1)}30%{transform:scale(1.18)}60%{transform:scale(.95)}80%{transform:scale(1.06)}}
 
-/* ── CARD / ASSIGN ── */
-.card{background:var(--panel);border:.25rem solid var(--c);border-radius:1.4rem;padding:1.3rem;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.5rem;flex-shrink:0}
-.cname{font-size:2.6rem;line-height:1}
-.csrc{font-size:1.2rem;color:var(--dim)}
-.assign-row{display:flex;gap:1.1rem;align-items:center}
-.assign-info{text-align:left}
+.cname{font-size:2.5rem;line-height:1;animation:none}
+.cname.pop{animation:namePop .4s cubic-bezier(.36,.07,.19,.97)}
+@keyframes namePop{0%{transform:scale(.6);opacity:0}70%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+.csrc{font-size:1.15rem;color:var(--dim)}
+
+/* ═══════════ ASSIGN ═══════════ */
+.assign-row{display:flex;gap:1rem;align-items:center}
+.assign-info{text-align:left;display:flex;flex-direction:column;gap:.35rem}
 .hint{text-align:center;font-size:1.3rem;color:var(--dim);flex-shrink:0}
 .hint.curse-hint{color:var(--curse)}
-.picks{display:flex;flex-direction:column;gap:.6rem;flex:1}
-.pick{display:flex;align-items:center;gap:1rem;background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.9rem 1.3rem;font-size:2rem;text-align:left;flex:1;width:100%}
-.pick .icon{font-size:2.2rem;line-height:1;flex-shrink:0}
-.pick .label{font-size:1.7rem;flex:1}
-.pick:active:not(:disabled){background:var(--c);color:var(--ink)}
-.pick:disabled{opacity:.35}
+.picks{display:flex;flex-direction:column;gap:.55rem;flex:1}
+.pick{display:flex;align-items:center;gap:.9rem;background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.85rem 1.2rem;font-size:2rem;text-align:left;flex:1;width:100%;transition:transform .08s,background .1s,border-color .1s}
+.pick .icon{font-size:2.1rem;line-height:1;flex-shrink:0}
+.pick .label{font-size:1.6rem;flex:1}
+.pick:active:not(:disabled){background:var(--c);color:var(--ink);transform:scale(.97)}
+.pick:disabled{opacity:.3}
 .pick.curse-pick{border-color:var(--curse)}
 .pick.curse-pick:active:not(:disabled){background:var(--curse)}
 
-/* ── BATTLE ── */
-.score{display:flex;justify-content:space-around;font-size:3rem;flex-shrink:0;flex-wrap:wrap;gap:.5rem}
-.score span{padding:0 .4rem}
-.battle-wrap{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;gap:.7rem;padding-bottom:1rem}
-.row{display:grid;gap:.5rem;align-items:stretch;opacity:.2;transition:opacity .4s;min-height:8rem}
-.row.p2{grid-template-columns:1fr 6rem 1fr}
-.row.p4{grid-template-columns:1fr 1fr 5rem 1fr 1fr}
-.side{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.4rem .5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.25rem;text-align:center;transition:.3s}
-.side-av{width:3.6rem;height:3.6rem;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;color:#fff;overflow:hidden;flex-shrink:0;border:.2rem solid rgba(255,255,255,.25)}
-.side-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
-.side .n{font-size:1rem;line-height:1.1}
-.side .num{font-family:Impact,sans-serif;font-size:2.2rem;line-height:1}
-.row.show{opacity:1}
-.row.show .side.win{border-color:var(--c);background:var(--c);color:var(--ink);transform:scale(1.03)}
-.row.show .side.lose{opacity:.5}
-.mid{text-align:center;font-size:1rem;color:var(--dim);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.15rem}.mid span{font-size:1.8rem}
-.final{text-align:center;display:flex;flex-direction:column;gap:1rem;align-items:center;padding:1rem 0 2rem;flex-shrink:0}
-.final .w{font-size:4rem;line-height:1;color:var(--gold)}
-.err{color:var(--gold);font-size:1.5rem;max-width:34rem;line-height:1.5}
+/* ═══════════ SOLO ═══════════ */
+.solo-result{background:var(--panel);border:.2rem solid var(--gold);border-radius:1.2rem;padding:1rem 1.2rem;text-align:center;flex-shrink:0}
+.solo-score{font-size:5rem;color:var(--gold);line-height:1}
+.solo-grade{font-size:2.5rem;margin-top:.3rem}
+.solo-row{display:flex;justify-content:space-between;align-items:center;padding:.35rem 0;border-top:.1rem solid var(--line);font-size:1.2rem}
+.solo-row .cat{color:var(--dim)}
+.solo-row .val{font-family:Impact,sans-serif;font-size:1.8rem}
 
-/* curse banner */
-.curse-banner{background:linear-gradient(135deg,#2a0845,#1f1b45);border:.2rem solid var(--curse);border-radius:1rem;padding:.6rem 1rem;text-align:center;font-size:1.3rem;color:var(--curse);flex-shrink:0}
+/* ═══════════ BATTLE ═══════════ */
+.score{display:flex;justify-content:space-around;font-size:2.8rem;flex-shrink:0;flex-wrap:wrap;gap:.4rem}
+.score span{padding:0 .3rem;transition:transform .3s,color .3s}
+.score span.scored{animation:scorePop .4s cubic-bezier(.36,.07,.19,.97)}
+@keyframes scorePop{0%{transform:scale(1)}40%{transform:scale(1.4)}100%{transform:scale(1)}}
+
+.battle-wrap{flex:1;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;display:flex;flex-direction:column;gap:.65rem;padding-bottom:1rem}
+
+.row{display:grid;gap:.45rem;align-items:stretch;min-height:7.5rem;position:relative}
+.row.p2{grid-template-columns:1fr 5.5rem 1fr}
+.row.p4{grid-template-columns:1fr 1fr 4.5rem 1fr 1fr}
+
+/* row reveal animation */
+.row-inner{opacity:0;transform:translateY(1.5rem);transition:opacity .4s ease,transform .4s ease}
+.row-inner.show{opacity:1;transform:translateY(0)}
+
+.side{background:var(--panel);border:.2rem solid var(--line);border-radius:1rem;padding:.4rem .5rem;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.2rem;text-align:center;transition:background .4s,border-color .4s,transform .3s,box-shadow .3s}
+.side-av{width:3.4rem;height:3.4rem;border-radius:50%;display:grid;place-items:center;font-size:1.3rem;color:#fff;overflow:hidden;flex-shrink:0;border:.15rem solid rgba(255,255,255,.2)}
+.side-av img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.side .n{font-size:.95rem;line-height:1.1}
+.side .num{font-family:Impact,sans-serif;font-size:2rem;line-height:1}
+.side .r-badge-sm{font-size:.7rem;padding:.1rem .4rem;border-radius:1rem;border:.1rem solid currentColor;text-transform:uppercase;font-weight:700;letter-spacing:.06em;margin-top:.1rem}
+
+.row-inner.show .side.win{border-color:var(--c);background:var(--c);color:var(--ink);transform:scale(1.04);box-shadow:0 .3rem 1.2rem rgba(0,0,0,.4)}
+.row-inner.show .side.lose{opacity:.45}
+.row-inner.show .side.tie{border-color:var(--gold);background:rgba(255,210,63,.15)}
+
+/* clash flash between sides */
+.clash{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:2.5rem;opacity:0;z-index:10;pointer-events:none}
+.clash.fire{animation:clashPop .6s ease forwards}
+@keyframes clashPop{0%{opacity:0;transform:translate(-50%,-50%) scale(.3)}30%{opacity:1;transform:translate(-50%,-50%) scale(1.4)}70%{opacity:1;transform:translate(-50%,-50%) scale(1)}100%{opacity:0;transform:translate(-50%,-50%) scale(.8)}}
+
+.mid{text-align:center;font-size:.95rem;color:var(--dim);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:.12rem}
+.mid span{font-size:1.6rem}
+
+.final{text-align:center;display:flex;flex-direction:column;gap:.9rem;align-items:center;padding:1rem 0 2rem;flex-shrink:0}
+.final .w{font-size:3.8rem;line-height:1;color:var(--gold)}
+.final .w.animate-win{animation:winBounce .6s cubic-bezier(.36,.07,.19,.97)}
+@keyframes winBounce{0%{transform:scale(.4) rotate(-10deg);opacity:0}60%{transform:scale(1.15) rotate(3deg)}100%{transform:scale(1) rotate(0);opacity:1}}
+
+.err{color:var(--gold);font-size:1.4rem;max-width:34rem;line-height:1.5}
+.curse-banner{background:linear-gradient(135deg,#2a0845,#1f1b45);border:.2rem solid var(--curse);border-radius:1rem;padding:.55rem .9rem;text-align:center;font-size:1.2rem;color:var(--curse);flex-shrink:0}
+
+/* ═══════════ SOLO TIMER RING ═══════════ */
+.timer-ring{position:relative;width:4rem;height:4rem;flex-shrink:0}
+.timer-ring svg{transform:rotate(-90deg)}
+.timer-ring .track{fill:none;stroke:var(--line);stroke-width:3}
+.timer-ring .prog{fill:none;stroke:var(--gold);stroke-width:3;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:0;transition:stroke-dashoffset .9s linear,stroke .3s}
+.timer-ring .num{position:absolute;inset:0;display:grid;place-items:center;font-family:Impact,sans-serif;font-size:1.4rem;color:var(--gold)}
 </style>
 </head>
 <body>
+<canvas id="particles"></canvas>
 <div id="app"></div>
 <script>
+/* ═══════════════════════════════════════
+   CONSTANTS
+═══════════════════════════════════════ */
 const CATS=[["strength","Strength","💪"],["iq","IQ","🧠"],["durability","Durability","🛡️"],["speed","Speed","⚡"],["ability","Ability","✨"]];
-const PCOLORS=["var(--p1)","var(--p2)","var(--p3)","var(--p4)"];
+const RARITIES=[
+  {key:"common",   label:"Common",   min:0,  max:59,  color:"var(--r-common)",   icon:"⬜",flash:"rgba(154,148,201,.18)"},
+  {key:"uncommon", label:"Uncommon", min:60, max:69,  color:"var(--r-uncommon)", icon:"🟩",flash:"rgba(74,222,128,.2)"},
+  {key:"rare",     label:"Rare",     min:70, max:79,  color:"var(--r-rare)",     icon:"🟦",flash:"rgba(96,165,250,.25)"},
+  {key:"epic",     label:"Epic",     min:80, max:89,  color:"var(--r-epic)",     icon:"🟪",flash:"rgba(192,132,252,.35)"},
+  {key:"legendary",label:"Legendary",min:90, max:95,  color:"var(--r-legendary)",icon:"🌟",flash:"rgba(251,191,36,.4)"},
+  {key:"mythic",   label:"Mythic",   min:96, max:100, color:"var(--r-mythic)",   icon:"🔥",flash:"rgba(255,107,107,.5)"},
+];
+const CLASH_ICONS=["💥","⚡","🔥","✨","💢","🌟","❤️‍🔥","☄️"];
 const app=document.getElementById("app");
 let CHARS=[],S,idle;
 const $=(h)=>{app.innerHTML=h};
 const pn=p=>"P"+(p+1);
 const pnLong=p=>"Player "+(p+1);
 const hue=n=>[...n].reduce((a,c)=>a*31+c.charCodeAt(0),7)%360;
-const initials=ch=>ch.name.split(" ").map(w=>w[0]).join("").slice(0,2);
+const initials=ch=>ch.name.split(" ").map(w=>w[0]).join("").slice(0,2).replace(/'/g,"");
 const shuffle=a=>{const b=[...a];for(let i=b.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[b[i],b[j]]=[b[j],b[i]]}return b};
 const uniq=arr=>[...new Set(arr)].sort();
+const rnd=n=>Math.random()*n|0;
 document.addEventListener("contextmenu",e=>e.preventDefault());
 document.addEventListener("touchstart",()=>{clearTimeout(idle);idle=setTimeout(title,120000)},{passive:true});
 
-function avatarHTML(ch,size="8.5rem"){
+/* ═══════════════════════════════════════
+   PARTICLES
+═══════════════════════════════════════ */
+const cvs=document.getElementById("particles");
+const ctx2d=cvs.getContext("2d");
+let particles=[];
+function resizeCvs(){cvs.width=innerWidth;cvs.height=innerHeight}
+resizeCvs();window.addEventListener("resize",resizeCvs);
+function spawnParticles(x,y,color,count=18){
+  for(let i=0;i<count;i++){
+    const angle=Math.random()*Math.PI*2,speed=1+Math.random()*5;
+    particles.push({x,y,vx:Math.cos(angle)*speed,vy:Math.sin(angle)*speed-2,r:3+Math.random()*5,color,life:1,decay:.018+Math.random()*.025});
+  }
+}
+function spawnBurst(color,count=35){spawnParticles(innerWidth/2,innerHeight/2,color,count)}
+(function loop(){requestAnimationFrame(loop);ctx2d.clearRect(0,0,cvs.width,cvs.height);
+  particles=particles.filter(p=>{p.x+=p.vx;p.y+=p.vy;p.vy+=.12;p.life-=p.decay;p.vx*=.98;
+    if(p.life<=0)return false;
+    ctx2d.globalAlpha=p.life;ctx2d.fillStyle=p.color;ctx2d.beginPath();ctx2d.arc(p.x,p.y,p.r,0,Math.PI*2);ctx2d.fill();
+    return true;
+  });ctx2d.globalAlpha=1;
+})();
+
+/* ═══════════════════════════════════════
+   RARITY ENGINE
+═══════════════════════════════════════ */
+function getScore(ch){return(ch.strength+ch.iq+ch.durability+ch.speed+ch.ability)/5}
+function getRarity(ch){
+  const avg=getScore(ch);
+  for(const r of RARITIES)if(avg<=r.max)return r;
+  return RARITIES[RARITIES.length-1];
+}
+function rarityBadge(ch){
+  const r=getRarity(ch);
+  return `<span class="rarity-badge r-${r.key}">${r.icon} ${r.label}</span>`;
+}
+function rarityBadgeSm(ch){
+  const r=getRarity(ch);
+  return `<span class="r-badge-sm r-${r.key}">${r.icon} ${r.label}</span>`;
+}
+
+/* ═══════════════════════════════════════
+   AVATAR
+═══════════════════════════════════════ */
+function avatarHTML(ch,size="8rem"){
   const bg=`hsl(${hue(ch.name)} 55% 42%)`;
-  const ini=initials(ch).replace(/'/g,"");
-  if(ch.image) return `<div class="avatar display" style="width:${size};height:${size};background:${bg}"><img src="${ch.image}" alt="${ch.name}" onerror="this.parentNode.innerHTML='${ini}';this.parentNode.classList.add('display')"></div>`;
+  const ini=initials(ch);
+  if(ch.image)return `<div class="avatar" style="width:${size};height:${size};background:${bg}"><img src="${ch.image}" alt="${ch.name}" onerror="this.parentNode.innerHTML='<span class=display>${ini}</span>'"></div>`;
   return `<div class="avatar display" style="width:${size};height:${size};background:${bg}">${ini}</div>`;
 }
-function sideAvatarHTML(ch){
+function sideAvHTML(ch){
   const bg=`hsl(${hue(ch.name)} 55% 42%)`;
-  const ini=initials(ch).replace(/'/g,"");
-  if(ch.image) return `<div class="side-av" style="background:${bg}"><img src="${ch.image}" alt="${ch.name}" onerror="this.parentNode.innerHTML='${ini}';this.parentNode.classList.add('display')"></div>`;
+  const ini=initials(ch);
+  if(ch.image)return `<div class="side-av" style="background:${bg}"><img src="${ch.image}" alt="${ch.name}" onerror="this.parentNode.innerHTML='<span class=display style=font-size:1rem>${ini}</span>'"></div>`;
   return `<div class="side-av display" style="background:${bg}">${ini}</div>`;
 }
 
+/* ═══════════════════════════════════════
+   RARITY REVEAL FLASH
+═══════════════════════════════════════ */
+function rarityFlash(ch,cb){
+  const r=getRarity(ch);
+  // particles burst
+  const pColor=r.color.replace("var(","").replace(")","");
+  const resolvedColor={
+    "--r-common":"#9a94c9","--r-uncommon":"#4ade80","--r-rare":"#60a5fa",
+    "--r-epic":"#c084fc","--r-legendary":"#fbbf24","--r-mythic":"#ff6b6b"
+  }[pColor]||"#fff";
+  // only do dramatic effect for rare+
+  const idx=RARITIES.findIndex(x=>x.key===r.key);
+  if(idx>=2){
+    spawnBurst(resolvedColor, 15+idx*12);
+    const fl=document.createElement("div");
+    fl.className="rarity-flash";
+    fl.style.background=r.flash;
+    document.body.appendChild(fl);
+    requestAnimationFrame(()=>{fl.classList.add("go");
+      setTimeout(()=>{fl.classList.remove("go");setTimeout(()=>{fl.remove();cb&&cb()},200)},300+idx*80);
+    });
+  } else cb&&cb();
+}
+
+/* ═══════════════════════════════════════
+   INIT
+═══════════════════════════════════════ */
 async function init(){
   try{
     const r=await fetch("data.json",{cache:"no-store"});
@@ -135,17 +299,21 @@ async function init(){
   }
 }
 
-/* ═══════════════════════════════
-   TITLE + MODE SELECT
-═══════════════════════════════ */
+/* ═══════════════════════════════════════
+   TITLE
+═══════════════════════════════════════ */
 function title(){
   $(`<div class="center">
     <h1 class="title display">Mashup<br>Brawl</h1>
+    <p class="sub">Build your ultimate fighter. Assign characters to stats. Win the brawl.</p>
     <button class="big display" id="go">Choose Mode</button>
   </div>`);
   document.getElementById("go").onclick=modeSelect;
 }
 
+/* ═══════════════════════════════════════
+   MODE SELECT
+═══════════════════════════════════════ */
 function modeSelect(){
   $(`<div class="center">
     <div class="banner display" style="color:var(--gold)">Select Mode</div>
@@ -160,11 +328,15 @@ function modeSelect(){
       </button>
       <button class="mode-btn" data-mode="universe">
         <span class="mode-icon">🌌</span>
-        <div><div class="mode-title display">Universe Draft</div><div class="mode-desc">2 players · pick a universe · characters from that world only</div></div>
+        <div><div class="mode-title display">Universe Draft</div><div class="mode-desc">2 players · pick one universe · characters from that world</div></div>
       </button>
       <button class="mode-btn" data-mode="cursed">
         <span class="mode-icon">💀</span>
         <div><div class="mode-title curse display">Cursed Mode</div><div class="mode-desc">2 players · all characters · lowest stats win</div></div>
+      </button>
+      <button class="mode-btn" data-mode="solo">
+        <span class="mode-icon">🎯</span>
+        <div><div class="mode-title display">Solo Challenge</div><div class="mode-desc">1 player · beat your own high score · see how high you can roll</div></div>
       </button>
     </div>
     <button class="big ghost display" id="back">← Back</button>
@@ -174,174 +346,228 @@ function modeSelect(){
 }
 
 function startMode(mode){
-  if(mode==="universe") universePicker();
+  if(mode==="universe")universePicker();
   else newGame(mode);
 }
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    UNIVERSE PICKER
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 function universePicker(){
-  const sources=uniq(CHARS.map(c=>c.source));
-  // only show sources with enough characters
-  const valid=sources.filter(s=>CHARS.filter(c=>c.source===s).length>=2);
+  const valid=uniq(CHARS.map(c=>c.source)).filter(s=>CHARS.filter(c=>c.source===s).length>=2);
   $(`<div class="banner display" style="color:var(--gold)">Pick a Universe</div>
-  <div class="sub" style="flex-shrink:0;text-align:center">Characters will be drawn only from this universe.</div>
-  <div class="uni-grid">${valid.map(s=>`<button class="uni-btn" data-src="${s}">${s}<br><span style="font-size:1rem;color:var(--dim)">${CHARS.filter(c=>c.source===s).length} chars</span></button>`).join("")}</div>
+  <div class="sub" style="flex-shrink:0;text-align:center;font-size:1.3rem">Only characters from this universe will appear.</div>
+  <div class="uni-grid">${valid.map(s=>`<button class="uni-btn" data-src="${s}">${s}<br><span style="font-size:.95rem;color:var(--dim)">${CHARS.filter(c=>c.source===s).length} chars</span></button>`).join("")}</div>
   <button class="big ghost display" id="back" style="flex-shrink:0">← Back</button>`);
   document.querySelectorAll(".uni-btn").forEach(b=>b.onclick=()=>newGame("universe",b.dataset.src));
   document.getElementById("back").onclick=modeSelect;
 }
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    GAME INIT
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 function newGame(mode,universe){
-  const numPlayers=mode==="four"?4:2;
-  const totalTurns=numPlayers*CATS.length; // 5 rounds each
+  const numPlayers=mode==="four"?4:mode==="solo"?1:2;
+  const totalTurns=numPlayers*CATS.length;
   let pool;
   if(mode==="universe"){
     const src=CHARS.filter(c=>c.source===universe);
-    // pad with randoms from other sources if too few
     pool=shuffle(src.length>=totalTurns?src:[...src,...shuffle(CHARS.filter(c=>c.source!==universe)).slice(0,totalTurns-src.length)]);
-  } else {
-    pool=shuffle([...CHARS]);
-  }
+  } else pool=shuffle([...CHARS]);
   S={mode,universe:universe||null,numPlayers,totalTurns,pool,turn:0,
      teams:Array.from({length:numPlayers},()=>({}))};
   turnScreen();
 }
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
    BOARD HTML
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 function boardHTML(activep){
-  const cls=S.numPlayers===4?"p4":"p2";
-  return `<div class="board ${cls}">${S.teams.map((t,i)=>`<div class="team c${i+1} ${i===activep?"active":""}"><h3 class="display">${pn(i)}</h3>${
-    CATS.map(c=>`<div class="slot"><span>${c[2]}</span><b>${t[c[0]]?t[c[0]].name:"—"}</b></div>`).join("")}</div>`).join("")}</div>`;
+  const cls=S.numPlayers===4?"p4":S.numPlayers===1?"p1":"p2";
+  return `<div class="board ${cls}">${S.teams.map((t,i)=>`
+    <div class="team c${i+1} ${i===activep?"active":""}">
+      <h3 class="display">${S.numPlayers===1?"Your Team":pn(i)}</h3>
+      ${CATS.map(c=>`<div class="slot"><span>${c[2]}</span><b>${t[c[0]]?t[c[0]].name:"—"}</b></div>`).join("")}
+    </div>`).join("")}</div>`;
 }
 
-/* ═══════════════════════════════
-   TURN FLOW
-═══════════════════════════════ */
+/* ═══════════════════════════════════════
+   TURN SCREEN
+═══════════════════════════════════════ */
 function turnScreen(){
   const p=S.turn%S.numPlayers;
   const round=Math.floor(S.turn/S.numPlayers)+1;
   const cursed=S.mode==="cursed";
+  const solo=S.mode==="solo";
   $(`<div class="c${p+1}" style="display:contents">
-    ${S.mode==="cursed"?`<div class="curse-banner">💀 CURSED MODE — Build the WORST team! Lowest stats win each category! 💀</div>`:""}
+    ${cursed?`<div class="curse-banner">💀 CURSED MODE — Build the WORST team! Lowest stats win! 💀</div>`:""}
     ${boardHTML(p)}
     <div class="center">
-      <div class="banner display">${pnLong(p)}, your turn</div>
+      <div class="banner display">${solo?"Your Turn":pnLong(p)+", your turn"}</div>
       <div class="sub">Round ${round} of 5${S.universe?` · ${S.universe}`:""}${cursed?" · Worst team wins!":""}</div>
-      <button class="big c${p+1} display" id="roll">Roll character</button>
+      <button class="big c${p+1} display" id="roll">🎲 Roll Character</button>
     </div>
   </div>`);
   document.getElementById("roll").onclick=()=>roll(p);
 }
 
+/* ═══════════════════════════════════════
+   ROLL + REVEAL
+═══════════════════════════════════════ */
 function roll(p){
-  const pick=S.pool[S.turn]||S.pool[S.pool.length-1-S.turn]||shuffle([...CHARS])[0];
-  // consume from pool positionally so rerenders don't re-roll
-  const consumed=S.pool.splice(0,1)[0]||pick;
+  const consumed=S.pool.splice(0,1)[0];
+  const pool=S.universe?CHARS.filter(c=>c.source===S.universe):CHARS;
   $(`<div class="c${p+1}" style="display:contents">
     ${boardHTML(p)}
-    <div class="center"><div class="card" style="width:100%">
-      <div id="av"></div>
-      <div class="cname display" id="nm"></div>
-      <div class="csrc" id="sr">Rolling…</div>
-    </div></div>
+    <div class="center">
+      <div class="roll-card" id="card" style="width:100%">
+        <div id="av"></div>
+        <div class="cname display" id="nm">Rolling…</div>
+        <div class="csrc" id="sr"></div>
+      </div>
+    </div>
   </div>`);
   let n=0;
-  const pool=S.universe?CHARS.filter(c=>c.source===S.universe):CHARS;
   const t=setInterval(()=>{
-    const fake=pool[Math.random()*pool.length|0];
+    const fake=pool[rnd(pool.length)];
     av.innerHTML=avatarHTML(fake);nm.textContent=fake.name;sr.textContent=fake.source;
-    if(++n>=16){clearInterval(t);av.innerHTML=avatarHTML(consumed);nm.textContent=consumed.name;sr.textContent=consumed.source;
-      setTimeout(()=>assign(p,consumed),350);}
+    n++;
+    if(n>=16){
+      clearInterval(t);
+      av.innerHTML=avatarHTML(consumed);
+      nm.textContent=consumed.name; nm.classList.add("pop");
+      sr.textContent=consumed.source;
+      av.querySelector(".avatar")&&av.querySelector(".avatar").classList.add("bounce");
+      const r=getRarity(consumed);
+      card.classList.add("reveal-"+r.key);
+      rarityFlash(consumed,()=>{
+        // show rarity badge after flash
+        if(!document.getElementById("rbadge")){
+          const b=document.createElement("div");b.id="rbadge";
+          b.innerHTML=rarityBadge(consumed);
+          card.appendChild(b);
+        }
+        setTimeout(()=>assign(p,consumed),400);
+      });
+    }
   },70);
 }
 
+/* ═══════════════════════════════════════
+   ASSIGN
+═══════════════════════════════════════ */
 function assign(p,ch){
   const cursed=S.mode==="cursed";
+  const r=getRarity(ch);
   $(`<div class="c${p+1}" style="display:contents">
-    ${cursed?`<div class="curse-banner">💀 Pick where ${ch.name} fits WORST — you want low stats!</div>`:""}
-    <div class="card">
+    ${cursed?`<div class="curse-banner">💀 Pick where ${ch.name} fits WORST!</div>`:""}
+    <div class="roll-card reveal-${r.key}">
       <div class="assign-row">
         ${avatarHTML(ch)}
         <div class="assign-info">
           <div class="cname display">${ch.name}</div>
           <div class="csrc">${ch.source}</div>
+          ${rarityBadge(ch)}
         </div>
       </div>
     </div>
-    <div class="hint ${cursed?"curse-hint":""}">${pnLong(p)}: where does ${ch.name} fit ${cursed?"<b>worst</b>":"best"}?</div>
+    <div class="hint ${cursed?"curse-hint":""}">${S.numPlayers===1?"You":pnLong(p)}: where does ${ch.name} fit ${cursed?"<b>worst</b>":"best"}?</div>
     <div class="picks">${CATS.map(c=>{const used=S.teams[p][c[0]];
       return `<button class="pick ${cursed?"curse-pick":""}" data-k="${c[0]}" ${used?"disabled":""}>
         <span class="icon">${c[2]}</span>
         <span class="label">${c[1]}</span>
-      </button>`}).join("")}
-    </div>
+      </button>`}).join("")}</div>
   </div>`);
   document.querySelectorAll(".pick").forEach(b=>b.onclick=()=>{
     S.teams[p][b.dataset.k]=ch;
     S.turn++;
-    S.turn>=S.totalTurns?battle():turnScreen();
+    if(S.turn>=S.totalTurns){S.mode==="solo"?soloResult():battle();}
+    else turnScreen();
   });
 }
 
-/* ═══════════════════════════════
+/* ═══════════════════════════════════════
+   SOLO RESULT
+═══════════════════════════════════════ */
+function soloResult(){
+  const team=S.teams[0];
+  const total=CATS.reduce((s,c)=>s+team[c[0]][c[0]],0);
+  const avg=(total/CATS.length).toFixed(1);
+  const best=Math.max(...CATS.map(c=>team[c[0]][c[0]]));
+  const worst=Math.min(...CATS.map(c=>team[c[0]][c[0]]));
+  // grade
+  const grade=avg>=90?"S":avg>=80?"A":avg>=70?"B":avg>=60?"C":avg>=50?"D":"F";
+  const gradeColor=avg>=90?"var(--r-mythic)":avg>=80?"var(--r-legendary)":avg>=70?"var(--r-epic)":avg>=60?"var(--r-rare)":avg>=50?"var(--r-uncommon)":"var(--r-common)";
+  spawnBurst(gradeColor.replace("var(","").replace(")","").split("--r-")[0]||"#fff",25);
+  $(`<div class="banner display" style="color:var(--gold)">Your Score</div>
+  <div class="solo-result">
+    <div class="solo-score display">${total}</div>
+    <div class="solo-grade display" style="color:${gradeColor}">Grade: ${grade} · Avg: ${avg}</div>
+  </div>
+  <div class="battle-wrap">
+    ${CATS.map(c=>{
+      const ch=team[c[0]];
+      const r=getRarity(ch);
+      return `<div class="solo-row">
+        <span class="cat">${c[2]} ${c[1]}</span>
+        <span style="font-size:1.1rem;color:var(--dim)">${ch.name}</span>
+        ${rarityBadgeSm(ch)}
+        <span class="val" style="color:${r.color}">${ch[c[0]]}</span>
+      </div>`;
+    }).join("")}
+    <div class="final" id="final">
+      <div style="font-size:1.3rem;color:var(--dim)">Total power: ${total} · Best stat: ${best} · Worst: ${worst}</div>
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
+        <button class="big display" id="again" style="padding:.9rem 2.2rem;font-size:1.9rem">🎯 Try Again</button>
+        <button class="big ghost display" id="menu" style="font-size:1.5rem">Menu</button>
+      </div>
+    </div>
+  </div>`);
+  document.getElementById("again").onclick=()=>newGame("solo");
+  document.getElementById("menu").onclick=title;
+}
+
+/* ═══════════════════════════════════════
    BATTLE
-═══════════════════════════════ */
+═══════════════════════════════════════ */
 function battle(){
   const cursed=S.mode==="cursed";
   const is4=S.numPlayers===4;
-
-  // score tracker — array per player
   const wins=Array(S.numPlayers).fill(0);
   const totals=S.teams.map(t=>CATS.reduce((s,c)=>s+t[c[0]][c[0]],0));
 
-  // pre-compute winners per category
   const catWinners=CATS.map(c=>{
     const vals=S.teams.map(t=>t[c[0]][c[0]]);
     const best=cursed?Math.min(...vals):Math.max(...vals);
-    return vals.map(v=>v===best); // true = winner for that player
+    return vals.map(v=>v===best);
   });
 
-  // score header
-  const scoreSpans=S.teams.map((_,i)=>`<span class="c${i+1}" id="sc${i}" style="color:var(--p${i+1})">${pn(i)}: 0</span>`).join("");
+  const scoreSpans=S.teams.map((_,i)=>`<span id="sc${i}" style="color:var(--p${i+1})">${pn(i)}: 0</span>`).join("");
 
-  // row builder
   function rowHTML(ci){
     const c=CATS[ci];
+    const clashIcon=CLASH_ICONS[rnd(CLASH_ICONS.length)];
     if(is4){
-      // layout: [P1 side][P2 side][mid][P3 side][P4 side]
       const sides=S.teams.map((t,pi)=>{
-        const ch=t[c[0]];
-        const w=catWinners[ci][pi];
-        return `<div class="side c${pi+1} ${w?"win":"lose"}">
-          ${sideAvatarHTML(ch)}
-          <div class="n">${pn(pi)}: ${ch.name}</div>
-          <div class="num">${ch[c[0]]}</div>
-        </div>`;
+        const ch=t[c[0]];const w=catWinners[ci][pi];
+        return `<div class="side c${pi+1} ${w?"win":"lose"}">${sideAvHTML(ch)}<div class="n">${pn(pi)}: ${ch.name}</div><div class="num">${ch[c[0]]}</div>${rarityBadgeSm(ch)}</div>`;
       });
-      return `<div class="row p4" id="r${ci}">
-        ${sides[0]}${sides[1]}
-        <div class="mid"><span>${c[2]}</span>${c[1]}</div>
-        ${sides[2]}${sides[3]}
-      </div>`;
+      return `<div class="row p4" id="r${ci}"><div class="row-inner" id="ri${ci}">${sides[0]}${sides[1]}<div class="mid"><span>${c[2]}</span>${c[1]}</div>${sides[2]}${sides[3]}<div class="clash" id="cl${ci}">${clashIcon}</div></div></div>`;
     } else {
       const a=S.teams[0][c[0]],b=S.teams[1][c[0]];
       const aw=catWinners[ci][0],bw=catWinners[ci][1];
-      return `<div class="row p2" id="r${ci}">
-        <div class="side c1 ${aw?"win":"lose"}">${sideAvatarHTML(a)}<div class="n">${a.name}</div><div class="num">${a[c[0]]}</div></div>
-        <div class="mid"><span>${c[2]}</span>${c[1]}</div>
-        <div class="side c2 ${bw?"win":"lose"}">${sideAvatarHTML(b)}<div class="n">${b.name}</div><div class="num">${b[c[0]]}</div></div>
-      </div>`;
+      const tie=aw&&bw;
+      return `<div class="row p2" id="r${ci}"><div class="row-inner" id="ri${ci}">
+        <div class="side c1 ${tie?"tie":aw?"win":"lose"}">${sideAvHTML(a)}<div class="n">${a.name}</div><div class="num">${a[c[0]]}</div>${rarityBadgeSm(a)}</div>
+        <div class="mid"><span>${c[2]}</span>${c[1]}<div class="clash" id="cl${ci}">${clashIcon}</div></div>
+        <div class="side c2 ${tie?"tie":bw?"win":"lose"}">${sideAvHTML(b)}<div class="n">${b.name}</div><div class="num">${b[c[0]]}</div>${rarityBadgeSm(b)}</div>
+      </div></div>`;
     }
   }
 
-  $(`${cursed?`<div class="curse-banner" style="flex-shrink:0">💀 CURSED BATTLE — Lowest stat wins each category! 💀</div>`:`<div class="banner display" style="color:var(--gold);flex-shrink:0">${cursed?"Cursed Brawl!":"Battle!"}</div>`}
+  $(`${cursed
+    ?`<div class="curse-banner" style="flex-shrink:0">💀 CURSED BATTLE — Lowest stat wins! 💀</div>`
+    :`<div class="banner display" style="color:var(--gold);flex-shrink:0">⚔️ Battle!</div>`}
   <div class="score display">${scoreSpans}</div>
   <div class="battle-wrap">
     ${CATS.map((_,i)=>rowHTML(i)).join("")}
@@ -349,42 +575,60 @@ function battle(){
   </div>`);
 
   CATS.forEach((c,i)=>{
+    const delay=800+i*1800;
     setTimeout(()=>{
-      document.getElementById("r"+i).classList.add("show");
+      // slide row in
+      const ri=document.getElementById("ri"+i);
+      if(ri)ri.classList.add("show");
+      // clash icon
+      setTimeout(()=>{const cl=document.getElementById("cl"+i);if(cl)cl.classList.add("fire");},300);
+      // update scores
       catWinners[i].forEach((w,pi)=>{if(w)wins[pi]++;});
       S.teams.forEach((_,pi)=>{
-        document.getElementById("sc"+pi).textContent=`${pn(pi)}: ${wins[pi]}`;
+        const el=document.getElementById("sc"+pi);
+        if(el){el.textContent=`${pn(pi)}: ${wins[pi]}`;el.classList.remove("scored");
+          void el.offsetWidth;el.classList.add("scored");}
       });
-    },1000+i*1500);
+      // particles on win side
+      const winPi=catWinners[i].findIndex(w=>w);
+      if(winPi>=0){
+        const colors=["#ff5a36","#2ec4ff","#7cff6b","#ff6bde"];
+        spawnParticles(innerWidth*(winPi===0?.25:.75),innerHeight*.6,colors[winPi],12);
+      }
+    },delay);
   });
 
+  const finalDelay=800+CATS.length*1800+500;
   setTimeout(()=>{
-    // find winner — most categories, tie-break by total (cursed: lowest total)
     const maxWins=Math.max(...wins);
     const topPlayers=wins.map((w,i)=>w===maxWins?i:-1).filter(i=>i>=0);
     let winner=-1;
-    if(topPlayers.length===1){
-      winner=topPlayers[0];
-    } else {
-      // tie-break
+    if(topPlayers.length===1)winner=topPlayers[0];
+    else{
       const best=cursed?Math.min(...topPlayers.map(i=>totals[i])):Math.max(...topPlayers.map(i=>totals[i]));
       const tb=topPlayers.filter(i=>totals[i]===best);
       if(tb.length===1)winner=tb[0];
     }
     const winsStr=wins.map((w,i)=>`${pn(i)}: ${w}`).join(" · ");
+    const winColor=winner>=0?`var(--p${winner+1})`:"var(--gold)";
+    if(winner>=0){
+      const colors=["#ff5a36","#2ec4ff","#7cff6b","#ff6bde"];
+      spawnBurst(colors[winner],40);
+      setTimeout(()=>spawnBurst(colors[winner],30),400);
+    }
     final.innerHTML=(winner<0
-      ?`<div class="w display">It's a draw!</div>`
-      :`<div class="w display c${winner+1}" style="color:var(--p${winner+1})">${pnLong(winner)} wins!</div>`)+
+      ?`<div class="w animate-win display">🤝 It's a Draw!</div>`
+      :`<div class="w animate-win display" style="color:${winColor}">${pnLong(winner)} Wins! 🏆</div>`)+
       `<div class="sub" style="font-size:1.2rem">${winsStr}</div>
-      ${cursed?`<div style="font-size:1.2rem;color:var(--curse)">💀 Lowest stats won! 💀</div>`:""}
-      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center">
-        <button class="big display" id="again" style="padding:1rem 2.5rem;font-size:2rem">Play again</button>
-        <button class="big ghost display" id="menu" style="font-size:1.6rem">Menu</button>
+      ${cursed?`<div style="font-size:1.1rem;color:var(--curse)">💀 Lowest stats won the day! 💀</div>`:""}
+      <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;margin-top:.5rem">
+        <button class="big display" id="again" style="padding:.9rem 2.2rem;font-size:1.9rem">Play Again</button>
+        <button class="big ghost display" id="menu" style="font-size:1.5rem">Menu</button>
       </div>`;
     document.getElementById("again").onclick=()=>newGame(S.mode,S.universe);
     document.getElementById("menu").onclick=title;
     document.getElementById("final").scrollIntoView({behavior:"smooth",block:"nearest"});
-  },1000+CATS.length*1500+300);
+  },finalDelay);
 }
 
 init();
