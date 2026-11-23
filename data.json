@@ -1761,9 +1761,9 @@
    "universe": "Movies & TV"
   },
   {
-   "name": "https://static.wikia.nocookie.net/jujutsu-kaisen/images/3/39/Maki_Zenin_%28Volume_22%29.png/revision/latest?cb=20230206185342",
+   "name": "Maki Zenin (Awakened)",
    "source": "Jujutsu Kaisen",
-   "image": "https://static.wikia.nocookie.net/jujutsu-kaisen/images/2/2c/Maki_Zen%27in_%28Anime_4%29.png/revision/latest?cb=20251230144642",
+   "image": "https://static.wikia.nocookie.net/jujutsu-kaisen/images/3/39/Maki_Zenin_%28Volume_22%29.png/revision/latest?cb=20230206185342",
    "strength": 80,
    "iq": 59,
    "durability": 80,
@@ -5633,9 +5633,9 @@
    "ability": 80
   },
   {
-   "name": "L Lawliet",
+   "name": "L",
    "source": "Death Note",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/bd/93/18/bd9318840fa24c1189e7cfa702355653.jpg?nii=t",
    "universe": "Anime Mix",
    "strength": 10,
    "iq": 98,
@@ -5646,7 +5646,7 @@
   {
    "name": "Suzaku Kururugi",
    "source": "Code Geass",
-   "image": "",
+   "image": "https://th.bing.com/th/id/R.5b949e3623aed56fbdd3a29bc40a9ada?rik=kenQtRww5kxBlQ&pid=ImgRaw&r=0",
    "universe": "Anime Mix",
    "strength": 52,
    "iq": 62,
@@ -5657,7 +5657,7 @@
   {
    "name": "Noelle Silva",
    "source": "Black Clover",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp9610495.jpg",
    "universe": "Anime Mix",
    "strength": 40,
    "iq": 56,
@@ -5668,7 +5668,7 @@
   {
    "name": "Yami Sukehiro",
    "source": "Black Clover",
-   "image": "",
+   "image": "https://tse1.mm.bing.net/th/id/OIP.zdzjlvEFjWuPKb0GxBkCswHaIS?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "universe": "Anime Mix",
    "strength": 82,
    "iq": 70,
@@ -5679,7 +5679,7 @@
   {
    "name": "Cha Hae-In",
    "source": "Solo Leveling",
-   "image": "",
+   "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2025/03/cha-hae-in-featured-image.jpg",
    "universe": "Anime Mix",
    "strength": 70,
    "iq": 66,
@@ -5690,7 +5690,7 @@
   {
    "name": "Emperor Palpatine",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp2066732.jpg",
    "universe": "Star Wars",
    "strength": 38,
    "iq": 100,
@@ -5701,7 +5701,7 @@
   {
    "name": "Mace Windu",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp8481243.jpg",
    "universe": "Star Wars",
    "strength": 62,
    "iq": 82,
@@ -5712,7 +5712,7 @@
   {
    "name": "Han Solo",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://tse4.mm.bing.net/th/id/OIP.Osww4LMwV_XIQTHscdXDIQHaIp?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "universe": "Star Wars",
    "strength": 20,
    "iq": 60,
@@ -5723,7 +5723,7 @@
   {
    "name": "Princess Leia",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://images.alphacoders.com/641/641548.jpg",
    "universe": "Star Wars",
    "strength": 14,
    "iq": 70,
@@ -5734,7 +5734,7 @@
   {
    "name": "Chewbacca",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://images.thedirect.com/media/article_full/chewbacca.jpg",
    "universe": "Star Wars",
    "strength": 80,
    "iq": 52,
@@ -5745,7 +5745,7 @@
   {
    "name": "Boba Fett",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://wallpapers.com/images/hd/star-wars-boba-fett-hd-gta4na1b44r9h1t1.jpg",
    "universe": "Star Wars",
    "strength": 48,
    "iq": 66,
@@ -5756,7 +5756,7 @@
   {
    "name": "Anakin Skywalker",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://th.bing.com/th/id/R.3ff458a1a7cbee79a0fffacea548fa62?rik=yQ2DiTyPXUv%2bvw&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20141220131127%2fdisney%2fimages%2f6%2f6d%2fAnakin_Skywalker_2.jpg&ehk=OSq6JEJFOfJUKCwyuduKgA48pwKNygZ5jow3RWVKYnw%3d&risl=&pid=ImgRaw&r=0",
    "universe": "Star Wars",
    "strength": 76,
    "iq": 70,
@@ -5767,7 +5767,7 @@
   {
    "name": "Megatron",
    "source": "Transformers",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/ad/db/8b/addb8b9adde0712841a70b469e2f4454.jpg",
    "universe": "Transformers",
    "strength": 88,
    "iq": 76,
@@ -5778,7 +5778,7 @@
   {
    "name": "Bumblebee",
    "source": "Transformers",
-   "image": "",
+   "image": "https://images6.alphacoders.com/131/1314913.jpeg",
    "universe": "Transformers",
    "strength": 62,
    "iq": 66,
@@ -5789,7 +5789,7 @@
   {
    "name": "Starscream",
    "source": "Transformers",
-   "image": "",
+   "image": "https://tse1.mm.bing.net/th/id/OIP.BboQl7P58YM5vDbcy8KOhgAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "universe": "Transformers",
    "strength": 70,
    "iq": 68,
@@ -5800,7 +5800,7 @@
   {
    "name": "Soundwave",
    "source": "Transformers",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/9d/5f/89/9d5f8971f55553ff5e23e0d9ce6e6f41.jpg",
    "universe": "Transformers",
    "strength": 60,
    "iq": 90,
@@ -5811,7 +5811,7 @@
   {
    "name": "Ironhide",
    "source": "Transformers",
-   "image": "",
+   "image": "https://th.bing.com/th/id/R.1bbd514cd714f48f064dc70b80febbad?rik=tg7B08RbeZGldA&riu=http%3a%2f%2fwallpapercave.com%2fwp%2fjIRuzy1.jpg&ehk=ZgC31VMadfu%2bujVv1F%2fsc2mjt9O%2foTNhSVfVfm6ySig%3d&risl=&pid=ImgRaw&r=0",
    "universe": "Transformers",
    "strength": 76,
    "iq": 56,
@@ -5822,7 +5822,7 @@
   {
    "name": "Grimlock",
    "source": "Transformers",
-   "image": "",
+   "image": "https://th.bing.com/th/id/R.021fce5e471678eca833f679a23e0905?rik=AzmLzk%2fACI77RQ&riu=http%3a%2f%2fvignette1.wikia.nocookie.net%2ftransformers%2fimages%2f9%2f94%2fFoc-grimlock-0-1.jpg%2frevision%2flatest%3fcb%3d20140224190208&ehk=OHDFrN3g%2fJEWYLJcr7S3DYNb4Ob48LtrHaiRQCywUhk%3d&risl=&pid=ImgRaw&r=0",
    "universe": "Transformers",
    "strength": 92,
    "iq": 38,
@@ -5833,7 +5833,7 @@
   {
    "name": "Unicron",
    "source": "Transformers",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/bf1d4130-589c-41cd-8cc6-98f7721e2cdc/dgj57u5-12aa6b41-0bd2-409a-96f4-020c7e0176db.png/v1/fill/w_894,h_894/unicron_transformer_render_2_by_teethsony3000_dgj57u5-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcL2JmMWQ0MTMwLTU4OWMtNDFjZC04Y2M2LTk4Zjc3MjFlMmNkY1wvZGdqNTd1NS0xMmFhNmI0MS0wYmQyLTQwOWEtOTZmNC0wMjBjN2UwMTc2ZGIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.b9f8__vmU2ecM5AHazl0Z01DWn_afEom_U61Zz1cgEs",
    "universe": "Transformers",
    "strength": 100,
    "iq": 88,
@@ -6174,7 +6174,7 @@
   {
    "name": "James Bond",
    "source": "James Bond",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/744bcbc4-5751-4269-83d1-07f7a9f83cc8/dk2wt8c-f161e399-30df-489e-9823-6e62ede280f0.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzc0NGJjYmM0LTU3NTEtNDI2OS04M2QxLTA3ZjdhOWY4M2NjOFwvZGsyd3Q4Yy1mMTYxZTM5OS0zMGRmLTQ4OWUtOTgyMy02ZTYyZWRlMjgwZjAucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.-Pp9QZJ2eDwGbZaWtB1vSzBfpYLFNQofzHz0hVREgtM",
    "universe": "Movies & TV",
    "strength": 38,
    "iq": 88,
@@ -6185,7 +6185,7 @@
   {
    "name": "Daenerys Targaryen",
    "source": "Game of Thrones",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/de/60/66/de606633cd5efc71ec340904cca05f2c.jpg",
    "universe": "Movies & TV",
    "strength": 12,
    "iq": 78,
@@ -6196,7 +6196,7 @@
   {
    "name": "Xenomorph",
    "source": "Alien",
-   "image": "",
+   "image": "https://m.gettywallpapers.com/wp-content/uploads/2023/10/Aesthetic-Xenomorph-pfp.jpg",
    "universe": "Movies & TV",
    "strength": 76,
    "iq": 36,
@@ -6207,7 +6207,7 @@
   {
    "name": "Predator",
    "source": "Predator",
-   "image": "",
+   "image": "https://tse4.mm.bing.net/th/id/OIP.DJ_Yh7eOaZ0lrjn4pa9iAgHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "universe": "Movies & TV",
    "strength": 78,
    "iq": 66,
