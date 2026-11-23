@@ -195,6 +195,79 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .err{color:var(--gold);font-size:1.3rem;max-width:32rem;line-height:1.5}
 .foilchip{display:inline-block;background:var(--rc);color:#10131f;border-radius:.5rem;padding:.2rem .7rem;font-size:1.1rem;font-family:var(--disp);font-weight:900;text-transform:uppercase}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+
+/* ═══════════════════════════════════════════════
+   SPECIAL CHARACTER REVEALS
+   Each reveal is a fixed overlay that sits above
+   everything else and self-removes when done.
+   Add your own in the JS CHAR_SPECIALS registry.
+═══════════════════════════════════════════════ */
+
+/* ── shared overlay shell ── */
+.sp-ov{position:fixed;inset:0;z-index:300;pointer-events:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
+
+/* ══ MAHORAGA — spinning dharma wheel ══ */
+.sp-wheel-ring{position:absolute;width:min(90vw,90vh);height:min(90vw,90vh);border-radius:50%;border:1.2vw solid rgba(255,210,80,.55);box-shadow:0 0 4vw rgba(255,180,0,.35),inset 0 0 4vw rgba(255,180,0,.2);animation:wheelSpin 1.8s linear infinite}
+@keyframes wheelSpin{to{transform:rotate(360deg)}}
+.sp-wheel-spoke{position:absolute;top:50%;left:50%;width:49%;height:.4vw;background:linear-gradient(90deg,transparent,rgba(255,210,80,.7));transform-origin:0 50%}
+.sp-wheel-hub{position:absolute;width:8vw;height:8vw;border-radius:50%;background:radial-gradient(circle,#ffe066,#c8820a);box-shadow:0 0 3vw #ffd23f}
+.sp-wheel-bg{position:absolute;inset:0;background:rgba(10,8,20,.7);animation:spFadeIn .3s ease}
+.sp-wheel-txt{position:absolute;bottom:12%;color:#ffe066;font-family:var(--disp);font-weight:900;font-size:min(5vw,3.5vh);letter-spacing:.08em;text-transform:uppercase;text-shadow:0 0 1.5rem #ffd23f;animation:spFadeIn .4s ease .2s both}
+
+/* ══ SUKUNA — diagonal slash ══ */
+.sp-slash-bg{position:absolute;inset:0;background:rgba(60,0,0,.82);animation:spFadeIn .15s ease}
+.sp-slash-line{position:absolute;top:-10%;left:-10%;width:120%;height:.5vw;background:linear-gradient(90deg,transparent 0%,#ff2244 20%,#fff 50%,#ff2244 80%,transparent 100%);transform:rotate(-35deg) translateY(55vh);animation:slashCut .5s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes slashCut{0%{transform:rotate(-35deg) translateY(-10vh);opacity:0}20%{opacity:1}100%{transform:rotate(-35deg) translateY(120vh);opacity:.6}}
+.sp-slash-line2{position:absolute;top:-10%;left:-10%;width:120%;height:.25vw;background:linear-gradient(90deg,transparent,rgba(255,100,120,.6),transparent);transform:rotate(-35deg) translateY(55vh);animation:slashCut .5s cubic-bezier(.2,.8,.2,1) .07s forwards}
+.sp-slash-txt{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#ff2244;font-family:var(--disp);font-weight:900;font-size:min(8vw,5.5vh);letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 2rem #ff0022,0 0 .5rem #fff;animation:spFadeIn .2s .4s both}
+.sp-slash-crack{position:absolute;inset:0;background:linear-gradient(135deg,transparent 48.5%,rgba(255,34,68,.35) 49.5%,transparent 50.5%),linear-gradient(45deg,transparent 48%,rgba(255,34,68,.2) 49.5%,transparent 51%)}
+
+/* ══ GOJO — blue eye iris ══ */
+.sp-eye-bg{position:absolute;inset:0;background:#000;animation:spFadeIn .2s ease}
+.sp-eye-iris{position:absolute;width:min(55vw,55vh);height:min(55vw,55vh);border-radius:50%;background:radial-gradient(circle at 50% 50%,#000 10%,#1a60ff 30%,#0030c8 60%,#001480 80%,#000038 100%);box-shadow:0 0 6vw #3cf,0 0 12vw rgba(60,150,255,.5);animation:eyeOpen .6s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes eyeOpen{0%{transform:scaleY(.02);opacity:.6}40%{transform:scaleY(1.08)}100%{transform:scaleY(1);opacity:1}}
+.sp-eye-pupil{position:absolute;width:18%;height:18%;border-radius:50%;background:#000;box-shadow:0 0 2vw rgba(60,160,255,.8)}
+.sp-eye-ring{position:absolute;width:min(60vw,60vh);height:min(60vw,60vh);border-radius:50%;border:.5vw solid rgba(100,180,255,.6);animation:eyeRingPulse 1s ease-in-out infinite}
+@keyframes eyeRingPulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.05);opacity:1}}
+.sp-eye-beams{position:absolute;width:min(80vw,80vh);height:min(80vw,80vh);border-radius:50%;background:conic-gradient(transparent 0deg,rgba(60,180,255,.12) 10deg,transparent 20deg,rgba(60,180,255,.12) 30deg,transparent 40deg,rgba(60,180,255,.12) 50deg,transparent 60deg,rgba(60,180,255,.12) 70deg,transparent 80deg,rgba(60,180,255,.12) 90deg,transparent 100deg,rgba(60,180,255,.12) 110deg,transparent 120deg,rgba(60,180,255,.12) 130deg,transparent 140deg,rgba(60,180,255,.12) 150deg,transparent 160deg,rgba(60,180,255,.12) 170deg,transparent 180deg,rgba(60,180,255,.12) 190deg,transparent 200deg,rgba(60,180,255,.12) 210deg,transparent 220deg,rgba(60,180,255,.12) 230deg,transparent 240deg,rgba(60,180,255,.12) 250deg,transparent 260deg,rgba(60,180,255,.12) 270deg,transparent 280deg,rgba(60,180,255,.12) 290deg,transparent 300deg,rgba(60,180,255,.12) 310deg,transparent 320deg,rgba(60,180,255,.12) 330deg,transparent 340deg,rgba(60,180,255,.12) 350deg,transparent 360deg);animation:beamSpin 4s linear infinite}
+@keyframes beamSpin{to{transform:rotate(360deg)}}
+.sp-eye-label{position:absolute;bottom:14%;color:#3cf;font-family:var(--disp);font-weight:900;font-size:min(5vw,3.5vh);letter-spacing:.15em;text-transform:uppercase;text-shadow:0 0 2rem #3cf;animation:spFadeIn .3s .5s both}
+
+/* ══ HAKARI — jackpot ══ */
+.sp-jk-bg{position:absolute;inset:0;background:linear-gradient(160deg,#1a0a00,#2a1500,#1a0a00);animation:spFadeIn .2s ease}
+.sp-jk-reels{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:1.5vw;align-items:center}
+.sp-jk-reel{width:14vw;height:14vw;background:#0a0500;border:.5vw solid #c8820a;border-radius:1vw;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:8vw;animation:reelSpin .08s steps(1) infinite}
+@keyframes reelSpin{0%{content:"7"}12%{transform:translateY(-2px)}25%{transform:translateY(2px)}37%{transform:translateY(-1px)}50%{transform:none}100%{transform:none}}
+.sp-jk-reel.lock{animation:reelLock .3s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes reelLock{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
+.sp-jk-txt{position:absolute;bottom:14%;color:#ffd23f;font-family:var(--disp);font-weight:900;font-size:min(6vw,4vh);letter-spacing:.1em;text-transform:uppercase;text-shadow:0 0 2rem #ffd23f,0 0 .5rem #fff;opacity:0;animation:jackpotPop .5s cubic-bezier(.2,.8,.2,1) .6s forwards}
+@keyframes jackpotPop{0%{opacity:0;transform:scale(.4) rotate(-10deg)}60%{transform:scale(1.15) rotate(2deg)}100%{opacity:1;transform:none}}
+.sp-jk-shine{position:absolute;inset:0;background:conic-gradient(transparent 0deg,rgba(255,210,60,.07) 15deg,transparent 30deg,rgba(255,210,60,.07) 45deg,transparent 60deg,rgba(255,210,60,.07) 75deg,transparent 90deg,rgba(255,210,60,.07) 105deg,transparent 120deg,rgba(255,210,60,.07) 135deg,transparent 150deg,rgba(255,210,60,.07) 165deg,transparent 180deg,rgba(255,210,60,.07) 195deg,transparent 210deg,rgba(255,210,60,.07) 225deg,transparent 240deg,rgba(255,210,60,.07) 255deg,transparent 270deg,rgba(255,210,60,.07) 285deg,transparent 300deg,rgba(255,210,60,.07) 315deg,transparent 330deg,rgba(255,210,60,.07) 345deg,transparent 360deg);animation:beamSpin 3s linear infinite}
+
+/* ══ ALL FOR ONE — dark aura ══ */
+.sp-afo-bg{position:absolute;inset:0;background:#050208;animation:spFadeIn .15s ease}
+.sp-afo-ring{position:absolute;width:min(70vw,70vh);height:min(70vw,70vh);border-radius:50%;border:.6vw solid rgba(140,0,220,.6);box-shadow:0 0 5vw rgba(140,0,220,.5),inset 0 0 5vw rgba(140,0,220,.3);animation:afoExpand .8s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes afoExpand{0%{transform:scale(0);opacity:0}60%{transform:scale(1.08)}100%{transform:scale(1);opacity:1}}
+.sp-afo-ring2{position:absolute;width:min(85vw,85vh);height:min(85vw,85vh);border-radius:50%;border:.3vw solid rgba(140,0,220,.3);animation:afoExpand .8s cubic-bezier(.2,.8,.2,1) .1s forwards}
+.sp-afo-tendrils{position:absolute;width:min(90vw,90vh);height:min(90vw,90vh);border-radius:50%;background:conic-gradient(transparent 0deg,rgba(100,0,200,.18) 8deg,transparent 18deg,rgba(100,0,200,.18) 26deg,transparent 36deg,rgba(100,0,200,.18) 44deg,transparent 54deg,rgba(100,0,200,.18) 62deg,transparent 72deg,rgba(100,0,200,.18) 80deg,transparent 90deg,rgba(100,0,200,.18) 98deg,transparent 108deg,rgba(100,0,220,.18) 116deg,transparent 126deg,rgba(100,0,220,.18) 134deg,transparent 144deg,rgba(100,0,220,.18) 152deg,transparent 162deg,rgba(100,0,220,.18) 170deg,transparent 180deg,rgba(100,0,220,.18) 188deg,transparent 198deg,rgba(100,0,220,.18) 206deg,transparent 216deg,rgba(100,0,220,.18) 224deg,transparent 234deg,rgba(100,0,220,.18) 242deg,transparent 252deg,rgba(100,0,220,.18) 260deg,transparent 270deg,rgba(100,0,220,.18) 278deg,transparent 288deg,rgba(100,0,220,.18) 296deg,transparent 306deg,rgba(100,0,220,.18) 314deg,transparent 324deg,rgba(100,0,220,.18) 332deg,transparent 342deg,rgba(100,0,220,.18) 350deg,transparent 360deg);animation:beamSpin 6s linear infinite}
+.sp-afo-txt{position:absolute;bottom:12%;color:#c060ff;font-family:var(--disp);font-weight:900;font-size:min(4.5vw,3.2vh);letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 2rem #9000ee;animation:spFadeIn .4s .5s both}
+
+/* ══ NAOYA / NAOBITO — broken frames ══ */
+.sp-glass-bg{position:absolute;inset:0;background:#000;animation:spFadeIn .1s ease}
+.sp-glass-frame{position:absolute;border:.4vw solid rgba(200,220,255,.6);animation:framePop .08s steps(1) infinite}
+.sp-glass-frame:nth-child(2){inset:3vw;border-color:rgba(200,220,255,.4);animation-delay:.03s}
+.sp-glass-frame:nth-child(3){inset:6vw;border-color:rgba(200,220,255,.25);animation-delay:.05s}
+.sp-glass-crack{position:absolute;inset:0;background:
+  linear-gradient(72deg,transparent 48%,rgba(255,255,255,.18) 49%,transparent 50%),
+  linear-gradient(140deg,transparent 55%,rgba(255,255,255,.12) 56%,transparent 57%),
+  linear-gradient(28deg,transparent 42%,rgba(255,255,255,.1) 43%,transparent 44%),
+  linear-gradient(195deg,transparent 60%,rgba(255,255,255,.12) 61%,transparent 62%);
+  animation:framePop .05s steps(1) infinite}
+@keyframes framePop{0%,49%{opacity:1}50%,100%{opacity:.6}}
+.sp-glass-txt{position:absolute;bottom:14%;color:#e0eaff;font-family:var(--disp);font-weight:900;font-size:min(5vw,3.5vh);letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 1rem rgba(200,220,255,.8);animation:spFadeIn .3s .3s both}
+
+/* shared fade-in */
+@keyframes spFadeIn{from{opacity:0}to{opacity:1}}
 </style>
 </head>
 <body>
@@ -315,6 +388,194 @@ function rarityFlash(ch,cb){
   requestAnimationFrame(()=>{f.classList.add("go");setTimeout(()=>{f.classList.remove("go");setTimeout(()=>{f.remove();cb&&cb()},200)},300+i*80)});
 }
 
+/* ═══════════════════════════════════════════════
+   SPECIAL CHARACTER REVEALS
+   ─────────────────────────────────────────────
+   HOW TO ADD YOUR OWN:
+   1. Add an entry to CHAR_SPECIALS below.
+   2. The key is the character's exact name (case-insensitive match).
+   3. Fields:
+      • build(el) — function that fills the overlay <div> with HTML.
+                    el is the .sp-ov div already appended to body.
+      • duration   — ms before the reveal is dismissed and assign() runs.
+      • audio      — (optional) path to an audio file e.g. "audio/hakari.mp3"
+      • audioDelay — (optional) ms to wait before playing audio (default 0)
+      • audioStop  — (optional) ms after which audio fades out (default = duration)
+   
+   EXAMPLE — adding a custom character called "My Hero":
+   "my hero": {
+     duration: 2500,
+     audio: "audio/myhero.mp3",
+     build(el){
+       el.innerHTML = `<div class="sp-afo-bg"></div>
+                       <div class="sp-afo-ring"></div>
+                       <div class="sp-glass-txt">My Hero</div>`;
+     }
+   }
+═══════════════════════════════════════════════ */
+const CHAR_SPECIALS = {
+
+  /* ── Mahoraga ── */
+  "mahoraga": {
+    duration: 2800,
+    build(el){
+      const spokes = Array.from({length:12},(_,i)=>
+        `<div class="sp-wheel-spoke" style="transform:rotate(${i*30}deg)"></div>`).join("");
+      el.innerHTML=`
+        <div class="sp-wheel-bg"></div>
+        <div class="sp-wheel-ring">
+          ${spokes}
+          <div class="sp-wheel-hub"></div>
+        </div>
+        <div class="sp-wheel-txt">Mahoraga Adapts</div>`;
+    }
+  },
+
+  /* ── Hakari Kinji ── */
+  "hakari kinji": {
+    duration: 3200,
+    audio: "audio/jackpot.mp3",   /* ← drop your audio file here */
+    audioDelay: 300,
+    build(el){
+      const SYMBOLS = ["7️⃣","💎","🃏","⭐","7️⃣"];
+      let reelEls;
+      el.innerHTML=`
+        <div class="sp-jk-bg"></div>
+        <div class="sp-jk-shine"></div>
+        <div class="sp-jk-reels">
+          <div class="sp-jk-reel" id="jr0">7️⃣</div>
+          <div class="sp-jk-reel" id="jr1">💎</div>
+          <div class="sp-jk-reel" id="jr2">7️⃣</div>
+        </div>
+        <div class="sp-jk-txt">JACKPOT!</div>`;
+      // spin each reel then lock with 7
+      let idx=0;
+      const spin=()=>{
+        if(idx>2)return;
+        const reel=el.querySelector("#jr"+idx);
+        let n=0,si=setInterval(()=>{
+          reel.textContent=SYMBOLS[Math.random()*SYMBOLS.length|0];
+          if(++n>10){clearInterval(si);reel.textContent="7️⃣";reel.classList.add("lock");idx++;spin()}
+        },80);
+      };
+      setTimeout(spin,200);
+    }
+  },
+
+  /* ── Ryomen Sukuna ── */
+  "ryomen sukuna": {
+    duration: 2500,
+    build(el){
+      el.innerHTML=`
+        <div class="sp-slash-bg"></div>
+        <div class="sp-slash-crack"></div>
+        <div class="sp-slash-line"></div>
+        <div class="sp-slash-line2"></div>
+        <div class="sp-slash-txt">Dismantle</div>`;
+    }
+  },
+
+  /* ── Satoru Gojo ── */
+  "satoru gojo": {
+    duration: 3000,
+    build(el){
+      el.innerHTML=`
+        <div class="sp-eye-bg"></div>
+        <div class="sp-eye-beams"></div>
+        <div class="sp-eye-ring"></div>
+        <div class="sp-eye-iris">
+          <div class="sp-eye-pupil"></div>
+        </div>
+        <div class="sp-eye-label">Infinity Unlocked</div>`;
+    }
+  },
+
+  /* ── All For One ── */
+  "all for one": {
+    duration: 3000,
+    audio: "audio/allforone.mp3",  /* ← drop your audio file here */
+    audioDelay: 0,
+    build(el){
+      el.innerHTML=`
+        <div class="sp-afo-bg"></div>
+        <div class="sp-afo-tendrils"></div>
+        <div class="sp-afo-ring2"></div>
+        <div class="sp-afo-ring"></div>
+        <div class="sp-afo-txt">All For One</div>`;
+    }
+  },
+
+  /* ── Naoya Zenin ── */
+  "naoya zenin": {
+    duration: 2400,
+    build(el){ _glassReveal(el,"Naoya Zenin") }
+  },
+
+  /* ── Naobito Zenin ── */
+  "naobito zenin": {
+    duration: 2400,
+    build(el){ _glassReveal(el,"Naobito Zenin") }
+  }
+};
+
+/* shared glass-frame builder */
+function _glassReveal(el,name){
+  el.innerHTML=`
+    <div class="sp-glass-bg"></div>
+    <div class="sp-glass-frame"></div>
+    <div class="sp-glass-frame"></div>
+    <div class="sp-glass-frame"></div>
+    <div class="sp-glass-crack"></div>
+    <div class="sp-glass-txt">${name}</div>`;
+}
+
+/* ── audio helper ── */
+let _spAudio=null;
+function _playAudio(src,delay,stopAt){
+  if(!src)return;
+  _stopAudio();
+  setTimeout(()=>{
+    _spAudio=new Audio(src);
+    _spAudio.volume=0.7;
+    _spAudio.play().catch(()=>{});  /* catch autoplay policy */
+    if(stopAt>0)setTimeout(()=>_stopAudio(1000),stopAt);
+  },delay||0);
+}
+function _stopAudio(fadeMs=0){
+  if(!_spAudio)return;
+  const a=_spAudio;_spAudio=null;
+  if(fadeMs<=0){a.pause();return;}
+  const step=50,vol=a.volume/((fadeMs/step));
+  const iv=setInterval(()=>{
+    a.volume=Math.max(0,a.volume-vol);
+    if(a.volume<=0){clearInterval(iv);a.pause();}
+  },step);
+}
+
+/* ── main trigger ── */
+function triggerSpecial(ch, cb){
+  const key = ch.name.toLowerCase().trim();
+  const spec = CHAR_SPECIALS[key];
+  if(!spec){ cb&&cb(); return; }
+
+  /* build overlay */
+  const el=document.createElement("div");
+  el.className="sp-ov";
+  spec.build(el);
+  document.body.appendChild(el);
+
+  /* audio */
+  _playAudio(spec.audio, spec.audioDelay||0, spec.audioStop!=null?spec.audioStop:spec.duration-600);
+
+  /* dismiss */
+  setTimeout(()=>{
+    el.style.transition="opacity .35s";
+    el.style.opacity="0";
+    _stopAudio(400);
+    setTimeout(()=>{el.remove();cb&&cb();},380);
+  }, spec.duration);
+}
+
 /* ═══ INIT ═══ */
 async function init(){
   try{
@@ -416,7 +677,7 @@ function roll(p){
     card.className="card flip r-"+r.key;
     av.innerHTML=avatar(got);nm.innerHTML=cnLink(got);sr.textContent=got.source;
     fo.textContent=r.label;fo.style.visibility="visible";
-    rarityFlash(got,()=>setTimeout(()=>assign(p,got),650));
+    rarityFlash(got,()=>triggerSpecial(got,()=>setTimeout(()=>assign(p,got),350)));
   },70);
 }
 
