@@ -56,6 +56,61 @@
    "universe": "Attack on Titan"
   },
   {
+   "name": "Attack Titan",
+   "source": "Attack on Titan",
+   "image": "https://i.pinimg.com/originals/e4/3a/c5/e43ac5f514979af656a80ef9446798f1.jpg",
+   "strength": 99,
+   "iq": 70,
+   "durability": 90,
+   "speed": 90,
+   "ability": 75,
+   "universe": "Attack on Titan"
+  },
+  {
+   "name": "Female Titan",
+   "source": "Attack on Titan",
+   "image": "https://fandomwire.com/wp-content/uploads/2023/11/female-titan-aot-1152x648.png",
+   "strength": 95,
+   "iq": 85,
+   "durability": 85,
+   "speed": 99,
+   "ability": 75,
+   "universe": "Attack on Titan"
+  },
+  {
+   "name": "Armored Titan",
+   "source": "Attack on Titan",
+   "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2022/02/armored-titan-in-fort-slava-in-aot.jpg",
+   "strength": 95,
+   "iq": 75,
+   "durability": 100,
+   "speed": 70,
+   "ability": 75,
+   "universe": "Attack on Titan"
+  },
+  {
+   "name": "Colossal Titan",
+   "source": "Attack on Titan",
+   "image": "https://i.imgflip.com/4xpisr.png",
+   "strength": 85,
+   "iq": 75,
+   "durability": 85,
+   "speed": 50,
+   "ability": 95,
+   "universe": "Attack on Titan"
+  },
+  {
+   "name": "Jaw Titan",
+   "source": "Attack on Titan",
+   "image": "https://tse1.mm.bing.net/th/id/OIP.MA6dasTWTiyx_O0SGyLBiQHaHq?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+   "strength": 95,
+   "iq": 65,
+   "durability": 75,
+   "speed": 99,
+   "ability": 85,
+   "universe": "Attack on Titan"
+  },
+  {
    "name": "Satoru Gojo",
    "source": "Jujutsu Kaisen",
    "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/09/gojo-satoru.jpg",
@@ -1103,7 +1158,7 @@
   {
    "name": "Beth Smith",
    "source": "Rick and Morty",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/0a/ee/ee/0aeeee6e737b3db3fe0188f15d90e03e.jpg",
    "strength": 18,
    "iq": 65,
    "durability": 22,
@@ -1114,7 +1169,7 @@
   {
    "name": "Jerry Smith",
    "source": "Rick and Morty",
-   "image": "",
+   "image": "https://tse2.mm.bing.net/th/id/OIP.nwkO-NrIgxx5KrWDlB7b2wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 2,
    "iq": 15,
    "durability": 4,
@@ -1125,7 +1180,7 @@
   {
    "name": "Evil Morty",
    "source": "Rick and Morty",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/39/d1/75/39d1751f2b414d3bf09a3be071f65e93.jpg",
    "strength": 7,
    "iq": 80,
    "durability": 11,
@@ -1136,7 +1191,7 @@
   {
    "name": "Birdperson",
    "source": "Rick and Morty",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/eb0d4a56-580b-48a9-9d1a-15c2faab2fff/db54va8-75b6e529-0a44-413d-b133-d729fe58802b.jpg/v1/fill/w_794,h_700,q_75,strp/bird_person_from_rick_and_morty_by_bluffton_db54va8-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzAwIiwicGF0aCI6IlwvZlwvZWIwZDRhNTYtNTgwYi00OGE5LTlkMWEtMTVjMmZhYWIyZmZmXC9kYjU0dmE4LTc1YjZlNTI5LTBhNDQtNDEzZC1iMTMzLWQ3MjlmZTU4ODAyYi5qcGciLCJ3aWR0aCI6Ijw9Nzk0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.WHaqaeCkQnzSLYyXotwQudz9i5hdVt-FAQHSrns9HRs",
    "strength": 43,
    "iq": 47,
    "durability": 51,
@@ -1147,7 +1202,7 @@
   {
    "name": "Mr. Meeseeks",
    "source": "Rick and Morty",
-   "image": "",
+   "image": "https://upload.wikimedia.org/wikipedia/en/1/1d/Mr._Meeseeks.png",
    "strength": 35,
    "iq": 26,
    "durability": 43,
@@ -1158,7 +1213,7 @@
   {
    "name": "Unity",
    "source": "Rick and Morty",
-   "image": "",
+   "image": "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2024/02/rick-and-morty-unity.jpg",
    "strength": 22,
    "iq": 65,
    "durability": 26,
@@ -1422,7 +1477,7 @@
   {
    "name": "Joseph Joestar",
    "source": "JoJo's Bizarre Adventure",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/fb/21/bc/fb21bc747410dc3da97a25257e6f051b.jpg",
    "strength": 26,
    "iq": 70,
    "durability": 30,
@@ -1433,7 +1488,7 @@
   {
    "name": "Gon Freecss",
    "source": "Hunter x Hunter",
-   "image": "",
+   "image": "https://tse4.mm.bing.net/th/id/OIP.vt4ZdLFgBrLsnS8R9fHB0wHaHa?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 43,
    "iq": 38,
    "durability": 43,
@@ -1444,7 +1499,7 @@
   {
    "name": "Kurapika",
    "source": "Hunter x Hunter",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/8c/6f/a4/8c6fa442bee5d5853060a8b9684604b5.jpg",
    "strength": 35,
    "iq": 76,
    "durability": 35,
@@ -1455,7 +1510,7 @@
   {
    "name": "Hisoka",
    "source": "Hunter x Hunter",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/3b/6f/0d/3b6f0d35e3c5c2e56e28ce4c69ad3cb9.jpg",
    "strength": 51,
    "iq": 65,
    "durability": 51,
@@ -1466,7 +1521,7 @@
   {
    "name": "Meruem",
    "source": "Hunter x Hunter",
-   "image": "",
+   "image": "https://i.pinimg.com/736x/a6/68/28/a66828e4772b6e14d89c6a3038d74ce3.jpg",
    "strength": 90,
    "iq": 80,
    "durability": 91,
@@ -1477,7 +1532,7 @@
   {
    "name": "All Might",
    "source": "My Hero Academia",
-   "image": "https://fortnite-api.com/images/cosmetics/br/character_emeraldglasstransform/variants/parts/stage1.png",
+   "image": "https://static1.cbrimages.com/wordpress/wp-content/uploads/2023/08/mha-all-might-knuckleduster.jpg",
    "strength": 85,
    "iq": 55,
    "durability": 74,
@@ -1510,7 +1565,7 @@
   {
    "name": "Darth Maul",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://images7.alphacoders.com/139/1395846.jpg",
    "strength": 51,
    "iq": 42,
    "durability": 51,
@@ -1521,7 +1576,7 @@
   {
    "name": "Obi-Wan Kenobi",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://tse1.mm.bing.net/th/id/OIP.OahlGmGWIdhosxF3u-voCQHaEc?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 43,
    "iq": 76,
    "durability": 43,
@@ -1532,7 +1587,7 @@
   {
    "name": "Ahsoka Tano",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://wallpapercrafter.com/desktop1/528143-Star-Wars-lightsabers-Asoka-Tano-Ahsoka-Tano-Star.jpg",
    "strength": 43,
    "iq": 70,
    "durability": 43,
@@ -1543,7 +1598,7 @@
   {
    "name": "The Mandalorian",
    "source": "Star Wars",
-   "image": "",
+   "image": "https://th.bing.com/th/id/R.e0ca7386b579fe3ff8394b1e92660b33?rik=O5y3s5MtDfmCQA&pid=ImgRaw&r=0",
    "strength": 43,
    "iq": 52,
    "durability": 51,
@@ -1554,7 +1609,7 @@
   {
    "name": "John Wick",
    "source": "John Wick",
-   "image": "",
+   "image": "https://static1.moviewebimages.com/wordpress/wp-content/uploads/2024/10/keanu-reeves-in-john-wick-chapter-4-1.jpg",
    "strength": 43,
    "iq": 62,
    "durability": 43,
@@ -1565,7 +1620,7 @@
   {
    "name": "Optimus Primal",
    "source": "Transformers",
-   "image": "",
+   "image": "https://wallpapers.com/images/hd/optimus-primal-robot-form-x2sbuh83blhi800l.jpg",
    "strength": 51,
    "iq": 55,
    "durability": 55,
@@ -1576,7 +1631,7 @@
   {
    "name": "Buzz Lightyear",
    "source": "Toy Story",
-   "image": "",
+   "image": "https://wallpapers.com/images/hd/buzz-lightyear-of-star-command-happy-pose-un6uwhwbkwju37ky.jpg",
    "strength": 18,
    "iq": 42,
    "durability": 22,
@@ -1587,7 +1642,7 @@
   {
    "name": "Woody",
    "source": "Toy Story",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/81ecb4c0-9d72-4d68-91c3-5fe209efc191/dg3pcd2-556a5493-c671-448c-bdf5-9b7de5dd06f6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzgxZWNiNGMwLTlkNzItNGQ2OC05MWMzLTVmZTIwOWVmYzE5MVwvZGczcGNkMi01NTZhNTQ5My1jNjcxLTQ0OGMtYmRmNS05YjdkZTVkZDA2ZjYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.lMlYYDyNLdLlEe_16kSe7IaE5Uf4Cwp9W-SmaJ58VpE",
    "strength": 9,
    "iq": 42,
    "durability": 12,
@@ -1598,7 +1653,7 @@
   {
    "name": "Elsa",
    "source": "Frozen",
-   "image": "",
+   "image": "https://wallpapers.com/images/hd/elsa-queen-of-arendelle-yqx5rleisb6n8akp.jpg",
    "strength": 7,
    "iq": 55,
    "durability": 12,
@@ -1609,7 +1664,7 @@
   {
    "name": "Po",
    "source": "Kung Fu Panda",
-   "image": "",
+   "image": "https://vignette.wikia.nocookie.net/dekungfupanda/images/5/5c/Kung-fu-panda-Po-2-desktop-wallpaper.jpg/revision/latest?cb=20110906204137&path-prefix=de",
    "strength": 55,
    "iq": 47,
    "durability": 60,
@@ -1620,7 +1675,7 @@
   {
    "name": "Tai Lung",
    "source": "Kung Fu Panda",
-   "image": "",
+   "image": "https://fanart.fanabyss.com/854/Tai-Lung-(Kung-Fu-Panda)-792.jpg",
    "strength": 60,
    "iq": 55,
    "durability": 55,
@@ -1631,7 +1686,7 @@
   {
    "name": "Gru",
    "source": "Despicable Me",
-   "image": "",
+   "image": "https://media.craiyon.com/2025-04-12/uYhK8HmLRIKnA7HJYHIfVw.webp",
    "strength": 18,
    "iq": 62,
    "durability": 22,
@@ -1642,10 +1697,10 @@
   {
    "name": "Minion",
    "source": "Despicable Me",
-   "image": "",
+   "image": "https://vignette.wikia.nocookie.net/universalstudios/images/1/1d/Kevin_minions.png/revision/latest?cb=20171012175955",
    "strength": 5,
    "iq": 12,
-   "durability": 15,
+   "durability": 65,
    "speed": 18,
    "ability": 6,
    "universe": "Animated Worlds"
@@ -1653,7 +1708,7 @@
   {
    "name": "Jack Sparrow",
    "source": "Pirates of the Caribbean",
-   "image": "",
+   "image": "https://th.bing.com/th/id/R.babc7ef3f3562d47e5069562b7223646?rik=vxlcZmPTg%2feGUw&riu=http%3a%2f%2fimg4.wikia.nocookie.net%2f__cb20121228135424%2fpirates%2fimages%2fa%2fac%2fJackSparrowProfile.jpg&ehk=Zp%2b1D1MroYN8W%2f3RF7wc5mU7jgZaW4llLBJYTdc7M2U%3d&risl=&pid=ImgRaw&r=0",
    "strength": 9,
    "iq": 62,
    "durability": 12,
@@ -1664,7 +1719,7 @@
   {
    "name": "Katniss Everdeen",
    "source": "The Hunger Games",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3713979d-720d-44ad-ac50-9e64a9a8bc46/devrt4b-75429173-c5ef-487a-b230-d68a9c10647d.jpg/v1/fill/w_1280,h_1178,q_75,strp/katniss_everdeen_by_katr1nrin_devrt4b-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTE3OCIsInBhdGgiOiJcL2ZcLzM3MTM5NzlkLTcyMGQtNDRhZC1hYzUwLTllNjRhOWE4YmM0NlwvZGV2cnQ0Yi03NTQyOTE3My1jNWVmLTQ4N2EtYjIzMC1kNjhhOWMxMDY0N2QuanBnIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.XAf0VnVKY5KILnfbD1h7H-TuIZjcxKpq4F8NINHoss0",
    "strength": 22,
    "iq": 55,
    "durability": 26,
@@ -1675,7 +1730,7 @@
   {
    "name": "Wednesday Addams",
    "source": "The Addams Family",
-   "image": "",
+   "image": "https://4kwallpapers.com/images/wallpapers/wednesday-addams-3600x2400-9306.jpg",
    "strength": 12,
    "iq": 70,
    "durability": 18,
@@ -1686,18 +1741,18 @@
   {
    "name": "Eleven",
    "source": "Stranger Things",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/db/f3/0d/dbf30d8a094d6e5ad9b7e435c8f5d0e6.jpg",
    "strength": 9,
    "iq": 62,
    "durability": 18,
    "speed": 22,
-   "ability": 45,
+   "ability": 55,
    "universe": "Movies & TV"
   },
   {
    "name": "Vecna",
    "source": "Stranger Things",
-   "image": "",
+   "image": "https://cdn.wallpapersafari.com/29/91/TsDGIu.jpg",
    "strength": 43,
    "iq": 76,
    "durability": 55,
@@ -1706,7 +1761,7 @@
    "universe": "Movies & TV"
   },
   {
-   "name": "Maki Zenin (Awakened)",
+   "name": "https://static.wikia.nocookie.net/jujutsu-kaisen/images/3/39/Maki_Zenin_%28Volume_22%29.png/revision/latest?cb=20230206185342",
    "source": "Jujutsu Kaisen",
    "image": "https://static.wikia.nocookie.net/jujutsu-kaisen/images/2/2c/Maki_Zen%27in_%28Anime_4%29.png/revision/latest?cb=20251230144642",
    "strength": 80,
@@ -2863,7 +2918,7 @@
   {
    "name": "Rody Soul",
    "source": "My Hero Academia",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/18/6a/f0/186af0006f8de64c0b5e33d6396c999a.jpg",
    "strength": 22,
    "iq": 66,
    "durability": 25,
@@ -2874,7 +2929,7 @@
   {
    "name": "Melissa Shield",
    "source": "My Hero Academia",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4ac064dd-b671-4ae0-88d0-8489a023fb14/diwcem8-e7954cb8-2a58-4180-8fb0-ac78deb253ae.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzRhYzA2NGRkLWI2NzEtNGFlMC04OGQwLTg0ODlhMDIzZmIxNFwvZGl3Y2VtOC1lNzk1NGNiOC0yYTU4LTQxODAtOGZiMC1hYzc4ZGViMjUzYWUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.ASPsav7AIVc60dhosUB4qebkk9tXt2pfF6YvS5sH-Gk",
    "strength": 5,
    "iq": 95,
    "durability": 7,
@@ -2885,7 +2940,7 @@
   {
    "name": "Hitoshi Shinso",
    "source": "My Hero Academia",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/62/a7/e0/62a7e00a7961e717d6a8c74f0d8e6570.jpg",
    "strength": 16,
    "iq": 78,
    "durability": 18,
@@ -2896,7 +2951,7 @@
   {
    "name": "Katsuma Shimano",
    "source": "My Hero Academia",
-   "image": "",
+   "image": "https://static.wikia.nocookie.net/d7f3cedc-d86e-4103-929d-0d927d5a5326/scale-to-width/755",
    "strength": 2,
    "iq": 51,
    "durability": 5,
@@ -2907,7 +2962,7 @@
   {
    "name": "Black Widow",
    "source": "Marvel",
-   "image": "",
+   "image": "https://cdn.antaranews.com/cache/1200x800/2021/04/04/natasha.png",
    "strength": 22,
    "iq": 85,
    "durability": 25,
@@ -2918,7 +2973,7 @@
   {
    "name": "Hawkeye",
    "source": "Marvel",
-   "image": "",
+   "image": "https://www.nme.com/wp-content/uploads/2020/07/Hawkeye-Marvel.jpg",
    "strength": 28,
    "iq": 78,
    "durability": 28,
@@ -2929,7 +2984,7 @@
   {
    "name": "Scarlet Witch",
    "source": "Marvel",
-   "image": "",
+   "image": "https://static0.srcdn.com/wordpress/wp-content/uploads/2026/07/scarlet-witch-s-death-in-doctor-strange-in-the-multiverse-of-madness.jpg?w=1600&h=900&fit=crop",
    "strength": 51,
    "iq": 85,
    "durability": 56,
@@ -2940,7 +2995,7 @@
   {
    "name": "Vision",
    "source": "Marvel",
-   "image": "",
+   "image": "https://wallpaperaccess.com/full/1135868.jpg",
    "strength": 80,
    "iq": 90,
    "durability": 93,
@@ -2951,7 +3006,7 @@
   {
    "name": "Ant-Man",
    "source": "Marvel",
-   "image": "",
+   "image": "https://www.pngarts.com/files/12/Marvel-Ant-Man-Free-PNG-Image.png",
    "strength": 39,
    "iq": 78,
    "durability": 43,
@@ -2962,7 +3017,7 @@
   {
    "name": "Wasp",
    "source": "Marvel",
-   "image": "",
+   "image": "https://cdn.marvel.com/content/2x/wasp_1_cut.jpg",
    "strength": 32,
    "iq": 78,
    "durability": 35,
@@ -2973,7 +3028,7 @@
   {
    "name": "Falcon",
    "source": "Marvel",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp3638373.png",
    "strength": 39,
    "iq": 66,
    "durability": 39,
@@ -2984,7 +3039,7 @@
   {
    "name": "Winter Soldier",
    "source": "Marvel",
-   "image": "",
+   "image": "https://images3.alphacoders.com/997/997357.jpg",
    "strength": 51,
    "iq": 66,
    "durability": 56,
@@ -2995,7 +3050,7 @@
   {
    "name": "War Machine",
    "source": "Marvel",
-   "image": "",
+   "image": "https://images.hdqwalls.com/wallpapers/war-machine-4k-2019-e0.jpg",
    "strength": 71,
    "iq": 73,
    "durability": 71,
@@ -3006,7 +3061,7 @@
   {
    "name": "Captain Marvel",
    "source": "Marvel",
-   "image": "",
+   "image": "https://images.wallpapersden.com/image/download/captain-marvel-2019_a2lmaG2UmZqaraWkpJRnaWVlrWhna2g.jpg",
    "strength": 93,
    "iq": 73,
    "durability": 93,
@@ -3017,7 +3072,7 @@
   {
    "name": "Black Bolt",
    "source": "Marvel",
-   "image": "",
+   "image": "https://fictionhorizon.com/wp-content/uploads/2022/04/black-bolt-featured.jpg",
    "strength": 71,
    "iq": 78,
    "durability": 71,
@@ -3028,7 +3083,7 @@
   {
    "name": "Loki",
    "source": "Marvel",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1ea08e12-847b-4c43-8433-ff86b833fd7b/dfoswp8-20a970d9-6da9-43d0-8d18-a690e759d0c2.png/v1/fill/w_1280,h_1272/loki__marvel__by_blue_leader97_dfoswp8-fullview.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI3MiIsInBhdGgiOiJcL2ZcLzFlYTA4ZTEyLTg0N2ItNGM0My04NDMzLWZmODZiODMzZmQ3YlwvZGZvc3dwOC0yMGE5NzBkOS02ZGE5LTQzZDAtOGQxOC1hNjkwZTc1OWQwYzIucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.QHCnHfW6tYF8pDxZ6vzfP7mJ1ZilUqrJv5_Ut9E8Q2g",
    "strength": 56,
    "iq": 90,
    "durability": 71,
@@ -3039,7 +3094,7 @@
   {
    "name": "Hela",
    "source": "Marvel",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/9e/52/8b/9e528bb449aaea0cda6a5f779ac09d10.jpg",
    "strength": 93,
    "iq": 85,
    "durability": 97,
@@ -3050,7 +3105,7 @@
   {
    "name": "Odin",
    "source": "Marvel",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp7814419.jpg",
    "strength": 97,
    "iq": 100,
    "durability": 97,
@@ -3061,7 +3116,7 @@
   {
    "name": "Heimdall",
    "source": "Marvel",
-   "image": "",
+   "image": "https://rare-gallery.com/mocahbig/1351832-Heimdall-Marvel-Comics-Idris-ElbaAsgards-Protector.jpg",
    "strength": 71,
    "iq": 78,
    "durability": 80,
@@ -3072,7 +3127,7 @@
   {
    "name": "Valkyrie",
    "source": "Marvel",
-   "image": "",
+   "image": "https://wallpapercave.com/wp/wp9433944.jpg",
    "strength": 65,
    "iq": 66,
    "durability": 65,
@@ -3083,7 +3138,7 @@
   {
    "name": "Sif",
    "source": "Marvel",
-   "image": "",
+   "image": "https://tse1.mm.bing.net/th/id/OIP.kV7OH6obPbRkk_G6oOIuBwHaI9?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 56,
    "iq": 62,
    "durability": 60,
@@ -3094,7 +3149,7 @@
   {
    "name": "Star-Lord",
    "source": "Marvel",
-   "image": "",
+   "image": "https://images.hdqwalls.com/wallpapers/star-lord-in-guardians-of-the-galaxy-jv.jpg",
    "strength": 28,
    "iq": 73,
    "durability": 32,
@@ -3105,7 +3160,7 @@
   {
    "name": "Gamora",
    "source": "Marvel",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/75/02/ed/7502eded24c96184a29721b967889db8.jpg",
    "strength": 51,
    "iq": 73,
    "durability": 56,
@@ -3116,7 +3171,7 @@
   {
    "name": "Nebula",
    "source": "Marvel",
-   "image": "",
+   "image": "https://images.squarespace-cdn.com/content/v1/51b3dc8ee4b051b96ceb10de/a1adb664-b34f-4bd5-9edf-e24e05bcf2d1/Karen+Gillan+Addresses+Possible+MCU+Return+as+Nebula+and+Confirms+Talks+With+Marvel.jpg",
    "strength": 47,
    "iq": 73,
    "durability": 65,
@@ -3127,7 +3182,7 @@
   {
    "name": "Drax",
    "source": "Marvel",
-   "image": "",
+   "image": "https://tse2.mm.bing.net/th/id/OIP.AURXyIUL3ePRs14ZXG6rqwHaIu?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 71,
    "iq": 40,
    "durability": 80,
@@ -3138,7 +3193,7 @@
   {
    "name": "Rocket Raccoon",
    "source": "Marvel",
-   "image": "",
+   "image": "https://static1.srcdn.com/wordpress/wp-content/uploads/2023/08/rocket-raccoon-in-guardians-of-the-galaxy-3.jpg",
    "strength": 18,
    "iq": 98,
    "durability": 22,
@@ -3149,7 +3204,7 @@
   {
    "name": "Groot",
    "source": "Marvel",
-   "image": "",
+   "image": "https://tse3.mm.bing.net/th/id/OIP.frowQH-kNnfGCudkOgXYFQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 71,
    "iq": 51,
    "durability": 93,
@@ -3160,7 +3215,7 @@
   {
    "name": "Mantis",
    "source": "Marvel",
-   "image": "",
+   "image": "https://wallpaperaccess.com/full/4994036.jpg",
    "strength": 11,
    "iq": 62,
    "durability": 18,
@@ -3171,7 +3226,7 @@
   {
    "name": "Yondu",
    "source": "Marvel",
-   "image": "",
+   "image": "https://tse2.mm.bing.net/th/id/OIP.Z1skWdQL4Mt0-ByatZ0k0wHaJY?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 35,
    "iq": 73,
    "durability": 39,
@@ -3182,7 +3237,7 @@
   {
    "name": "Adam Warlock",
    "source": "Marvel",
-   "image": "",
+   "image": "https://tse1.mm.bing.net/th/id/OIF.IW55DeD74bzOIxxmjoZePQ?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 93,
    "iq": 85,
    "durability": 93,
@@ -3193,7 +3248,7 @@
   {
    "name": "Silver Surfer",
    "source": "Marvel",
-   "image": "",
+   "image": "https://wallpapers.com/images/hd/silver-surfer-marvel-art-png-06202024-adl4x6zlw52at1go.png",
    "strength": 97,
    "iq": 98,
    "durability": 97,
@@ -3204,7 +3259,7 @@
   {
    "name": "Galactus",
    "source": "Marvel",
-   "image": "",
+   "image": "https://www.sideshow.com/storage/product-images/500872U/galactus_marvel_feature.jpg",
    "strength": 100,
    "iq": 100,
    "durability": 100,
@@ -3215,7 +3270,7 @@
   {
    "name": "Thanos (No Stones)",
    "source": "Marvel",
-   "image": "",
+   "image": "https://i.pinimg.com/originals/4e/9e/58/4e9e5833eb2cdb3654af075fe1bd8854.jpg",
    "strength": 100,
    "iq": 90,
    "durability": 100,
@@ -3226,7 +3281,7 @@
   {
    "name": "Ego",
    "source": "Marvel",
-   "image": "",
+   "image": "https://tse3.mm.bing.net/th/id/OIP.rOCtv8UWaeDGeRTV-QWMuwAAAA?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
    "strength": 97,
    "iq": 90,
    "durability": 100,
@@ -3237,7 +3292,7 @@
   {
    "name": "Dormammu",
    "source": "Marvel",
-   "image": "",
+   "image": "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a3827a59-5e08-47f4-8d3e-d54426fb841d/deoxoh7-5f32ef31-9250-49ce-b0b6-c64e63078309.png/v1/fill/w_774,h_1032,strp/dormammu___marvel_comics_by_ntweedybirdart_deoxoh7-pre.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTcwNyIsInBhdGgiOiJcL2ZcL2EzODI3YTU5LTVlMDgtNDdmNC04ZDNlLWQ1NDQyNmZiODQxZFwvZGVveG9oNy01ZjMyZWYzMS05MjUwLTQ5Y2UtYjBiNi1jNjRlNjMwNzgzMDkucG5nIiwid2lkdGgiOiI8PTEyODAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.qVsfbjZFms02PMg1lSpx8HlVzKnzWDLliSYClnv0FGo",
    "strength": 100,
    "iq": 100,
    "durability": 100,
@@ -3248,7 +3303,7 @@
   {
    "name": "Mephisto",
    "source": "Marvel",
-   "image": "",
+   "image": "https://image.idntimes.com/post/20240928/loki-agent-of-asgard-mephisto-cut-e7ee0c44934dcaaf97cc2bffbb5be55b-302ceddfe969925cec6aaea207a0c8df.jpg",
    "strength": 93,
    "iq": 100,
    "durability": 93,
@@ -3259,7 +3314,7 @@
   {
    "name": "Ghost Rider",
    "source": "Marvel",
-   "image": "",
+   "image": "https://cdn.sweezy-wallpapers.com/wallpapers/02a77e79-1d3c-409d-9a54-281aacff4cf5/ghost-rider-marvel-comics-spirit-of-vengeance-flaming-skull-desktop-wallpaper.jpg",
    "strength": 86,
    "iq": 73,
    "durability": 92,
