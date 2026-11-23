@@ -478,14 +478,13 @@ const CHAR_SPECIALS = {
         <div class="sp-afo-ring"></div>
         <div class="sp-afo-txt">All For One</div>`;
     }
-  }
+  },
+
+  /* ── Reze — audio only ── */
   "reze": {
-    duration: 3000,
     audio: "audio/reze.mp3",
     audioDelay: 0
-    }
   }
-
 
   /* ── Add more specials below ── */
 };
@@ -532,6 +531,32 @@ function triggerSpecial(ch,cb){
   const key=ch.name.toLowerCase().trim();
   const spec=CHAR_SPECIALS[key];
   if(!spec){cb&&cb();return;}
+
+  // Audio-only specials (such as Reze) do not create a visual overlay.
+  if(typeof spec.build!=="function"){
+    _stopAudio();
+    setTimeout(()=>{
+      if(!spec.audio){cb&&cb();return;}
+      const audio=new Audio(spec.audio);
+      _spAudio=audio;
+      audio.preload="auto";
+      audio.volume=0.7;
+      audio.addEventListener("ended",()=>{
+        if(_spAudio===audio)_spAudio=null;
+        cb&&cb();
+      },{once:true});
+      audio.addEventListener("error",()=>{
+        if(_spAudio===audio)_spAudio=null;
+        cb&&cb();
+      },{once:true});
+      audio.play().catch(()=>{
+        if(_spAudio===audio)_spAudio=null;
+        cb&&cb();
+      });
+    },spec.audioDelay||0);
+    return;
+  }
+
   const el=document.createElement("div");
   el.className="sp-ov";
   spec.build(el);
