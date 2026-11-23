@@ -40,6 +40,7 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .btn.ghost{background:transparent;color:var(--dim);box-shadow:none;border:.18rem solid var(--line);font-size:1.5rem;padding:.65rem 1.8rem}
 .btn.ghost:active{background:var(--line);transform:none}
 .btn.sm{font-size:1.9rem;padding:.85rem 2.2rem}
+.btn.red{background:#c0132a;color:#fff;box-shadow:0 .4rem 0 #7a0018}
 .row-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;align-items:center}
 
 /* ═══ TOP BAR ═══ */
@@ -85,7 +86,6 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .av .mono{font-family:var(--disp);font-weight:900;font-size:calc(var(--s,5rem)*.42);color:rgba(255,255,255,.9);letter-spacing:.02em}
 .av img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;opacity:0;transition:opacity .25s}
 .av.ok img{opacity:1}.av.ok .mono{opacity:0}
-
 .card{--rc:var(--common);position:relative;width:100%;background:var(--card);border:.24rem solid var(--rc);border-radius:1.2rem;padding:.8rem;display:flex;flex-direction:column;gap:.7rem;overflow:hidden}
 .card .av{width:100%;height:auto;aspect-ratio:1/1;--s:11rem}
 .card .nm{font-size:2.6rem}
@@ -113,6 +113,12 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .spin .nm{opacity:.55}
 .rflash{position:fixed;inset:0;z-index:40;pointer-events:none;opacity:0;transition:opacity .15s}
 .rflash.go{opacity:1}
+
+/* ═══ PRE-REVEAL IMAGE ═══ */
+.prev-ov{position:fixed;inset:0;z-index:280;display:flex;align-items:center;justify-content:center;background:#000;animation:spFadeIn .2s ease}
+.prev-ov img{max-width:100%;max-height:100%;object-fit:contain;animation:prevZoom .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes prevZoom{from{transform:scale(1.08);opacity:0}to{transform:scale(1);opacity:1}}
+.prev-ov .prev-label{position:absolute;bottom:8%;left:50%;transform:translateX(-50%);font-family:var(--disp);font-weight:900;font-size:min(5vw,3.5vh);letter-spacing:.08em;text-transform:uppercase;color:#fff;text-shadow:0 0 2rem rgba(0,0,0,.8),0 .2rem .6rem rgba(0,0,0,.9);white-space:nowrap}
 
 /* ═══ BOARD ═══ */
 .board{display:grid;gap:.6rem;flex-shrink:0}
@@ -194,50 +200,17 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .lk small{display:block;font-size:.95rem;color:var(--dim);font-weight:500}
 .err{color:var(--gold);font-size:1.3rem;max-width:32rem;line-height:1.5}
 .foilchip{display:inline-block;background:var(--rc);color:#10131f;border-radius:.5rem;padding:.2rem .7rem;font-size:1.1rem;font-family:var(--disp);font-weight:900;text-transform:uppercase}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 
-/* ═══════════════════════════════════════════════
-   SPECIAL CHARACTER REVEALS
-   Each reveal is a fixed overlay that sits above
-   everything else and self-removes when done.
-   Add your own in the JS CHAR_SPECIALS registry.
-═══════════════════════════════════════════════ */
-
-/* ── shared overlay shell ── */
+/* ═══ SPECIAL REVEALS ═══ */
 .sp-ov{position:fixed;inset:0;z-index:300;pointer-events:none;display:flex;align-items:center;justify-content:center;overflow:hidden}
-
-/* ══ MAHORAGA — spinning dharma wheel ══ */
-.sp-wheel-ring{position:absolute;width:min(90vw,90vh);height:min(90vw,90vh);border-radius:50%;border:1.2vw solid rgba(255,210,80,.55);box-shadow:0 0 4vw rgba(255,180,0,.35),inset 0 0 4vw rgba(255,180,0,.2);animation:wheelSpin 1.8s linear infinite}
-@keyframes wheelSpin{to{transform:rotate(360deg)}}
-.sp-wheel-spoke{position:absolute;top:50%;left:50%;width:49%;height:.4vw;background:linear-gradient(90deg,transparent,rgba(255,210,80,.7));transform-origin:0 50%}
-.sp-wheel-hub{position:absolute;width:8vw;height:8vw;border-radius:50%;background:radial-gradient(circle,#ffe066,#c8820a);box-shadow:0 0 3vw #ffd23f}
-.sp-wheel-bg{position:absolute;inset:0;background:rgba(10,8,20,.7);animation:spFadeIn .3s ease}
-.sp-wheel-txt{position:absolute;bottom:12%;color:#ffe066;font-family:var(--disp);font-weight:900;font-size:min(5vw,3.5vh);letter-spacing:.08em;text-transform:uppercase;text-shadow:0 0 1.5rem #ffd23f;animation:spFadeIn .4s ease .2s both}
-
-/* ══ SUKUNA — diagonal slash ══ */
-.sp-slash-bg{position:absolute;inset:0;background:rgba(60,0,0,.82);animation:spFadeIn .15s ease}
-.sp-slash-line{position:absolute;top:-10%;left:-10%;width:120%;height:.5vw;background:linear-gradient(90deg,transparent 0%,#ff2244 20%,#fff 50%,#ff2244 80%,transparent 100%);transform:rotate(-35deg) translateY(55vh);animation:slashCut .5s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes slashCut{0%{transform:rotate(-35deg) translateY(-10vh);opacity:0}20%{opacity:1}100%{transform:rotate(-35deg) translateY(120vh);opacity:.6}}
-.sp-slash-line2{position:absolute;top:-10%;left:-10%;width:120%;height:.25vw;background:linear-gradient(90deg,transparent,rgba(255,100,120,.6),transparent);transform:rotate(-35deg) translateY(55vh);animation:slashCut .5s cubic-bezier(.2,.8,.2,1) .07s forwards}
-.sp-slash-txt{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:#ff2244;font-family:var(--disp);font-weight:900;font-size:min(8vw,5.5vh);letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 2rem #ff0022,0 0 .5rem #fff;animation:spFadeIn .2s .4s both}
-.sp-slash-crack{position:absolute;inset:0;background:linear-gradient(135deg,transparent 48.5%,rgba(255,34,68,.35) 49.5%,transparent 50.5%),linear-gradient(45deg,transparent 48%,rgba(255,34,68,.2) 49.5%,transparent 51%)}
-
-/* ══ GOJO — blue eye iris ══ */
-.sp-eye-bg{position:absolute;inset:0;background:#000;animation:spFadeIn .2s ease}
-.sp-eye-iris{position:absolute;width:min(55vw,55vh);height:min(55vw,55vh);border-radius:50%;background:radial-gradient(circle at 50% 50%,#000 10%,#1a60ff 30%,#0030c8 60%,#001480 80%,#000038 100%);box-shadow:0 0 6vw #3cf,0 0 12vw rgba(60,150,255,.5);animation:eyeOpen .6s cubic-bezier(.2,.8,.2,1) forwards}
-@keyframes eyeOpen{0%{transform:scaleY(.02);opacity:.6}40%{transform:scaleY(1.08)}100%{transform:scaleY(1);opacity:1}}
-.sp-eye-pupil{position:absolute;width:18%;height:18%;border-radius:50%;background:#000;box-shadow:0 0 2vw rgba(60,160,255,.8)}
-.sp-eye-ring{position:absolute;width:min(60vw,60vh);height:min(60vw,60vh);border-radius:50%;border:.5vw solid rgba(100,180,255,.6);animation:eyeRingPulse 1s ease-in-out infinite}
-@keyframes eyeRingPulse{0%,100%{transform:scale(1);opacity:.7}50%{transform:scale(1.05);opacity:1}}
-.sp-eye-beams{position:absolute;width:min(80vw,80vh);height:min(80vw,80vh);border-radius:50%;background:conic-gradient(transparent 0deg,rgba(60,180,255,.12) 10deg,transparent 20deg,rgba(60,180,255,.12) 30deg,transparent 40deg,rgba(60,180,255,.12) 50deg,transparent 60deg,rgba(60,180,255,.12) 70deg,transparent 80deg,rgba(60,180,255,.12) 90deg,transparent 100deg,rgba(60,180,255,.12) 110deg,transparent 120deg,rgba(60,180,255,.12) 130deg,transparent 140deg,rgba(60,180,255,.12) 150deg,transparent 160deg,rgba(60,180,255,.12) 170deg,transparent 180deg,rgba(60,180,255,.12) 190deg,transparent 200deg,rgba(60,180,255,.12) 210deg,transparent 220deg,rgba(60,180,255,.12) 230deg,transparent 240deg,rgba(60,180,255,.12) 250deg,transparent 260deg,rgba(60,180,255,.12) 270deg,transparent 280deg,rgba(60,180,255,.12) 290deg,transparent 300deg,rgba(60,180,255,.12) 310deg,transparent 320deg,rgba(60,180,255,.12) 330deg,transparent 340deg,rgba(60,180,255,.12) 350deg,transparent 360deg);animation:beamSpin 4s linear infinite}
+@keyframes spFadeIn{from{opacity:0}to{opacity:1}}
+/* shared */
 @keyframes beamSpin{to{transform:rotate(360deg)}}
-.sp-eye-label{position:absolute;bottom:14%;color:#3cf;font-family:var(--disp);font-weight:900;font-size:min(5vw,3.5vh);letter-spacing:.15em;text-transform:uppercase;text-shadow:0 0 2rem #3cf;animation:spFadeIn .3s .5s both}
 
 /* ══ HAKARI — jackpot ══ */
 .sp-jk-bg{position:absolute;inset:0;background:linear-gradient(160deg,#1a0a00,#2a1500,#1a0a00);animation:spFadeIn .2s ease}
 .sp-jk-reels{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);display:flex;gap:1.5vw;align-items:center}
-.sp-jk-reel{width:14vw;height:14vw;background:#0a0500;border:.5vw solid #c8820a;border-radius:1vw;overflow:hidden;display:flex;align-items:center;justify-content:center;font-size:8vw;animation:reelSpin .08s steps(1) infinite}
-@keyframes reelSpin{0%{content:"7"}12%{transform:translateY(-2px)}25%{transform:translateY(2px)}37%{transform:translateY(-1px)}50%{transform:none}100%{transform:none}}
+.sp-jk-reel{width:14vw;height:14vw;background:#0a0500;border:.5vw solid #c8820a;border-radius:1vw;display:flex;align-items:center;justify-content:center;font-size:8vw}
 .sp-jk-reel.lock{animation:reelLock .3s cubic-bezier(.2,.8,.2,1) forwards}
 @keyframes reelLock{0%{transform:scale(1)}50%{transform:scale(1.15)}100%{transform:scale(1)}}
 .sp-jk-txt{position:absolute;bottom:14%;color:#ffd23f;font-family:var(--disp);font-weight:900;font-size:min(6vw,4vh);letter-spacing:.1em;text-transform:uppercase;text-shadow:0 0 2rem #ffd23f,0 0 .5rem #fff;opacity:0;animation:jackpotPop .5s cubic-bezier(.2,.8,.2,1) .6s forwards}
@@ -252,22 +225,46 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 .sp-afo-tendrils{position:absolute;width:min(90vw,90vh);height:min(90vw,90vh);border-radius:50%;background:conic-gradient(transparent 0deg,rgba(100,0,200,.18) 8deg,transparent 18deg,rgba(100,0,200,.18) 26deg,transparent 36deg,rgba(100,0,200,.18) 44deg,transparent 54deg,rgba(100,0,200,.18) 62deg,transparent 72deg,rgba(100,0,200,.18) 80deg,transparent 90deg,rgba(100,0,200,.18) 98deg,transparent 108deg,rgba(100,0,220,.18) 116deg,transparent 126deg,rgba(100,0,220,.18) 134deg,transparent 144deg,rgba(100,0,220,.18) 152deg,transparent 162deg,rgba(100,0,220,.18) 170deg,transparent 180deg,rgba(100,0,220,.18) 188deg,transparent 198deg,rgba(100,0,220,.18) 206deg,transparent 216deg,rgba(100,0,220,.18) 224deg,transparent 234deg,rgba(100,0,220,.18) 242deg,transparent 252deg,rgba(100,0,220,.18) 260deg,transparent 270deg,rgba(100,0,220,.18) 278deg,transparent 288deg,rgba(100,0,220,.18) 296deg,transparent 306deg,rgba(100,0,220,.18) 314deg,transparent 324deg,rgba(100,0,220,.18) 332deg,transparent 342deg,rgba(100,0,220,.18) 350deg,transparent 360deg);animation:beamSpin 6s linear infinite}
 .sp-afo-txt{position:absolute;bottom:12%;color:#c060ff;font-family:var(--disp);font-weight:900;font-size:min(4.5vw,3.2vh);letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 2rem #9000ee;animation:spFadeIn .4s .5s both}
 
-/* ══ NAOYA / NAOBITO — broken frames ══ */
-.sp-glass-bg{position:absolute;inset:0;background:#000;animation:spFadeIn .1s ease}
-.sp-glass-frame{position:absolute;border:.4vw solid rgba(200,220,255,.6);animation:framePop .08s steps(1) infinite}
-.sp-glass-frame:nth-child(2){inset:3vw;border-color:rgba(200,220,255,.4);animation-delay:.03s}
-.sp-glass-frame:nth-child(3){inset:6vw;border-color:rgba(200,220,255,.25);animation-delay:.05s}
-.sp-glass-crack{position:absolute;inset:0;background:
-  linear-gradient(72deg,transparent 48%,rgba(255,255,255,.18) 49%,transparent 50%),
-  linear-gradient(140deg,transparent 55%,rgba(255,255,255,.12) 56%,transparent 57%),
-  linear-gradient(28deg,transparent 42%,rgba(255,255,255,.1) 43%,transparent 44%),
-  linear-gradient(195deg,transparent 60%,rgba(255,255,255,.12) 61%,transparent 62%);
-  animation:framePop .05s steps(1) infinite}
-@keyframes framePop{0%,49%{opacity:1}50%,100%{opacity:.6}}
-.sp-glass-txt{position:absolute;bottom:14%;color:#e0eaff;font-family:var(--disp);font-weight:900;font-size:min(5vw,3.5vh);letter-spacing:.12em;text-transform:uppercase;text-shadow:0 0 1rem rgba(200,220,255,.8);animation:spFadeIn .3s .3s both}
+/* ═══ DEV PANEL ═══ */
+.dev-ov{position:fixed;inset:0;z-index:900;background:rgba(2,4,12,.88);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;animation:fade .18s}
+.dev-box{background:#0d1128;border:.2rem solid #3a4080;border-radius:1.4rem;padding:2rem 2.2rem;width:min(96vw,52rem);max-height:90vh;overflow-y:auto;display:flex;flex-direction:column;gap:1.6rem}
+.dev-box h2{font-family:var(--disp);font-weight:900;font-size:2.4rem;color:var(--gold);letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:.8rem}
+.dev-box h2 .badge{font-size:1rem;background:#1e2a60;color:var(--dim);border-radius:.4rem;padding:.2rem .6rem;letter-spacing:.08em}
+.dev-sec{display:flex;flex-direction:column;gap:.7rem}
+.dev-sec label{font-size:1.1rem;color:var(--dim);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.dev-row{display:flex;gap:.7rem;align-items:stretch;flex-wrap:wrap}
+.dev-inp{flex:1;min-width:0;background:#070c20;border:.16rem solid #3a4080;border-radius:.7rem;padding:.6rem .9rem;font:600 1.4rem var(--body);color:var(--chalk);outline:none;-webkit-user-select:text;user-select:text}
+.dev-inp:focus{border-color:var(--gold)}
+.dev-inp::placeholder{color:#3a4060}
+.dev-btn{background:#1e2a60;border:.16rem solid #3a4080;border-radius:.7rem;padding:.6rem 1.2rem;font:700 1.3rem var(--disp);color:var(--chalk);text-transform:uppercase;letter-spacing:.04em;white-space:nowrap;cursor:pointer;transition:.1s}
+.dev-btn:hover{background:#2a3880;border-color:var(--gold);color:var(--gold)}
+.dev-btn.go{background:var(--gold);color:#241a00;border-color:transparent}
+.dev-btn.go:hover{background:#ffd966}
+.dev-btn.dl{background:#1a3a1a;border-color:#2a6a2a;color:#7aff7a}
+.dev-btn.dl:hover{background:#1e4a1e;border-color:#4aaa4a}
+.dev-btn.danger{background:#3a1010;border-color:#7a2020;color:#ff8080}
+.dev-btn.danger:hover{background:#4a1818;border-color:#cc3030}
+.dev-stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.dev-stat-row{display:flex;flex-direction:column;gap:.3rem}
+.dev-stat-row label{font-size:1rem;color:var(--dim)}
+.dev-stat-row input{background:#070c20;border:.16rem solid #3a4080;border-radius:.6rem;padding:.45rem .8rem;font:700 1.5rem var(--disp);color:var(--chalk);outline:none;-webkit-user-select:text;user-select:text;width:100%}
+.dev-stat-row input:focus{border-color:var(--gold)}
+.dev-msg{font-size:1.1rem;padding:.4rem .7rem;border-radius:.5rem;min-height:1.8rem}
+.dev-msg.ok{color:#7aff7a;background:rgba(0,100,0,.2)}
+.dev-msg.err{color:#ff8080;background:rgba(100,0,0,.2)}
+.dev-char-list{display:flex;flex-direction:column;gap:.35rem;max-height:14rem;overflow-y:auto}
+.dev-char-row{display:flex;align-items:center;gap:.7rem;background:#070c20;border:.12rem solid #2a3060;border-radius:.6rem;padding:.4rem .8rem;font-size:1.15rem}
+.dev-char-row .dcname{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dev-char-row .dcsrc{color:var(--dim);font-size:.95rem;flex-shrink:0}
+.dev-char-row .dcr{font-size:.85rem;font-family:var(--disp);font-weight:900;text-transform:uppercase;flex-shrink:0}
+.dev-char-row .dcdel{margin-left:.3rem;color:#ff8080;background:none;border:none;font-size:1.1rem;cursor:pointer;padding:.1rem .3rem;border-radius:.3rem}
+.dev-char-row .dcdel:hover{background:#3a1010}
+.dev-close{align-self:flex-end;background:transparent;border:.16rem solid #3a4080;border-radius:.7rem;padding:.5rem 1.5rem;font:700 1.3rem var(--disp);color:var(--dim);text-transform:uppercase;letter-spacing:.04em;cursor:pointer;transition:.1s}
+.dev-close:hover{border-color:var(--chalk);color:var(--chalk)}
+.dev-kbd{display:inline-flex;align-items:center;gap:.3rem;font-size:.95rem;color:var(--dim)}
+.dev-kbd kbd{background:#1e2a60;border:.12rem solid #3a4080;border-radius:.35rem;padding:.1rem .45rem;font-family:monospace;font-size:.9rem;color:var(--chalk)}
 
-/* shared fade-in */
-@keyframes spFadeIn{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
 <body>
@@ -276,17 +273,15 @@ button{font:inherit;color:inherit;border:0;background:none;cursor:pointer;touch-
 <script>
 /* ═══ CONFIG ═══ */
 const CATS=[["strength","Strength","STR"],["iq","IQ","IQ"],["durability","Durability","DUR"],["speed","Speed","SPD"],["ability","Ability","ABL"]];
-// rarity = where a character's average stat sits in the roster (cutoffs are computed from the data, so adding characters keeps tiers balanced)
 const RARITIES=[
-  {key:"common",label:"Common",q:0,color:"#8f9acb"},
-  {key:"uncommon",label:"Uncommon",q:.50,color:"#46d68a"},
-  {key:"rare",label:"Rare",q:.72,color:"#4aa8ff",flash:"rgba(74,168,255,.25)"},
-  {key:"epic",label:"Epic",q:.88,color:"#b980ff",flash:"rgba(185,128,255,.33)"},
-  {key:"legendary",label:"Legendary",q:.95,color:"#ffc83d",flash:"rgba(255,200,61,.38)"},
-  {key:"mythic",label:"Mythic",q:.985,color:"#ff5470",flash:"rgba(255,84,112,.45)"}
+  {key:"common",   label:"Common",   q:0,    color:"#8f9acb"},
+  {key:"uncommon", label:"Uncommon", q:.50,  color:"#46d68a"},
+  {key:"rare",     label:"Rare",     q:.72,  color:"#4aa8ff", flash:"rgba(74,168,255,.25)"},
+  {key:"epic",     label:"Epic",     q:.88,  color:"#b980ff", flash:"rgba(185,128,255,.33)"},
+  {key:"legendary",label:"Legendary",q:.95,  color:"#ffc83d", flash:"rgba(255,200,61,.38)"},
+  {key:"mythic",   label:"Mythic",   q:.985, color:"#ff5470", flash:"rgba(255,84,112,.45)"}
 ];
-const WEIGHT_EXP=.6;   // per-character draw weight = universeSize^-0.6 (bigger universes get a lighter weight each)
-const REPEAT_DAMP=.5;  // each time a universe already appeared this game, its weight is halved
+const WEIGHT_EXP=.6, REPEAT_DAMP=.5;
 const PCOLORS=["#ff6a3d","#3cc8ff","#b4f23c","#ff7ad9"];
 const ROW_MS=2300, IDLE_MS=120000;
 const app=document.getElementById("app");
@@ -309,8 +304,7 @@ function calibrate(){
 function getRarity(ch){for(let i=RARITIES.length-1;i>0;i--)if(avg(ch)>=RARITIES[i].min)return RARITIES[i];return RARITIES[0]}
 const foilChip=ch=>`<span class="foilchip r-${getRarity(ch).key}">${getRarity(ch).label}</span>`;
 
-/* ═══ WEIGHTED DRAW ═══
-   Keeps Marvel / DC / MHA / JJK from flooding every game. */
+/* ═══ WEIGHTED DRAW ═══ */
 function weightOf(ch){
   let w=Math.pow(UNIS[ch.universe],-WEIGHT_EXP);
   if(!S.universe)w*=Math.pow(REPEAT_DAMP,S.seen[ch.universe]||0);
@@ -388,57 +382,67 @@ function rarityFlash(ch,cb){
   requestAnimationFrame(()=>{f.classList.add("go");setTimeout(()=>{f.classList.remove("go");setTimeout(()=>{f.remove();cb&&cb()},200)},300+i*80)});
 }
 
-/* ═══════════════════════════════════════════════
+/* ═══════════════════════════════════════════════════════════
+   PRE-REVEAL IMAGE
+   If a character has a `revealImage` field in data.json,
+   that image is shown fullscreen for `revealDuration` ms
+   (default 1600) BEFORE the card flips and rarity flash.
+
+   Add to any character in data.json:
+     "revealImage": "images/sukuna_reveal.jpg",
+     "revealDuration": 1800
+═══════════════════════════════════════════════════════════ */
+function preReveal(ch, cb){
+  if(!ch.revealImage){ cb&&cb(); return; }
+  const dur = ch.revealDuration || 1600;
+  const el=document.createElement("div");
+  el.className="prev-ov";
+  el.innerHTML=`<img src="${esc(ch.revealImage)}" alt="${esc(ch.name)}"><div class="prev-label d">${esc(ch.name)}</div>`;
+  document.body.appendChild(el);
+  setTimeout(()=>{
+    el.style.transition="opacity .3s";
+    el.style.opacity="0";
+    setTimeout(()=>{ el.remove(); cb&&cb(); }, 320);
+  }, dur);
+}
+
+/* ═══════════════════════════════════════════════════════════
    SPECIAL CHARACTER REVEALS
-   ─────────────────────────────────────────────
+   ─────────────────────────────────────────────────────────
    HOW TO ADD YOUR OWN:
    1. Add an entry to CHAR_SPECIALS below.
-   2. The key is the character's exact name (case-insensitive match).
-   3. Fields:
-      • build(el) — function that fills the overlay <div> with HTML.
-                    el is the .sp-ov div already appended to body.
-      • duration   — ms before the reveal is dismissed and assign() runs.
-      • audio      — (optional) path to an audio file e.g. "audio/hakari.mp3"
-      • audioDelay — (optional) ms to wait before playing audio (default 0)
-      • audioStop  — (optional) ms after which audio fades out (default = duration)
-   
-   EXAMPLE — adding a custom character called "My Hero":
-   "my hero": {
-     duration: 2500,
-     audio: "audio/myhero.mp3",
+      Key = character name, lowercase, trimmed.
+   2. Fields:
+      • build(el)   — fills the .sp-ov overlay div with HTML.
+      • duration    — ms the overlay stays (default 2600).
+      • audio       — path to audio file, e.g. "audio/hakari.mp3"
+      • audioDelay  — ms before audio starts (default 0).
+      • audioStop   — ms after which audio fades (default = duration-600).
+
+   BUILT-IN CSS CLASSES YOU CAN USE IN build():
+     Hakari/jackpot:  .sp-jk-bg  .sp-jk-shine  .sp-jk-reels  .sp-jk-txt
+     All For One:     .sp-afo-bg .sp-afo-tendrils .sp-afo-ring .sp-afo-ring2 .sp-afo-txt
+
+   QUICK EXAMPLE — add "My Character":
+   "my character": {
+     duration: 2200,
+     audio: "audio/mychar.mp3",
      build(el){
        el.innerHTML = `<div class="sp-afo-bg"></div>
                        <div class="sp-afo-ring"></div>
-                       <div class="sp-glass-txt">My Hero</div>`;
+                       <div class="sp-afo-txt">My Character</div>`;
      }
    }
-═══════════════════════════════════════════════ */
+═══════════════════════════════════════════════════════════ */
 const CHAR_SPECIALS = {
-
-  /* ── Mahoraga ── */
-  "mahoraga": {
-    duration: 2800,
-    build(el){
-      const spokes = Array.from({length:12},(_,i)=>
-        `<div class="sp-wheel-spoke" style="transform:rotate(${i*30}deg)"></div>`).join("");
-      el.innerHTML=`
-        <div class="sp-wheel-bg"></div>
-        <div class="sp-wheel-ring">
-          ${spokes}
-          <div class="sp-wheel-hub"></div>
-        </div>
-        <div class="sp-wheel-txt">Mahoraga Adapts</div>`;
-    }
-  },
 
   /* ── Hakari Kinji ── */
   "hakari kinji": {
     duration: 3200,
-    audio: "audio/jackpot.mp3",   /* ← drop your audio file here */
+    audio: "audio/jackpot.mp3",
     audioDelay: 300,
     build(el){
-      const SYMBOLS = ["7️⃣","💎","🃏","⭐","7️⃣"];
-      let reelEls;
+      const SYM=["7️⃣","💎","🃏","⭐","🎰"];
       el.innerHTML=`
         <div class="sp-jk-bg"></div>
         <div class="sp-jk-shine"></div>
@@ -448,13 +452,12 @@ const CHAR_SPECIALS = {
           <div class="sp-jk-reel" id="jr2">7️⃣</div>
         </div>
         <div class="sp-jk-txt">JACKPOT!</div>`;
-      // spin each reel then lock with 7
       let idx=0;
       const spin=()=>{
         if(idx>2)return;
         const reel=el.querySelector("#jr"+idx);
         let n=0,si=setInterval(()=>{
-          reel.textContent=SYMBOLS[Math.random()*SYMBOLS.length|0];
+          reel.textContent=SYM[rnd(SYM.length)];
           if(++n>10){clearInterval(si);reel.textContent="7️⃣";reel.classList.add("lock");idx++;spin()}
         },80);
       };
@@ -462,38 +465,10 @@ const CHAR_SPECIALS = {
     }
   },
 
-  /* ── Ryomen Sukuna ── */
-  "ryomen sukuna": {
-    duration: 2500,
-    build(el){
-      el.innerHTML=`
-        <div class="sp-slash-bg"></div>
-        <div class="sp-slash-crack"></div>
-        <div class="sp-slash-line"></div>
-        <div class="sp-slash-line2"></div>
-        <div class="sp-slash-txt">Dismantle</div>`;
-    }
-  },
-
-  /* ── Satoru Gojo ── */
-  "satoru gojo": {
-    duration: 3000,
-    build(el){
-      el.innerHTML=`
-        <div class="sp-eye-bg"></div>
-        <div class="sp-eye-beams"></div>
-        <div class="sp-eye-ring"></div>
-        <div class="sp-eye-iris">
-          <div class="sp-eye-pupil"></div>
-        </div>
-        <div class="sp-eye-label">Infinity Unlocked</div>`;
-    }
-  },
-
   /* ── All For One ── */
   "all for one": {
     duration: 3000,
-    audio: "audio/allforone.mp3",  /* ← drop your audio file here */
+    audio: "audio/allforone.mp3",
     audioDelay: 0,
     build(el){
       el.innerHTML=`
@@ -503,41 +478,35 @@ const CHAR_SPECIALS = {
         <div class="sp-afo-ring"></div>
         <div class="sp-afo-txt">All For One</div>`;
     }
-  },
-
-  /* ── Naoya Zenin ── */
-  "naoya zenin": {
-    duration: 2400,
-    build(el){ _glassReveal(el,"Naoya Zenin") }
-  },
-
-  /* ── Naobito Zenin ── */
-  "naobito zenin": {
-    duration: 2400,
-    build(el){ _glassReveal(el,"Naobito Zenin") }
   }
+
+  /* ── Add more specials below ── */
 };
 
-/* shared glass-frame builder */
-function _glassReveal(el,name){
-  el.innerHTML=`
-    <div class="sp-glass-bg"></div>
-    <div class="sp-glass-frame"></div>
-    <div class="sp-glass-frame"></div>
-    <div class="sp-glass-frame"></div>
-    <div class="sp-glass-crack"></div>
-    <div class="sp-glass-txt">${name}</div>`;
+/* ── audio preload cache ── */
+const _audioCache={};
+function preloadAudio(){
+  const paths=Object.values(CHAR_SPECIALS)
+    .map(s=>s.audio).filter(Boolean);
+  paths.forEach(p=>{
+    if(_audioCache[p])return;
+    const a=new Audio();
+    a.preload="auto";
+    a.src=p;
+    _audioCache[p]=a;
+  });
 }
 
-/* ── audio helper ── */
 let _spAudio=null;
 function _playAudio(src,delay,stopAt){
   if(!src)return;
   _stopAudio();
   setTimeout(()=>{
-    _spAudio=new Audio(src);
-    _spAudio.volume=0.7;
-    _spAudio.play().catch(()=>{});  /* catch autoplay policy */
+    // use cached instance if available
+    const base=_audioCache[src];
+    if(base){_spAudio=new Audio(src);_spAudio.volume=0.7;}
+    else{_spAudio=new Audio(src);_spAudio.volume=0.7;}
+    _spAudio.play().catch(()=>{});
     if(stopAt>0)setTimeout(()=>_stopAudio(1000),stopAt);
   },delay||0);
 }
@@ -552,28 +521,203 @@ function _stopAudio(fadeMs=0){
   },step);
 }
 
-/* ── main trigger ── */
-function triggerSpecial(ch, cb){
-  const key = ch.name.toLowerCase().trim();
-  const spec = CHAR_SPECIALS[key];
-  if(!spec){ cb&&cb(); return; }
-
-  /* build overlay */
+function triggerSpecial(ch,cb){
+  const key=ch.name.toLowerCase().trim();
+  const spec=CHAR_SPECIALS[key];
+  if(!spec){cb&&cb();return;}
   const el=document.createElement("div");
   el.className="sp-ov";
   spec.build(el);
   document.body.appendChild(el);
-
-  /* audio */
-  _playAudio(spec.audio, spec.audioDelay||0, spec.audioStop!=null?spec.audioStop:spec.duration-600);
-
-  /* dismiss */
+  _playAudio(spec.audio,spec.audioDelay||0,spec.audioStop!=null?spec.audioStop:(spec.duration||2600)-600);
   setTimeout(()=>{
-    el.style.transition="opacity .35s";
-    el.style.opacity="0";
+    el.style.transition="opacity .35s";el.style.opacity="0";
     _stopAudio(400);
     setTimeout(()=>{el.remove();cb&&cb();},380);
-  }, spec.duration);
+  },spec.duration||2600);
+}
+
+/* ═══════════════════════════════════════════════════════════
+   DEV PANEL  —  Shift + 1 + 2 + 3  (desktop only)
+   Opens a floating overlay with three tools:
+     1. Test a special animation by character name
+     2. Force-draw a character by name in the current game
+     3. Add a temporary character + download the updated data.json
+═══════════════════════════════════════════════════════════ */
+const _devKeys=new Set();
+document.addEventListener("keydown",e=>{
+  _devKeys.add(e.key);
+  if(_devKeys.has("Shift")&&_devKeys.has("1")&&_devKeys.has("2")&&_devKeys.has("3"))
+    openDevPanel();
+});
+document.addEventListener("keyup",e=>_devKeys.delete(e.key));
+
+function openDevPanel(){
+  if(document.getElementById("dev-ov"))return;
+  const o=document.createElement("div");
+  o.className="dev-ov";o.id="dev-ov";
+
+  // Gather added-chars list
+  const renderAddedList=()=>{
+    const added=CHARS.filter(c=>c._dev);
+    if(!added.length)return `<div style="color:var(--dim);font-size:1.1rem;padding:.4rem 0">No characters added this session.</div>`;
+    return added.map((c,i)=>{
+      const r=getRarity(c);
+      return `<div class="dev-char-row">
+        <span class="dcname">${esc(c.name)}</span>
+        <span class="dcsrc">${esc(c.source)}</span>
+        <span class="dcr" style="color:${r.color}">${r.label}</span>
+        <button class="dcdel" data-delidx="${CHARS.indexOf(c)}" title="Remove">✕</button>
+      </div>`;
+    }).join("");
+  };
+
+  const html=()=>`
+  <h2 class="d">🛠 Dev Panel <span class="badge">DESKTOP ONLY</span></h2>
+
+  <div class="dev-sec">
+    <label>Test Special Animation</label>
+    <div class="dev-row">
+      <input class="dev-inp" id="dv-sp-name" placeholder="Character name (e.g. Hakari Kinji)" list="dv-sp-list">
+      <datalist id="dv-sp-list">${Object.keys(CHAR_SPECIALS).map(k=>`<option value="${k}">`).join("")}</datalist>
+      <button class="dev-btn go" id="dv-sp-go">▶ Play</button>
+    </div>
+    <div class="dev-msg" id="dv-sp-msg"></div>
+  </div>
+
+  <div class="dev-sec">
+    <label>Force-Draw Character <span style="font-size:.95rem;color:var(--dim);text-transform:none;letter-spacing:0">(active game only)</span></label>
+    <div class="dev-row">
+      <input class="dev-inp" id="dv-fd-name" placeholder="Exact character name" list="dv-fd-list">
+      <datalist id="dv-fd-list">${CHARS.map(c=>`<option value="${esc(c.name)}">`).join("")}</datalist>
+      <button class="dev-btn go" id="dv-fd-go">↓ Force Draw</button>
+    </div>
+    <div class="dev-msg" id="dv-fd-msg"></div>
+  </div>
+
+  <div class="dev-sec">
+    <label>Add Character to Roster</label>
+    <div class="dev-row">
+      <input class="dev-inp" id="dv-nm" placeholder="Name" style="flex:2">
+      <input class="dev-inp" id="dv-src" placeholder="Universe / Source" style="flex:2">
+      <input class="dev-inp" id="dv-img" placeholder="Image URL (optional)" style="flex:3">
+    </div>
+    <div class="dev-stat-grid">
+      ${CATS.map(c=>`<div class="dev-stat-row"><label>${c[1]}</label><input class="dev-inp" id="dv-${c[0]}" type="number" min="1" max="100" placeholder="1–100"></div>`).join("")}
+    </div>
+    <div class="dev-row">
+      <button class="dev-btn go" id="dv-add-go" style="flex:1">+ Add to Roster</button>
+      <button class="dev-btn dl" id="dv-dl">⬇ Download data.json</button>
+    </div>
+    <div class="dev-msg" id="dv-add-msg"></div>
+  </div>
+
+  <div class="dev-sec">
+    <label>Session Characters <span style="font-size:.95rem;color:var(--dim);text-transform:none;letter-spacing:0">(added this session, marked _dev)</span></label>
+    <div class="dev-char-list" id="dv-char-list">${renderAddedList()}</div>
+  </div>
+
+  <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem">
+    <span class="dev-kbd">Open with <kbd>Shift</kbd>+<kbd>1</kbd>+<kbd>2</kbd>+<kbd>3</kbd></span>
+    <button class="dev-close" id="dv-close">Close ✕</button>
+  </div>`;
+
+  o.innerHTML=`<div class="dev-box">${html()}</div>`;
+  document.body.appendChild(o);
+
+  const msg=(id,text,type)=>{const el=document.getElementById(id);if(el){el.textContent=text;el.className="dev-msg "+(type||"ok")}};
+  const refreshList=()=>{const el=document.getElementById("dv-char-list");if(el)el.innerHTML=renderAddedList()};
+
+  // ── Test special ──
+  document.getElementById("dv-sp-go").onclick=()=>{
+    const name=document.getElementById("dv-sp-name").value.trim();
+    const key=name.toLowerCase();
+    if(!CHAR_SPECIALS[key])return msg("dv-sp-msg",`No special for "${name}"  — available: ${Object.keys(CHAR_SPECIALS).join(", ")}`,"err");
+    // find or fake char
+    const ch=CHARS.find(c=>c.name.toLowerCase()===key)||{name,source:"",image:""};
+    msg("dv-sp-msg","Playing…","ok");
+    triggerSpecial(ch,()=>msg("dv-sp-msg","Done.","ok"));
+  };
+
+  // ── Force draw ──
+  document.getElementById("dv-fd-go").onclick=()=>{
+    const name=document.getElementById("dv-fd-name").value.trim();
+    if(!S||!S.pool)return msg("dv-fd-msg","No active game — start a game first","err");
+    const idx=S.pool.findIndex(c=>c.name.toLowerCase()===name.toLowerCase());
+    if(idx<0)return msg("dv-fd-msg",`"${name}" not in current pool (may already be drawn)`,"err");
+    // move to front of pool
+    const [ch]=S.pool.splice(idx,1);
+    S.pool.unshift(ch);
+    msg("dv-fd-msg",`${ch.name} will be drawn next roll`,"ok");
+  };
+
+  // ── Add character ──
+  document.getElementById("dv-add-go").onclick=()=>{
+    const nm=document.getElementById("dv-nm").value.trim();
+    const src=document.getElementById("dv-src").value.trim();
+    const img=document.getElementById("dv-img").value.trim();
+    if(!nm||!src)return msg("dv-add-msg","Name and Source are required","err");
+    const stats={};
+    for(const c of CATS){
+      const v=parseInt(document.getElementById("dv-"+c[0]).value);
+      if(isNaN(v)||v<1||v>100)return msg("dv-add-msg",`${c[1]} must be 1–100`,"err");
+      stats[c[0]]=v;
+    }
+    if(CHARS.find(c=>c.name.toLowerCase()===nm.toLowerCase()))
+      return msg("dv-add-msg",`"${nm}" already exists in the roster`,"err");
+    const newChar={name:nm,source:src,universe:src,...stats,image:img||"",_dev:true};
+    CHARS.push(newChar);
+    UNIS[src]=(UNIS[src]||0)+1;
+    calibrate();
+    // clear inputs
+    ["dv-nm","dv-src","dv-img",...CATS.map(c=>"dv-"+c[0])].forEach(id=>{
+      const el=document.getElementById(id);if(el)el.value="";
+    });
+    msg("dv-add-msg",`✓ ${nm} added (${getRarity(newChar).label})  —  download data.json to save permanently`,"ok");
+    refreshList();
+  };
+
+  // ── Download data.json ──
+  document.getElementById("dv-dl").onclick=()=>{
+    // Strip _dev flag from export
+    const exportChars=CHARS.map(c=>{const {_dev,...rest}=c;return rest});
+    const json=JSON.stringify({characters:exportChars},null,2);
+    const blob=new Blob([json],{type:"application/json"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;a.download="data.json";
+    document.body.appendChild(a);a.click();a.remove();
+    URL.revokeObjectURL(url);
+    msg("dv-add-msg","data.json downloaded — replace your file with this to save permanently","ok");
+  };
+
+  // ── Delete dev char ──
+  o.addEventListener("click",e=>{
+    const btn=e.target.closest(".dcdel");
+    if(!btn)return;
+    const idx=+btn.dataset.delidx;
+    const ch=CHARS[idx];
+    if(!ch||!ch._dev)return;
+    UNIS[ch.universe]=(UNIS[ch.universe]||1)-1;
+    if(UNIS[ch.universe]<=0)delete UNIS[ch.universe];
+    CHARS.splice(idx,1);
+    calibrate();
+    refreshList();
+    // rebuild datalist
+    const dl=document.getElementById("dv-fd-list");
+    if(dl)dl.innerHTML=CHARS.map(c=>`<option value="${esc(c.name)}">`).join("");
+  });
+
+  // ── Close ──
+  document.getElementById("dv-close").onclick=closeDevPanel;
+  o.addEventListener("mousedown",e=>{if(e.target===o)closeDevPanel()});
+}
+
+function closeDevPanel(){
+  const o=document.getElementById("dev-ov");
+  if(!o)return;
+  o.style.transition="opacity .18s";o.style.opacity="0";
+  setTimeout(()=>o.remove(),200);
 }
 
 /* ═══ INIT ═══ */
@@ -583,9 +727,11 @@ async function init(){
     CHARS=(await r.json()).characters;
     CHARS.forEach(c=>{c.universe=c.universe||c.source;UNIS[c.universe]=(UNIS[c.universe]||0)+1});
     if(CHARS.length<10)throw new Error("data.json needs at least 10 characters");
-    calibrate();title();
+    calibrate();
+    preloadAudio();
+    title();
   }catch(e){
-    $(`<div class="center"><h1 class="wordmark d"><span>Mashup</span><span class="b">Brawl</span></h1><p class="err">Couldn’t load data.json: ${esc(e.message)}.<br>Open the game from a local web server, or launch the browser with file access allowed.</p></div>`);
+    $(`<div class="center"><h1 class="wordmark d"><span>Mashup</span><span class="b">Brawl</span></h1><p class="err">Couldn't load data.json: ${esc(e.message)}.<br>Open the game from a local web server, or launch the browser with file access allowed.</p></div>`);
   }
 }
 
@@ -640,7 +786,8 @@ function newGame(mode,universe){
   turnScreen();
 }
 const modeChip=()=>S.mode==="cursed"?`<span class="chip curse">Cursed · lowest wins</span>`:`<span class="chip">${S.universe?esc(S.universe):MODES.find(m=>m[0]===S.mode)[1]}</span>`;
-const topBar=(p)=>`<div class="top"><span class="mark d">Mashup Brawl</span>${modeChip()}</div>`;
+const topBar=()=>`<div class="top"><span class="mark d">Mashup Brawl</span>${modeChip()}</div>`;
+
 function board(act){
   return `<div class="board n${S.n===1?1:S.n===4?4:2}">${S.teams.map((t,i)=>`<div class="team c${i+1} ${i===act?"active":""}">
     <h3 class="d">${S.n===1?"Your team":pn(i)}</h3>
@@ -651,7 +798,7 @@ function turnScreen(){
   $(`<div class="c${p+1}" style="display:contents">
     ${topBar()}${board(p)}
     <div class="center">
-      <div class="who d">${S.n===1?"Your turn":pnLong(p)+"’s turn"}</div>
+      <div class="who d">${S.n===1?"Your turn":pnLong(p)+"'s turn"}</div>
       <div class="pips">${[0,1,2,3,4].map(i=>`<i class="${i<round?"on":i===round?"now":""}"></i>`).join("")}</div>
       <div class="round">Round ${round+1} of 5</div>
       <button class="btn pc d" id="roll">Roll a fighter</button>
@@ -673,11 +820,18 @@ function roll(p){
     av.innerHTML=avatar(f);nm.textContent=f.name;sr.textContent=f.source;
     if(++n<16)return;
     clearInterval(t);
-    const r=getRarity(got);
-    card.className="card flip r-"+r.key;
-    av.innerHTML=avatar(got);nm.innerHTML=cnLink(got);sr.textContent=got.source;
-    fo.textContent=r.label;fo.style.visibility="visible";
-    rarityFlash(got,()=>triggerSpecial(got,()=>setTimeout(()=>assign(p,got),350)));
+    // 1. pre-reveal image (if any)
+    preReveal(got,()=>{
+      // 2. flip card + rarity flash
+      const r=getRarity(got);
+      card.className="card flip r-"+r.key;
+      av.innerHTML=avatar(got);nm.innerHTML=cnLink(got);sr.textContent=got.source;
+      fo.textContent=r.label;fo.style.visibility="visible";
+      rarityFlash(got,()=>{
+        // 3. special animation (if any)
+        triggerSpecial(got,()=>setTimeout(()=>assign(p,got),350));
+      });
+    });
   },70);
 }
 
@@ -747,7 +901,7 @@ function battle(){
     if(top.length===1)winner=top[0];
     else{const b=(cur?Math.min:Math.max)(...top.map(i=>totals[i])),tb=top.filter(i=>totals[i]===b);if(tb.length===1)winner=tb[0]}
     if(winner>=0){burstMid(PCOLORS[winner],40);setTimeout(()=>burstMid(PCOLORS[winner],30),400)}
-    final.innerHTML=(winner<0?`<div class="w d">It’s a draw</div>`:`<div class="w d" style="color:var(--p${winner+1})">${pnLong(winner)} wins</div>`)+
+    final.innerHTML=(winner<0?`<div class="w d">It's a draw</div>`:`<div class="w d" style="color:var(--p${winner+1})">${pnLong(winner)} wins</div>`)+
       `<div class="sub">${wins.map((w,i)=>`${pn(i)}: ${w} categories · ${totals[i]} total`).join("<br>")}</div>
       ${cur?`<div style="color:var(--curse);font-size:1.15rem">The lowest stats took it.</div>`:""}
       <div class="row-btns"><button class="btn sm d" id="again">Play again</button><button class="btn ghost d" id="menu">Menu</button></div>`;
