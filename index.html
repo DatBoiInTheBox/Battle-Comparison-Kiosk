@@ -311,6 +311,18 @@ function weightOf(ch){
   return w;
 }
 function drawOne(){
+  // A developer-selected character takes priority over weighted randomness.
+  if(S.nextRoll){
+    const forcedIndex=S.pool.indexOf(S.nextRoll);
+    if(forcedIndex>=0){
+      const ch=S.pool.splice(forcedIndex,1)[0];
+      S.nextRoll=null;
+      S.seen[ch.universe]=(S.seen[ch.universe]||0)+1;
+      return ch;
+    }
+    // If the selected character is no longer in this game's pool, discard the stale choice.
+    S.nextRoll=null;
+  }
   const ws=S.pool.map(weightOf);
   let r=Math.random()*ws.reduce((a,b)=>a+b,0),i=0;
   for(;i<ws.length-1;i++){r-=ws[i];if(r<=0)break}
@@ -677,10 +689,9 @@ function openDevPanel(){
     if(!S||!S.pool)return msg("dv-fd-msg","No active game — start a game first","err");
     const idx=S.pool.findIndex(c=>c.name.toLowerCase()===name.toLowerCase());
     if(idx<0)return msg("dv-fd-msg",`"${name}" not in current pool (may already be drawn)`,"err");
-    // move to front of pool
-    const [ch]=S.pool.splice(idx,1);
-    S.pool.unshift(ch);
-    msg("dv-fd-msg",`${ch.name} will be drawn next roll`,"ok");
+    // Store an explicit one-time override; weighted random selection is bypassed next roll.
+    S.nextRoll=S.pool[idx];
+    msg("dv-fd-msg",`${S.nextRoll.name} is locked in for the next roll`,"ok");
   };
 
   // ── Add character ──
@@ -813,7 +824,7 @@ function universePicker(){
 /* ═══ GAME ═══ */
 function newGame(mode,universe){
   const n=mode==="four"?4:mode==="solo"?1:2;
-  S={mode,universe:universe||null,n,total:n*5,turn:0,seen:{},
+  S={mode,universe:universe||null,n,total:n*5,turn:0,seen:{},nextRoll:null,
      pool:CHARS.filter(c=>!universe||c.universe===universe),teams:Array.from({length:n},()=>({}))};
   turnScreen();
 }
