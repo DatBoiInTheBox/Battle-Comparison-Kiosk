@@ -375,8 +375,7 @@ function drawOne(){
 
 /* ═══ AVATAR ═══ */
 function avatar(ch,size){
-  const iconOnly=!!(S&&S.iconsOnly);
-  const img=(!iconOnly&&ch.image)?`<img src="${esc(ch.image)}" alt="" referrerpolicy="no-referrer" onload="this.parentNode.classList.add('ok')">`:"";
+  const img=(ch.image&&String(ch.image).trim())?`<img src="${esc(ch.image)}" alt="" referrerpolicy="no-referrer" onload="this.parentNode.classList.add('ok')">`:"";
   return `<div class="av" style="--h:${hue(ch.name)};${size?`--s:${size}`:""}"><span class="mono">${esc(initials(ch))}</span>${img}</div>`;
 }
 
@@ -920,7 +919,7 @@ function gameSetup(mode,universe){
     <div class="scroll"><div class="setup-wrap">
       <div class="setup-card">
         <div class="setup-toggle" id="icons-toggle" role="switch" aria-checked="false" tabindex="0">
-          <div><div class="setup-title d">Icons only</div><div class="setup-desc">Hide character artwork and use initials icons on every card.</div></div>
+          <div><div class="setup-title d">Characters with images only</div><div class="setup-desc">Only characters with an image assigned in the character data will be eligible to roll. Characters without images are removed from this match.</div></div>
           <div class="switch" id="icons-switch"></div>
         </div>
       </div>
@@ -947,7 +946,7 @@ function gameSetup(mode,universe){
 function newGame(mode,universe,opts={}){
   const n=mode==="four"?4:mode==="solo"?1:2;
   S={mode,universe:universe||null,n,total:n*5,turn:0,seen:{},nextRoll:null,iconsOnly:!!opts.iconsOnly,luck:Math.max(0,Math.min(100,+opts.luck||0)),
-     pool:CHARS.filter(c=>!universe||c.universe===universe),teams:Array.from({length:n},()=>({}))};
+     pool:CHARS.filter(c=>(!universe||c.universe===universe)&&(!opts.iconsOnly||(c.image&&String(c.image).trim()))),teams:Array.from({length:n},()=>({}))};
   turnScreen();
 }
 const modeChip=()=>S.mode==="cursed"?`<span class="chip curse">Cursed · lowest wins</span>`:`<span class="chip">${S.universe?esc(S.universe):MODES.find(m=>m[0]===S.mode)[1]}</span>`;
